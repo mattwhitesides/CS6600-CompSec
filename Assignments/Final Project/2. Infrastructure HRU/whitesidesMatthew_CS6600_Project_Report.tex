@@ -1,0 +1,259 @@
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+% *** CITATION PACKAGES ***
+%
+\ifCLASSOPTIONcompsoc
+  % IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\renewcommand{\arraystretch}{1.5}
+
+\begin{document}
+
+\title{CS 6600 Project Report: Unmanned Aircraft System}
+
+\author{Matthew Whitesides and Bruce M. McMillin \\
+Department of Computer Science \\
+Missouri University of Science and Technology, Rolla, MO 65409-0350}
+
+% The paper headers
+\markboth{Missouri S\&T COMP\_SCI 6600: Formal Methods in CmpSec, Fall~2021}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
+
+% The paper abstract
+\IEEEtitleabstractindextext{%
+\begin{abstract}
+The abstract goes here.
+\end{abstract}}
+
+% make the title area
+\maketitle
+
+\IEEEpeerreviewmaketitle
+
+%-------------------------------------------------------------------------
+
+\section{Infrastructure}
+
+\subsection{Infrastructure Description}
+
+\IEEEPARstart{I}{n} its simplest form, an unmanned aircraft system (UAS), is an aircraft system that operates without an onboard pilot. 
+UAS are either controlled remotely through some form of wireless radio communication, semi-autonomously in conjunction with a remote pilot, or fully autonomously using some form of computational intelligence as navigation. 
+These intelligent crewless vehicles have many potential uses in the defense sector, including surveillance, strategic mission execution, aerial sustainability support, and training systems, to name a few. 
+These aircraft fall under the umbrella of cyber-physical systems (CPS), merging the intelligent navigation processes, system health monitoring, and communication with the physical mobile ariel vehicle.
+
+We will design a proposed infrastructure security policy for the Boeing MQ-25 unmanned aircraft system, but it will also apply to similar mission support drones. 
+The MQ-25 is an unmanned aircraft system designed for the U.S. Navy, and it provides autonomous refueling capability for the Boeing F/A-18 Super Hornet, Boeing EA-18G Growler, and Lockheed Martin F-35C fighters.
+This capability extends the combat range of the supported aircraft, seamlessly and semi-anonymously navigating to the plane, refueling, and returning to base. 
+MQ-25 is the first unmanned aircraft to support aerial refueling another aircraft and is currently in the flight test phase of development [1], making it the perfect system to analyze security impacts for current and future unmanned aircraft systems. 
+
+\subsubsection{Infrastructure Security Policy}
+
+\begin{table}[]
+  \caption{Description of rights over objects in the UAS.}
+  \begin{tabular}{ll}
+  \hline
+  \textbf{Right}       & \textbf{Description}                               \\ 
+  \hline
+  \textit{Owns (O)}    & The owner of the given object.                     \\
+  \textit{Read (R)}    & Can observe the given object.                      \\
+  \textit{Write (W)}   & Can modify the given object.                       \\
+  \textit{Execute (E)} & Can execute the functionality of the given object. \\
+  \textit{Grant (G)}   & Can grant a given right to another subject.        \\
+  \textit{Control (C)} & Can control a given system object.                                                           \\
+  \hline
+  \end{tabular}
+\end{table}
+
+\begin{table*}[]
+  \caption{Description of actor subject roles during a UAS refueling mission.}
+  \begin{tabular}{ll}
+  \hline
+  \textbf{Subject}                           & \textbf{Description}                                                                                       \\ 
+  \hline
+  \textit{Pilot Commander (PC)}              & The primary remote pilot of the UAS during the mission.                                                    \\
+  \textit{Mission Commander (MC)}            & Responsible for final planning and decision making during the UAS mission.                                 \\
+  \textit{Instructor Pilot (IP)}             & Assists the Pilot Commander and can pilot the UAS if given permission from the PC or MC.                   \\
+  \textit{Quality Assurance Evaluators (QA)} & Responsible for pre-flight operational checks, in-flight analysis, and post-flight evaluation.             \\
+  \textit{Maintenance Crew (MC)}             & Handles work orders created by the QA and FDA, responsible for the maintenance of the UAS.                 \\
+  \textit{Flight Data Admin (FDA)}           & Handles and analyses all mission flight data.                                                              \\
+  \hline
+  \end{tabular}
+\end{table*}
+
+\begin{table*}[]
+  \centering
+  \caption{UAS Refueling Mission Access Control Matrix}
+  \label{tab:my-table}
+  \resizebox{\textwidth}{!}{
+    \begin{tabular}{lllllllllllll}
+    \hline
+    \multicolumn{1}{l|}{\textbf{}}                                    & \textit{PC}   & \textit{MC}   & \textit{IP}   & \textit{QA}   & \textit{MC}   & \textit{FDA}  & \textbf{RNC}  & \textbf{ANC}  & \textbf{NP}   & \textbf{RO}   & \textbf{FED}  & \textbf{RTD}  \\
+    \hline
+    \multicolumn{1}{l|}{\textit{Pilot Commander (PC)}}                & O,R,W         & R,W           & R,W           & R,W           & R,W           & R,W           & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & R,W,E,G,C     & R,W,E,G,C     \\
+    \multicolumn{1}{l|}{\textit{Mission Commander (MC)}}              & R             & O,R,W         & R,W           & R             & R             & R             & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     \\
+    \multicolumn{1}{l|}{\textit{Instructor Pilot (IP)}}               & R             & $\varnothing$ & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,E           & R,E           \\
+    \multicolumn{1}{l|}{\textit{Quality Assurance Evaluators (QA)}}   & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           & R,E           \\
+    \multicolumn{1}{l|}{\textit{Maintenance Crew (MC)}}               & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           & R,E           \\
+    \multicolumn{1}{l|}{\textit{Flight Data Admin (FDA)}}             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   \\
+    \multicolumn{1}{l|}{\textbf{Remote Navigation Control (RNC)}}     & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R             & R             & R             & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Autonomous Navigation Control (ANC)}} & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R             & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Navigation Planning (NP)}}            & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & R             & R             & R             & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Refueling Operation (RO)}}            & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & R,W,E,C       & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Flight Engine Data (FED)}}            & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & $\varnothing$ \\
+    \multicolumn{1}{l|}{\textbf{Refueling Tank Data (RTD)}}           & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       \\
+                                                                      &               &               &               &               &               &               &               &               &               &               &               &              
+  \end{tabular}}
+  \end{table*}
+
+Our infrastructure security policy breaks down the various actions a system user can perform using the following terms. 
+
+\begin{itemize}
+  \item \textit{Subject}: Any entity that contains the proper rights can request the UAS perform operations, access objects, or grant rights to another subject.
+  \item \textit{Object}: An entity that is part of the UAS functionality or data that does not have control over another entity. 
+  \item \textit{Rights}: A property assigned to a subject that defines its right to access an object or grant permissions to another subject.
+\end{itemize}
+
+Table 2 breaks down the subject roles involved in operating the UAS during a refueling mission. Table 1 describes the rights and their associated functionality. Table 3 contains the access control matrix (ACM) showing each subject's rights over the objects.
+
+\subsection{Rights Leakages}
+
+text
+
+\subsubsection{Confidentiality}
+
+text
+
+\subsubsection{Integrity}
+
+text
+
+% %-------------------------------------------------------------------------
+% \section{Survey}
+% The various models will be surveyed below.
+
+% %-------------------------------------------------------------------------
+% \subsection{HRU}
+
+% \begin{small}
+% Access Control Matrix:
+% \end{small}
+
+% \begin{figure}[h]
+% \begin{tiny}
+% \noindent
+% \begin{tabular}{|c|c|c|c|c|}
+% \hline Objects / Subjects  & Vehicle & Central Authority & Authorized Client & Unauthorized Client \\
+% \hline Vehicle &  &  &  &  \\
+% \hline Central Authority &  &  &  & \\
+% \hline Authorized Client &  & C/D/W & R &  \\
+% \hline Unauthorized Client &  & C/D/W &  &  \\
+% \hline GPS Location & W &  & R &  \\
+% \hline Destination & W &  & R &  \\
+% \hline Path & R &  & W &  \\
+% \hline
+
+% \end{tabular}
+% \end{tiny}
+% \caption{ACM Table of the HRU model. Objects vertically and subjects horizontally}
+
+% \end{figure}
+
+% \begin{small}
+
+% Commands that cause rights leakage:
+
+% enter R into ACM[Unauthorized Client, Vehicle];
+
+% enter R into ACM[Unauthorized Client, GPS Location];
+
+% enter R into ACM[Unauthorized Client, Destination];
+
+% enter W into ACM[Unauthorized Client, Path];
+% \end{small}
+
+% \subsection{T-G}
+% text
+% \subsection{BLP}
+% text
+% \subsection{Biba}
+% text
+% \subsection{Noninference/Noninterference/ NonDeducibility}
+% text
+% \section{Specific Models and Rights Leakages}
+% \subsection{HRU}
+% text
+% \subsection{T-G}
+% text
+% \subsection{BLP}
+% text
+% \subsection{Biba}
+% text
+% \subsection{Noninference}
+% text
+% \subsection{Noninterference}
+% text
+% \subsection{NonDeducibility}
+% text
+% \subsection{MSDND}
+% text
+
+% \section{Specific Models and Rights Leakages}
+% \subsection{HRU}
+% text
+% \subsection{T-G}
+% text
+% \subsection{BLP}
+% text
+% \subsection{Biba}
+% text
+% \subsection{Noninference}
+% text
+% \subsection{Noninterference}
+% text
+% \subsection{NonDeducibility}
+% text
+% \subsection{MSDND}
+% text
+
+% \begin{figure}[h]
+%    \caption{Example of caption.}
+% \end{figure}
+
+% \section{Conclusions}
+
+% Provide a summative conclusion on the modeling of your infrastructure.
+
+% Can use something like this to put references on a page
+% by themselves when using endfloat and the captionsoff option.
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+\begin{thebibliography}{1}
+
+\bibitem{IEEEhowto:kopka}
+A.~Erwin, and J.~Gibson, Navy, Boeing Make Aviation History with MQ-25 Becoming the First Unmanned Aircraft to Refuel Another Aircraft, Accessed on: Sept. 1, 2021. [Online]. Available: https://www.boeing.com/defense/mq25/ 
+
+\end{thebibliography}
+
+% biography section
+\begin{IEEEbiographynophoto}{Matthew Whitesides}
+  Master's Student at Missouri University of Science and Technology.
+\end{IEEEbiographynophoto}
+
+% that's all folks
+\end{document}
+
+

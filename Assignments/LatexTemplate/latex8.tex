@@ -1,0 +1,107 @@
+
+%
+%  $Description: Author guidelines and sample document in LaTeX 2.09$
+%
+%  $Author: ienne $
+%  $Date: 1995/09/15 15:20:59 $
+%  $Revision: 1.4 $
+%
+
+\documentclass[times, 10pt,twocolumn]{article}
+\usepackage{latex8}
+\usepackage{times}
+
+%\documentstyle[times,art10,twocolumn,latex8]{article}
+
+%-------------------------------------------------------------------------
+% take the % away on next line to produce the final camera-ready version
+\pagestyle{empty}
+
+%-------------------------------------------------------------------------
+\begin{document}
+
+\title{CS 483 Project Report}
+
+\author{
+\begin{tabular}{cc}
+Joe Miner & Bruce M. McMillin \\
+\multicolumn{2}{c}{Department of Computer Science}\\
+\multicolumn{2}{c}{Missouri University of Science and Technology, Rolla, MO 65409-0350}
+\end{tabular}
+}
+
+\maketitle
+\thispagestyle{empty}
+
+\begin{abstract}
+  tell us about the infrastructure, the type of rights leakage, and the models used followed by a comparison of each.
+\end{abstract}
+
+
+
+%-------------------------------------------------------------------------
+\Section{Introduction}
+
+Write a background on security policy models and a background on your infrastructure as a model problem and why modeling of CPS is hard.
+
+
+%-------------------------------------------------------------------------
+\Section{Survey}
+Briefly survey each model
+
+%-------------------------------------------------------------------------
+\SubSection{HRU}
+text
+\SubSection{T-G}
+text
+\SubSection{BLP}
+text
+\SubSection{Biba}
+text
+\SubSection{Noninference/Noninterference/NonDeducibility}
+text
+\Section{Specific Models and Rights Leakages}
+\SubSection{HRU}
+text
+\SubSection{T-G}
+text
+\SubSection{BLP}
+text
+\SubSection{Biba}
+text
+\SubSection{Noninference/Noninterference/NonDeducibility}
+text
+
+\Section{How to typeset figures and text}
+
+
+\begin{figure}[h]
+   \caption{Example of caption.}
+\end{figure}
+
+
+
+%-------------------------------------------------------------------------
+\SubSection{References}
+
+List and number all bibliographical references in 9-point Times,
+single-spaced, at the end of your paper. When referenced in the text,
+enclose the citation number in square brackets, for example~\cite{ex1}.
+Where appropriate, include the name(s) of editors of referenced books.
+
+
+
+
+
+%-------------------------------------------------------------------------
+\Section{Conclusions}
+
+Provide a summative conclusion on the modeling of your infrastructure.
+
+%-------------------------------------------------------------------------
+\nocite{ex1,ex2}
+\bibliographystyle{latex8}
+\bibliography{latex8}
+
+\end{document}
+
