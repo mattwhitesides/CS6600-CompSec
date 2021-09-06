@@ -44,12 +44,13 @@
 \section{Chapter 3 Problems}
 
 \begin{enumerate}
+  \item \(A[s_1,o_1] \; and \; A[s_1,o_2] = A[s_1,o_2] \cup A[s_2,o_2]\) essentailly says that the first two subjects created are able to give the entire scope of rights available to the system as not other subjects with lesser rights would be able to be created after that. This works becase whatever initial rights \textit{s1} had over \textit{o2} would give the rights of any object not explictly created for that object, plus the rights of a subject (\textit{s2}) has over that object.
+  If one could test for the absence of rights this statment would still be true however you wouldn't need to use both objects you could just do something like \(A[s_1,o_1] \cup (\forall r \not\in A[s_1,o_1])\) just check for all rights and rights not in that to get the entire scope but that would be more operations.
+  \item We can omit the delete and destroy commands because they inhearently cannot "add" rights the can only take them away. Therefore no leak could occur from those commands only the oppiste of a leak which may not be optimal for a user but is secure. This would be different if we could test for the absenece of a right however, given that we could use the test for absense to determine if a right has been deleted from a subject making the minimal set of operations reduced given we currently have to check each right. 
   \item 
-    \begin{enumerate} 
-      \item \(A[s_1,o_1] \; and \; A[s_1,o_2] = A[s_1,o_2] \cup A[s_2,o_2]\)
-    \end{enumerate}
-  \item First
-  \item First
+  \begin{enumerate}
+    \item Modifying the definition to say leaks occur beyond the intial state of the cell, then the delete and destroy commands would affect eh ability to leak a right. If so we cannot get rid of the them because we now have a defintion were you can delete rights potentailly all of a subjects rights, then any addition of any basic right would casuse a leak. 
+  \end{enumerate}
   \item First
   \item First
 \end{enumerate}

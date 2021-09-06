@@ -13,7 +13,45 @@
 
 \usepackage{graphicx}
 \usepackage{amssymb}
+\usepackage{listings}
+\usepackage{color}
 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  morekeywords={if, in, or, then, enter, into, end, command, delete, from, not},
+  xleftmargin=\dimexpr 1em+3pt\relax,
+  linewidth=\dimexpr \linewidth-3pt\relax
+}
+
+\lstnewenvironment{itemlisting}[1][]
+ {%
+  \mbox{}
+  \vspace*{-\baselineskip}
+  \lstset{
+    xleftmargin=\leftmargin,
+    linewidth=\linewidth,
+    #1
+  }%
+ }
+ {}
+ 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -25,12 +63,12 @@
 
 \author{Matthew Whitesides and Bruce M. McMillin \\
 Department of Computer Science \\
-Missouri University of Science and Technology, Rolla, MO 65409-0350}
+Missouri University of Science and Technology, Rolla, MO 65409-0350} 
 
 % The paper headers
 \markboth{Missouri S\&T COMP\_SCI 6600: Formal Methods in CmpSec, Fall~2021}%
 {Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
-
+ 
 % The paper abstract
 \IEEEtitleabstractindextext{%
 \begin{abstract}
@@ -71,7 +109,8 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   \textit{Write (W)}   & Can modify the given object.                       \\
   \textit{Execute (E)} & Can execute the functionality of the given object. \\
   \textit{Grant (G)}   & Can grant a given right to another subject.        \\
-  \textit{Control (C)} & Can control a given system object.                                                           \\
+  \textit{Control (C)} & Can control a given system object.                 \\
+  \textit{Delete (C)}  & Can delete a given .                 \\
   \hline
   \end{tabular}
 \end{table}
@@ -129,11 +168,25 @@ Table 2 breaks down the subject roles involved in operating the UAS during a ref
 
 \subsection{Rights Leakages}
 
-text
+The following basic HRU commands show how given our current ACM we can leak integrity right \textit{r} into a subject that does not contain the right in our intial ACM.
+We create a simple command sqeuence that attempts to grant one right from subject \textit{p} in object \textit{o} to subject \textit{q} in \textit{o} if \textit{p} has the given right.
 
 \subsubsection{Confidentiality}
 
-text
+\begin{lstlisting}
+command grant_right_to_subject(r, o, p, q)
+  if grant in A[p, o] and r in A[p, o]
+  then
+    enter r into A[q, o];
+end
+\end{lstlisting}
+
+If we were to call this function with the subject \textit{Pilot Commander (PC)} granting right \textit{Read} to \textit{Maintenance Crew (MC)} for object \textit{Remote Navigation Control (RNC)}, this would cause a confidentiality right leakage. 
+
+
+\begin{lstlisting}
+grant_right_to_subject(Read, RNC, PC, MC)
+\end{lstlisting}
 
 \subsubsection{Integrity}
 
