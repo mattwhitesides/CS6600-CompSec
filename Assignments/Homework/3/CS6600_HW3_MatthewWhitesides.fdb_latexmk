@@ -1,9 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1630928412 "c:/Users/mbwxd/OneDrive/Documents/School/CS6600-CompSec/Assignments/Homework/3/CS6600_HW3_MatthewWhitesides.tex" "CS6600_HW3_MatthewWhitesides.pdf" "CS6600_HW3_MatthewWhitesides" 1630928413
-  "CS6600_HW3_MatthewWhitesides.aux" 1630928413 316 aae06d5b635a6bc4e0a903b65a754bca "pdflatex"
-  "CS6600_HW3_MatthewWhitesides.tex" 1630928411 4134 a8438ad0a441db65d394cf6c7893c707 ""
+["pdflatex"] 1630933350 "c:/Users/mbwxd/OneDrive/Documents/School/CS6600-CompSec/Assignments/Homework/3/CS6600_HW3_MatthewWhitesides.tex" "CS6600_HW3_MatthewWhitesides.pdf" "CS6600_HW3_MatthewWhitesides" 1630933351
+  "CS6600_HW3_MatthewWhitesides.aux" 1630933351 316 aae06d5b635a6bc4e0a903b65a754bca "pdflatex"
+  "CS6600_HW3_MatthewWhitesides.tex" 1630933349 4399 cd5ba1f575bccf70f5e31dbdfcd0fc8b ""
   "IEEEtran.cls" 1630842095 288304 5b2e4fa15b0f7eabb840ebf67df4c0f7 ""
-  "c:/Users/mbwxd/OneDrive/Documents/School/CS6600-CompSec/Assignments/Homework/3/CS6600_HW3_MatthewWhitesides.tex" 1630928411 4134 a8438ad0a441db65d394cf6c7893c707 ""
+  "c:/Users/mbwxd/OneDrive/Documents/School/CS6600-CompSec/Assignments/Homework/3/CS6600_HW3_MatthewWhitesides.tex" 1630933349 4399 cd5ba1f575bccf70f5e31dbdfcd0fc8b ""
   "c:/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc" 1630843876 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1630844260 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1630846963 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -32,6 +32,6 @@
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1630847671 2797793 c32525c97544ff33fd6080151fbd65bf ""
   "c:/texlive/2021/texmf.cnf" 1630847534 713 e69b156964470283e0530f5060668171 ""
   (generated)
-  "CS6600_HW3_MatthewWhitesides.pdf"
-  "CS6600_HW3_MatthewWhitesides.log"
   "CS6600_HW3_MatthewWhitesides.aux"
+  "CS6600_HW3_MatthewWhitesides.log"
+  "CS6600_HW3_MatthewWhitesides.pdf"
