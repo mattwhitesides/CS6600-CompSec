@@ -143,7 +143,7 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
     \multicolumn{1}{l|}{\textit{Pilot Commander (PC)}}                & O,R,W         & R,W           & R,W           & R,W           & R,W           & R,W           & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & R,W,E,G,C     & R,W,E,G,C     \\
     \multicolumn{1}{l|}{\textit{Mission Commander (MC)}}              & R             & O,R,W         & R,W           & R             & R             & R             & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     \\
     \multicolumn{1}{l|}{\textit{Instructor Pilot (IP)}}               & R             & $\varnothing$ & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,E           & R,E           \\
-    \multicolumn{1}{l|}{\textit{Quality Assurance Evaluators (QA)}}   & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           & R,E           \\
+    \multicolumn{1}{l|}{\textit{Quality Assurance Evaluators (QA)}}   & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           \\
     \multicolumn{1}{l|}{\textit{Maintenance Crew (MC)}}               & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           & R,E           \\
     \multicolumn{1}{l|}{\textit{Flight Data Admin (FDA)}}             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   \\
     \multicolumn{1}{l|}{\textbf{Remote Navigation Control (RNC)}}     & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R             & R             & R             & R             & R             \\
@@ -156,41 +156,48 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   \end{tabular}}
   \end{table*}
 
-Our infrastructure security policy breaks down the various actions a system user can perform using the following terms. 
+  Our infrastructure security policy breaks down the various actions a system user can perform using the following terms. 
 
-\begin{itemize}
-  \item \textit{Subject}: Any entity that contains the proper rights can request the UAS perform operations, access objects, or grant rights to another subject.
-  \item \textit{Object}: An entity that is part of the UAS functionality or data that does not have control over another entity. 
-  \item \textit{Rights}: A property assigned to a subject that defines its right to access an object or grant permissions to another subject.
-\end{itemize}
+  \begin{itemize}
+    \item \textit{Subject}: Any entity that contains the proper rights can request the UAS perform operations, access objects, or grant rights to another subject.
+    \item \textit{Object}: An entity that is part of the UAS functionality or data that does not have control over another entity. 
+    \item \textit{Rights}: A property assigned to a subject that defines its right to access an object or grant permissions to another subject.
+  \end{itemize}
+  
+  Table 1 describes the rights and their associated functionality. Table 2 breaks down the subject roles involved in operating the UAS during a refueling mission. Table 3 contains the access control matrix (ACM) showing each Subject's rights over the objects.
+  
+  \subsection{Rights Leakages}
+  
+  The following basic HRU commands show how given our current ACM, and we can leak integrity right \textit{r} into a subject that does not contain the right in our initial ACM.
+  We create a simple command sequence that attempts to grant one right from subject \textit{p} in object \textit{o} to subject \textit{q} in \textit{o} if \textit{p} has the given right.
 
-Table 2 breaks down the subject roles involved in operating the UAS during a refueling mission. Table 1 describes the rights and their associated functionality. Table 3 contains the access control matrix (ACM) showing each subject's rights over the objects.
+  These leaks we will attempt to protect from can occur during a standard UAS refueling mission. The primary mission scenario will consist of a mid-air refueling of a F/A-18 on a long-range flight by our UAS. To simply our policy, we group the mission planning and overseeing phase to the \textit{Mission Commander} role, the mission readiness to the \textit{Quality Assurance Evaluators}, the piloting and in mission overseeing of the UAS to the \textit{Pilot Commander and Instructor Pilot}, then the post-flight data analysis and maintenance to the \textit{Flight Data Admin, Maintenance Crew}. From pre-planning to post-mission analysis, this entire mission process will be our example scenario to base our security policy around. 
+  
+  \subsubsection{Confidentiality}
 
-\subsection{Rights Leakages}
-
-The following basic HRU commands show how given our current ACM we can leak integrity right \textit{r} into a subject that does not contain the right in our intial ACM.
-We create a simple command sqeuence that attempts to grant one right from subject \textit{p} in object \textit{o} to subject \textit{q} in \textit{o} if \textit{p} has the given right.
-
-\subsubsection{Confidentiality}
+  For our example of a confidentiality attack, we will attempt to leak unauthorized post-mission flight data from the UAS to a \textit{Quality Assurance Evaluators}. After the UAS has completed a flight, the \textit{Maintenance Crew} downloads the flight data from the onboard UAS computer, then loads it into the base's central flight data system. This leak could occur either at the step of downloading the data from the UAS computer or after it is uploaded to the centralized system. Any subject with grant and \textit{Flight Engine Data} rights could transfer these rights to another member causing a leak. 
+  
+  \begin{lstlisting}
+  command grant_right_to_subject(r, o, p, q)
+    if grant in A[p, o] and r in A[p, o]
+    then
+      enter r into A[q, o];
+  end
+  \end{lstlisting}
+  
+  If we were to call this function with the subject \textit{PC} granting right \textit{Read} to \textit{QA} for object \textit{FED}, this would cause a confidentiality right leakage. 
 
 \begin{lstlisting}
-command grant_right_to_subject(r, o, p, q)
-  if grant in A[p, o] and r in A[p, o]
-  then
-    enter r into A[q, o];
-end
-\end{lstlisting}
-
-If we were to call this function with the subject \textit{Pilot Commander (PC)} granting right \textit{Read} to \textit{Maintenance Crew (MC)} for object \textit{Remote Navigation Control (RNC)}, this would cause a confidentiality right leakage. 
-
-
-\begin{lstlisting}
-grant_right_to_subject(Read, RNC, PC, MC)
+grant_right_to_subject(Read, FED, PC, QA)
 \end{lstlisting}
 
 \subsubsection{Integrity}
 
-text
+For our integrity attack scenario, we will simulate a worst-case unauthorized modification to the \textit{Autonomous Navigation Control (ANC)}. This scenario could occur if an unauthorized subject were granted the \textit{write} right by an authorized subject. For example, if the \textit{PC} mistakenly granted the right to a member of the \textit{MC} to fix an issue.
+
+\begin{lstlisting}
+  grant_right_to_subject(Write, ANC, PC, MC)
+\end{lstlisting}
 
 % %-------------------------------------------------------------------------
 % \section{Survey}
