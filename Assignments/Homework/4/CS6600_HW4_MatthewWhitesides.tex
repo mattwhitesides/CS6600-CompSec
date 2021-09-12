@@ -44,11 +44,18 @@
 \section{Chapter 3 Problems}
 
 \begin{enumerate}
-  \item [7)] Lemma 3.1 shows how through the use of a newly created object two subjects with one having take rights over the other, can work together to take a right one of the subjects has over a thrid subject/object. If \textbf{X} was an object however the first step would not work as \textbf{X} could not create the new vertx \textbf{V}. This would not allow \textbf{X} to ever have a connection with an object it has \textit{tg} privliages over so \textbf{Z} would not be able to take the grant privliages from that object and share alpha right with it. 
+  \item [7)] Lemma 3.1 shows how through the use of a newly created object, two subjects with one having to take rights over the other can work together to take a right one of the subjects has over a third subject/object. If \textbf{X} were an object, however, the first step would not work as \textbf{X} could not create the new vertex \textbf{V}. This would not allow \textbf{X} ever to have a connection with an object it has \textit{tg} privileges over, so \textbf{Z} would not be able to take the grant privileges from that object and share alpha right with it. 
   \item [9)] Because \(s' = s\:or\:s'\) and \(x_n = s'\) and \(x_i\) are all connected by label \(t,g,bridge\) any of the three options for subject \(x\) will be able to take or pass any right from \(x_n\). Then since there is a sequence of subjects where eventually \(x_n = s'\) and \(s'\) has tg over \(s\) which in turn has \(\alpha\) over \(y\), \(x\) can obtain \(\alpha\) from y. 
-  \item [10)]
-  \item [11)]
-  \item [12)]
+  \item [10)] If we reverse the edge direction from \textbf{d} to \textbf{e} then \textit{can share} is still true using the following witness.
+  \begin{itemize}
+    \item \textbf{c} takes (\textit{g} to \textbf{e}) from \textbf{d}.
+    \item \textbf{c} grants (\textit{g} to \textbf{b}) to \textbf{e}.
+    \item \textbf{e} grants (\textit{r} to \textbf{z}) to \textbf{b}.
+    \item \textbf{b} grants (\textit{r} to \textbf{z}) to \textbf{a}.
+    \item \textbf{x} takes (\textit{r} to \textbf{z}) from \textbf{a}.
+  \end{itemize}
+  \item [11)] If you dropped \textit{take} from the TG model you could achive a simmular result from reversing the direction of all \textit{t} edges and giving them grant, however I feel this would less accurately reprsent the real world modeling of the system and the attack that is happening. At the same time I imagine simmular to what SPM is trying to achive would simplify the proofs a bit. 
+  \item [12)] The acyclic creates imposes constraints on the types of subjects created but not objects because inherently, the cycle is worried about child subjects creating other subjects/objects with rights inherited from their parents making a cycle. In contrast, objects created cannot create further objects/subjects, so the cycle ends there for that branch. 
 \end{enumerate}
 
 % \appendices
