@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  7 SEP 2021 08:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  13 SEP 2021 15:13
 entering extended mode
-**"c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/2. Infrastructure HRU/whitesidesMatthew_CS6600_Project_Report.tex"
-("c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/2. Infrastructure HRU/whitesidesMatthew_CS6600_Project_Report.tex"
+**"c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/3. Infrastructure T-G/whitesidesMatthew_CS6600_Project_Report.tex"
+("c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/3. Infrastructure T-G/whitesidesMatthew_CS6600_Project_Report.tex"
 LaTeX2e <2018-12-01>
-("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\IEEEtran.cls"
+("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\IEEEtran.cls"
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -161,7 +161,11 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 147.
 ) (C:/Users/sz460e/AppData/Local/Programs/MiKTeX_Repo\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.aux")
+) ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux"
+
+LaTeX Warning: Label `tab:my-table' multiply defined.
+
+)
 \openout1 = `whitesidesMatthew_CS6600_Project_Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
@@ -261,33 +265,46 @@ LaTeX Warning: No positions in optional float specifier.
 LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 103.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 118.
+               Default added (so using `tbp') on input line 119.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 134.
+               Default added (so using `tbp') on input line 136.
 
-LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 162.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 160.
+
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 183.
 [1{C:/Users/sz460e/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 180.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 204.
  ("C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [2] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.aux") ) 
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2] [3
+
+] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux")
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 4632 strings out of 492895
- 70975 string characters out of 3123268
- 174537 words of memory out of 3000000
- 8480 multiletter control sequences out of 15000+200000
- 52435 words of font info for 124 fonts, out of 3000000 for 9000
+ 4641 strings out of 492895
+ 71083 string characters out of 3123268
+ 181537 words of memory out of 3000000
+ 8488 multiletter control sequences out of 15000+200000
+ 53044 words of font info for 125 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
- 41i,10n,40p,902b,1206s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,10n,40p,902b,1531s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.pdf" (2 pages, 115121 bytes).
+Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.pdf" (3 pages, 118179 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

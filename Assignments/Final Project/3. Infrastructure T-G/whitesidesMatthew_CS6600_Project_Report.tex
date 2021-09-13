@@ -89,7 +89,7 @@ The abstract goes here.
 \IEEEPARstart{I}{n} its simplest form, an unmanned aircraft system (UAS), is an aircraft system that operates without an onboard pilot. 
 UAS are either controlled remotely through some form of wireless radio communication, semi-autonomously in conjunction with a remote pilot, or fully autonomously using some form of computational intelligence as navigation. 
 These intelligent crewless vehicles have many potential uses in the defense sector, including surveillance, strategic mission execution, aerial sustainability support, and training systems, to name a few. 
-These aircraft fall under the umbrella of cyber-physical systems (CPS), merging the intelligent navigation processes, system health monitoring, and communication with the physical mobile ariel vehicle.
+These aircraft fall under the umbrella of cyber-physical systems (CPS), merging the intelligent navigation processes, system health monitoring, and communication with the physical mobile aerial vehicle.
 
 We will design a proposed infrastructure security policy for the Boeing MQ-25 unmanned aircraft system, but it will also apply to similar mission support drones. 
 The MQ-25 is an unmanned aircraft system designed for the U.S. Navy, and it provides autonomous refueling capability for the Boeing F/A-18 Super Hornet, Boeing EA-18G Growler, and Lockheed Martin F-35C fighters.
@@ -110,7 +110,8 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   \textit{Execute (E)} & Can execute the functionality of the given object. \\
   \textit{Grant (G)}   & Can grant a given right to another subject.        \\
   \textit{Control (C)} & Can control a given system object.                 \\
-  \textit{Delete (C)}  & Can delete a given .                 \\
+  \textit{Delete (C)}  & Can delete a given object or right.                 \\
+  \textit{Create (C)}  & Can create a new subject or object.                 \\
   \hline
   \end{tabular}
 \end{table}
@@ -121,12 +122,13 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   \hline
   \textbf{Subject}                           & \textbf{Description}                                                                                       \\ 
   \hline
-  \textit{Pilot Commander (PC)}              & The primary remote pilot of the UAS during the mission.                                                    \\
-  \textit{Mission Commander (MC)}            & Responsible for final planning and decision making during the UAS mission.                                 \\
-  \textit{Instructor Pilot (IP)}             & Assists the Pilot Commander and can pilot the UAS if given permission from the PC or MC.                   \\
-  \textit{Quality Assurance Evaluators (QA)} & Responsible for pre-flight operational checks, in-flight analysis, and post-flight evaluation.             \\
-  \textit{Maintenance Crew (MC)}             & Handles work orders created by the QA and FDA, responsible for the maintenance of the UAS.                 \\
-  \textit{Flight Data Admin (FDA)}           & Handles and analyses all mission flight data.                                                              \\
+  \textit{Pilot Commander (PC)}                  & The primary remote pilot of the UAS during the mission.                                                    \\
+  \textit{Mission Commander (MC)}                & Responsible for final planning and decision making during the UAS mission.                                 \\
+  \textit{Instructor Pilot (IP)}                 & Assists the Pilot Commander and can pilot the UAS if given permission from the PC or MC.                   \\
+  \textit{Quality Assurance Evaluators (QA)}     & Responsible for pre-flight operational checks, in-flight analysis, and post-flight evaluation.             \\
+  \textit{Maintenance Crew (MC)}                 & Handles work orders created by the PC, IP, or FDA, responsible for the maintenance of the UAS.             \\
+  \textit{External Contractor (Bad Actor) (EC)}  & Has a similar job to the MC however only has read rights to the FED.                                       \\
+  \textit{Flight Data Admin (FDA)}               & Handles and analyses all mission flight data.                                                              \\
   \hline
   \end{tabular}
 \end{table*}
@@ -136,25 +138,44 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   \caption{UAS Refueling Mission Access Control Matrix}
   \label{tab:my-table}
   \resizebox{\textwidth}{!}{
-    \begin{tabular}{lllllllllllll}
+    \begin{tabular}{llllllllllllll}
     \hline
-    \multicolumn{1}{l|}{\textbf{}}                                    & \textit{PC}   & \textit{MC}   & \textit{IP}   & \textit{QA}   & \textit{MC}   & \textit{FDA}  & \textbf{RNC}  & \textbf{ANC}  & \textbf{NP}   & \textbf{RO}   & \textbf{FED}  & \textbf{RTD}  \\
+    \multicolumn{1}{l|}{\textbf{}}                                        & \textit{PC}   & \textit{MC}   & \textit{IP}   & \textit{QA}   & \textit{MC}   & \textit{FDA}  & \textit{EC}   & \textbf{RNC}  & \textbf{ANC}  & \textbf{NP}   & \textbf{RO}   & \textbf{FED}  & \textbf{RTD}  \\
     \hline
-    \multicolumn{1}{l|}{\textit{Pilot Commander (PC)}}                & O,R,W         & R,W           & R,W           & R,W           & R,W           & R,W           & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & R,W,E,G,C     & R,W,E,G,C     \\
-    \multicolumn{1}{l|}{\textit{Mission Commander (MC)}}              & R             & O,R,W         & R,W           & R             & R             & R             & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     \\
-    \multicolumn{1}{l|}{\textit{Instructor Pilot (IP)}}               & R             & $\varnothing$ & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,E           & R,E           \\
-    \multicolumn{1}{l|}{\textit{Quality Assurance Evaluators (QA)}}   & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           \\
-    \multicolumn{1}{l|}{\textit{Maintenance Crew (MC)}}               & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           & R,E           \\
-    \multicolumn{1}{l|}{\textit{Flight Data Admin (FDA)}}             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   \\
-    \multicolumn{1}{l|}{\textbf{Remote Navigation Control (RNC)}}     & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R             & R             & R             & R             & R             \\
-    \multicolumn{1}{l|}{\textbf{Autonomous Navigation Control (ANC)}} & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R             & R             & R             \\
-    \multicolumn{1}{l|}{\textbf{Navigation Planning (NP)}}            & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & R             & R             & R             & R             & R             \\
-    \multicolumn{1}{l|}{\textbf{Refueling Operation (RO)}}            & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & R,W,E,C       & R             & R             \\
-    \multicolumn{1}{l|}{\textbf{Flight Engine Data (FED)}}            & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & $\varnothing$ \\
-    \multicolumn{1}{l|}{\textbf{Refueling Tank Data (RTD)}}           & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       \\
-                                                                      &               &               &               &               &               &               &               &               &               &               &               &              
+    \multicolumn{1}{l|}{\textit{Pilot Commander (PC)}}                    & O,R,W         & R,W           & R,W           & R,W           & R,W           & R,W           & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & R,W,E,G,C     & R,W,E,G,C     \\
+    \multicolumn{1}{l|}{\textit{Mission Commander (MC)}}                  & R             & O,R,W         & R,W           & R             & R             & R             & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     \\
+    \multicolumn{1}{l|}{\textit{Instructor Pilot (IP)}}                   & R             & $\varnothing$ & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,E           & R,E           \\
+    \multicolumn{1}{l|}{\textit{Maintenance Crew (MC)}}                   & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           & R,E           \\
+    \multicolumn{1}{l|}{\textit{Flight Data Admin (FDA)}}                 & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   \\
+    \multicolumn{1}{l|}{\textit{External Contractor (Bad Actor) (EC)}}    & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & O,R,W         & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   \\
+    \multicolumn{1}{l|}{\textbf{Remote Navigation Control (RNC)}}         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R             & R             & R             & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Autonomous Navigation Control (ANC)}}     & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R             & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Navigation Planning (NP)}}                & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & R             & R             & R             & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Refueling Operation (RO)}}                & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & R,W,E,C       & R             & R             \\
+    \multicolumn{1}{l|}{\textbf{Flight Engine Data (FED)}}                & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & $\varnothing$ \\
+                                                                          &               &               &               &               &               &               &               &               &               &               &               &              
   \end{tabular}}
   \end{table*}
+
+  \begin{table*}[]
+    \centering
+    \caption{Read Flight Data ACM After Mission Executing Read Flight Data}
+    \label{tab:my-table}
+    \resizebox{\textwidth}{!}{
+      \begin{tabular}{llllllllllllll}
+      \hline
+      \multicolumn{1}{l|}{\textbf{}}                                        & \textit{PC}   & \textit{MC}   & \textit{IP}   & \textit{QA}   & \textit{MC}   & \textit{FDA}  & \textit{EC}   & \textbf{RNC}  & \textbf{ANC}  & \textbf{NP}   & \textbf{RO}   & \textbf{FED}  & \textbf{RTD}  \\
+      \hline
+      \multicolumn{1}{l|}{\textit{Pilot Commander (PC)}}                    & O,R,W         & R,W           & R,W           & R,W           & R,W           & R,W           & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   & R,W,E,G,C     & R,W,E,G,C     \\
+      \multicolumn{1}{l|}{\textit{Mission Commander (MC)}}                  & R             & O,R,W         & R,W           & R             & R             & R             & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     \\
+      \multicolumn{1}{l|}{\textit{Instructor Pilot (IP)}}                   & R             & $\varnothing$ & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,W,E,C       & R,E           & R,E           \\
+      \multicolumn{1}{l|}{\textit{Maintenance Crew (MC)}}                   & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & R             & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,E           & R,E           \\
+      \multicolumn{1}{l|}{\textit{Flight Data Admin (FDA)}}                 & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   \\
+      \multicolumn{1}{l|}{\textit{External Contractor (Bad Actor) (EC)}}    & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & O,R,W         & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   \\
+      \multicolumn{1}{l|}{\textbf{Flight Engine Data (FED)}}                & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & $\varnothing$ \\
+                                                                            &               &               &               &               &               &               &               &               &               &               &               &              
+    \end{tabular}}
+    \end{table*}
 
   Our infrastructure security policy breaks down the various actions a system user can perform using the following terms. 
 
@@ -175,17 +196,43 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   
   \subsubsection{Confidentiality}
 
-  For our example of a confidentiality attack, we will attempt to leak unauthorized post-mission flight data from the UAS to a \textit{Quality Assurance Evaluators}. After the UAS has completed a flight, the \textit{Maintenance Crew} downloads the flight data from the onboard UAS computer, then loads it into the base's central flight data system. This leak could occur either at the step of downloading the data from the UAS computer or after it is uploaded to the centralized system. Any subject with grant and \textit{Flight Engine Data} rights could transfer these rights to another member causing a leak. 
+  For our example of a confidentiality attack, we simulate a scenario where our \textit{External Contractor} is a bad actor seeking leaked rights beyond the initial ACM utilizing the following HRU commands available for the UAS.
+
+  The following command \textit{Grant r Right} takes in a right \textit{r}, the subject/object \textit{o} the caller wants to grant rights over, the caller subject \textit{p}, and the subject/object the caller is granting rights to \textit{q}.
+  This command verifies the caller has the right themselves over that subject/object to be able able to grant it to another subject, and has the \textit{grant} right over that subject/object. This instills a basic principle of attenuation to our model. 
   
   \begin{lstlisting}
-  command grant_right_to_subject(r, o, p, q)
+  command grant_r_right(r, o, p, q)
     if grant in A[p, o] and r in A[p, o]
     then
       enter r into A[q, o];
   end
   \end{lstlisting}
   
-  If we were to call this function with the subject \textit{PC} granting right \textit{Read} to \textit{QA} for object \textit{FED}, this would cause a confidentiality right leakage. 
+  Next we have command \textit{Make Owner} allowing a subject \textit{p} to make another subject \textit{q} the owner of a object \textit{o} they currently have owner rights over. 
+
+  \begin{lstlisting}
+    command make_owner(p, q, o)
+      if owns in A[p, o]
+      then
+        enter owns into A[q, o];
+    end
+  \end{lstlisting}
+
+  When the \textit{PC} and \textit{IP} return from a flight they or a \textit{MC} will read the flight data and create a new object \textbf{Flight Record (FR)} holding the flight data, available to subjects who have \textbf{FED} access. After running this command our ACM would transition to a new state similar to table 4 which represents the subjects and objects involved in the read flight data procedure. 
+
+  \begin{lstlisting}
+    command create_flight_record(p)
+      if create in A[p, FED]
+      then
+        create object FR;
+        enter own into A[p, FR];
+        enter read into A[p, FR];
+        enter grant into A[p, FR];
+    end
+  \end{lstlisting}
+
+
 
 \begin{lstlisting}
 grant_right_to_subject(Read, FED, PC, QA)

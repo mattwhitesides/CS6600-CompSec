@@ -1,9 +1,9 @@
-PWD c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU
+PWD c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G
 INPUT C:\Users\sz460e\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.tex
-OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.log
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\IEEEtran.cls
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\IEEEtran.cls
+INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.tex
+OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.log
+INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\IEEEtran.cls
+INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\IEEEtran.cls
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ppl.fd
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\palatino\pplr7t.tfm
@@ -78,9 +78,9 @@ INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\c
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\latex\listings\lstlang1.sty
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\latex\listings\lstlang1.sty
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.aux
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.aux
-OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.aux
+INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux
+INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux
+OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty
@@ -163,7 +163,7 @@ INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfont
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr7t.tfm
-OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.pdf
+OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.pdf
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\helvetic\phvr7t.vf
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\helvetic\phvr8r.tfm
 INPUT C:\Users\sz460e\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
@@ -201,7 +201,9 @@ INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\courier\pcrr7t.tfm
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\courier\pcrr7t.vf
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\courier\pcrr8r.tfm
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\2. Infrastructure HRU\whitesidesMatthew_CS6600_Project_Report.aux
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\palatino\pplb7t.vf
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\palatino\pplb8r.tfm
+INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\base\8r.enc
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy7.pfb
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\cm\cmsy7.pfb
