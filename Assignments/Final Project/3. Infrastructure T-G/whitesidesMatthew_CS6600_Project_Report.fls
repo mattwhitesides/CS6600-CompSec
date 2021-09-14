@@ -76,6 +76,14 @@ INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\color.sty
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\latex\listings\lstlang1.sty
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX_Repo\tex\latex\listings\lstlang1.sty
 INPUT c:\Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux
@@ -199,6 +207,8 @@ INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\palatino
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\courier\pcrr7t.tfm
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\palatino\pplbi7t.vf
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\palatino\pplbi8r.tfm
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\courier\pcrr7t.vf
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\courier\pcrr8r.tfm
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\palatino\pplb7t.vf
@@ -219,6 +229,8 @@ INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\helvetic
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\helvetic\uhvro8a.pfb
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\palatino\uplb8a.pfb
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\palatino\uplb8a.pfb
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\palatino\uplbi8a.pfb
+INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\palatino\uplbi8a.pfb
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\palatino\uplr8a.pfb
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\palatino\uplr8a.pfb
 INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\palatino\uplri8a.pfb
