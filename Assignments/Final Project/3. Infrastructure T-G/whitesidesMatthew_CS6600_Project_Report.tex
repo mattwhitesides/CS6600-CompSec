@@ -187,7 +187,7 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   
   Table 1 describes the rights and their associated functionality. Table 2 breaks down the subject roles involved in operating the UAS during a refueling mission. Table 3 contains the access control matrix (ACM) showing each Subject's rights over the objects.
   
-  \subsection{Rights Leakages}
+  \subsection{HRU}
   
   The following shows the basic HRU commands related to our UAS mission.
   A fundamental UAS refueling mission follows these basic steps. 
@@ -298,8 +298,10 @@ end
       delete write from A[p, FRS];
   end
 \end{lstlisting}
+
+\subsection{Rights Leakages}
   
-  \subsubsection{Confidentiality}
+\subsubsection{Confidentiality}
 
   For our example of a confidentiality attack, we simulate a scenario where our \textit{External Contractor} is a bad actor seeking leaked rights beyond the initial ACM utilizing the following HRU commands available for the UAS.
 
@@ -338,52 +340,13 @@ update_flight_record_system(BA, FR);
   Unfortunately, \textit{Update Flight Record System} checks only for rights to the given flight record and not the initial systems, therefore, giving the BA \textit{write} access to the FRS system, which could lead them modifying the FRS data ruining its integrity.
   Table 4 shows the result of executing the confidentiality and integrity leaks. 
 
-% %-------------------------------------------------------------------------
-% \section{Survey}
-% The various models will be surveyed below.
+\section{Survey}
 
-% %-------------------------------------------------------------------------
-% \subsection{HRU}
+\subsection{Take-Grant}
 
-% \begin{small}
-% Access Control Matrix:
-% \end{small}
+First we will look at a Take-Grant model interpretation of our rights leakages. 
 
-% \begin{figure}[h]
-% \begin{tiny}
-% \noindent
-% \begin{tabular}{|c|c|c|c|c|}
-% \hline Objects / Subjects  & Vehicle & Central Authority & Authorized Client & Unauthorized Client \\
-% \hline Vehicle &  &  &  &  \\
-% \hline Central Authority &  &  &  & \\
-% \hline Authorized Client &  & C/D/W & R &  \\
-% \hline Unauthorized Client &  & C/D/W &  &  \\
-% \hline GPS Location & W &  & R &  \\
-% \hline Destination & W &  & R &  \\
-% \hline Path & R &  & W &  \\
-% \hline
 
-% \end{tabular}
-% \end{tiny}
-% \caption{ACM Table of the HRU model. Objects vertically and subjects horizontally}
-
-% \end{figure}
-
-% \begin{small}
-
-% Commands that cause rights leakage:
-
-% enter R into ACM[Unauthorized Client, Vehicle];
-
-% enter R into ACM[Unauthorized Client, GPS Location];
-
-% enter R into ACM[Unauthorized Client, Destination];
-
-% enter W into ACM[Unauthorized Client, Path];
-% \end{small}
-
-% \subsection{T-G}
-% text
 % \subsection{BLP}
 % text
 % \subsection{Biba}

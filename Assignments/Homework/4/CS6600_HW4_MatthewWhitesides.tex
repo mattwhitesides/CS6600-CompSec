@@ -46,6 +46,12 @@
 \begin{enumerate}
   \item [7)] Lemma 3.1 shows how through the use of a newly created object, two subjects with one having to take rights over the other can work together to take a right one of the subjects has over a third subject/object. If \textbf{X} were an object, however, the first step would not work as \textbf{X} could not create the new vertex \textbf{V}. This would not allow \textbf{X} ever to have a connection with an object it has \textit{tg} privileges over, so \textbf{Z} would not be able to take the grant privileges from that object and share alpha right with it. 
   \item [9)] Because \(s' = s\:or\:s'\) and \(x_n = s'\) and \(x_i\) are all connected by label \(t,g,bridge\) any of the three options for subject \(x\) will be able to take or pass any right from \(x_n\). Then since there is a sequence of subjects where eventually \(x_n = s'\) and \(s'\) has tg over \(s\) which in turn has \(\alpha\) over \(y\), \(x\) can obtain \(\alpha\) from y. 
+  \begin{itemize}
+    \item If there there is an edge from \textbf{x} to \textbf{y} labeled \(\alpha\) can share is true.
+    \item Otherwise \textbf{s'} acquires \(\alpha\) rights over \textbf{y} from \textbf{s} using the definition of terminal span.
+    \item \textbf{x'} acquires \(\alpha\) rights over \textbf{y} from \textbf{s'} using the constraint that all the islands have t,g, or bridges between them.
+    \item \textbf{x'} gives \(\alpha\) rights over \textbf{y} to \textbf{x} using the definition of initial span.
+  \end{itemize}
   \item [10)] If we reverse the edge direction from \textbf{d} to \textbf{e} then \textit{can share} is still true using the following witness.
   \begin{itemize}
     \item \textbf{c} takes (\textit{g} to \textbf{e}) from \textbf{d}.
