@@ -12,6 +12,7 @@
 \fi
 
 \usepackage{graphicx}
+\graphicspath{ {Images/} }
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{color}
@@ -344,7 +345,38 @@ update_flight_record_system(BA, FR);
 
 \subsection{Take-Grant}
 
-First we will look at a Take-Grant model interpretation of our rights leakages. 
+  Next, we take a look at the Take-Grant (TG) model interpretation of our rights leakages. 
+  This models our HRU example in terms of a TG model where the \textit{Flight Record} created object has \textit{read, write} rights over the \textit{Flight Record System} that our \textbf{Maintenance Contractor (BA)} can utilize to gain \textit{read, write} access to the \textit{Flight Engine Data}.
+
+  Our bad actor could achieve this leaked through the following TG commands. 
+
+  \begin{enumerate}
+    \item \textbf{BA} creates object \textbf{FR}.
+    \item \textbf{MC} grants (\textit{t} to \textbf{FR}) to \textbf{BA}.
+    \item \textbf{BA} takes (\textit{r,w} to \textbf{FRS}) from \textbf{FR}.
+    \item \textbf{BA} takes (\textit{r,w} to \textbf{FED}) from \textbf{FRS}.
+  \end{enumerate}
+
+  Figure 1 shows the initial state of rights among actors and objects in the \textbf{FRS} system.
+
+  \begin{figure}[t]
+    \caption{Initial Iteration T-G Model Graph} 
+    \includegraphics[scale=0.7]{TGModel1.png}
+  \end{figure}
+
+  Figure 2 shows the rights after the \textbf{MC} creates a new \textbf{FR} object. 
+
+  \begin{figure}[t]
+    \caption{Iteration 2 T-G Model Graph} 
+    \includegraphics[scale=0.7]{TGModel2.png}
+  \end{figure}
+
+  Finally figure 3 shows how after the \textbf{BA} tricks the \textbf{MC} into giving them \textit{t} rights over \textbf{FR} they can exploit the system to take our laked rights to \textbf{FED} through the \textbf{FRS}.
+
+  \begin{figure}[t]
+    \caption{Final Iteration T-G Model Graph} 
+    \includegraphics[scale=0.7]{TGModel3.png}
+  \end{figure}
 
 
 % \subsection{BLP}

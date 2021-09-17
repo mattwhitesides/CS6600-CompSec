@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  15 SEP 2021 08:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  17 SEP 2021 08:48
 entering extended mode
 **"c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/3. Infrastructure T-G/whitesidesMatthew_CS6600_Project_Report.tex"
 ("c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/3. Infrastructure T-G/whitesidesMatthew_CS6600_Project_Report.tex"
@@ -196,18 +196,18 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 ) ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux")
 \openout1 = `whitesidesMatthew_CS6600_Project_Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 
 -- Lines per column: 61 (exact).
 (C:/Users/sz460e/AppData/Local/Programs/MiKTeX_Repo\tex/context/base/mkii\supp-pdf.mkii
@@ -258,77 +258,91 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \c@lstlisting=\count110
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 80.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 81.
  ("C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8.03> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 80.
-LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 80.
-LaTeX Font Info:    Try loading font information for U+msa on input line 80.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 81.
+LaTeX Font Info:    Calculating math sizes for size <11.04124> on input line 81.
+LaTeX Font Info:    Try loading font information for U+msa on input line 81.
  ("C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 80.
+LaTeX Font Info:    Try loading font information for U+msb on input line 81.
  ("C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+pzd on input line 80.
+LaTeX Font Info:    Try loading font information for U+pzd on input line 81.
  ("C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\upzd.fd"
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <11.04124> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 86.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 87.
 LaTeX Font Info:    Font shape `OT1/phv/bx/sc' in size <11.04124> not available
-(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 86.
+(Font)              Font shape `OT1/phv/b/sc' tried instead on input line 87.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 88.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 89.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <9.53561> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 100.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 101.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 102.
+               Default added (so using `tbp') on input line 103.
 
-LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 104.
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 120.
-
+LaTeX Font Info:    Calculating math sizes for size <8.03> on input line 105.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 135.
+               Default added (so using `tbp') on input line 121.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 157.
+               Default added (so using `tbp') on input line 136.
 
-LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 183.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 158.
+
+LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 184.
 [1{C:/Users/sz460e/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 211.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 212.
  ("C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3] [4
-
-] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux") ) 
+ [3]
+<Images/TGModel1.png, id=22, 282.05376pt x 201.75375pt>
+File: Images/TGModel1.png Graphic file (type png)
+<use Images/TGModel1.png>
+Package pdftex.def Info: Images/TGModel1.png  used on input line 364.
+(pdftex.def)             Requested size: 197.43626pt x 141.22665pt.
+<Images/TGModel2.png, id=24, 313.17pt x 268.00125pt>
+File: Images/TGModel2.png Graphic file (type png)
+<use Images/TGModel2.png>
+Package pdftex.def Info: Images/TGModel2.png  used on input line 371.
+(pdftex.def)             Requested size: 219.21748pt x 187.59958pt.
+<Images/TGModel3.png, id=25, 313.17pt x 268.00125pt>
+File: Images/TGModel3.png Graphic file (type png)
+<use Images/TGModel3.png>
+Package pdftex.def Info: Images/TGModel3.png  used on input line 378.
+(pdftex.def)             Requested size: 219.21748pt x 187.59958pt.
+ [4 <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/3. Infrastructure T-G/Images/TGModel1.png> <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/3. Infrastructure T-G/Images/TGModel2.png> <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/3. Infrastructure T-G/Images/TGModel3.png>] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.aux") ) 
 Here is how much of TeX's memory you used:
- 5191 strings out of 492895
- 77763 string characters out of 3123268
- 225238 words of memory out of 3000000
- 9024 multiletter control sequences out of 15000+200000
+ 5208 strings out of 492895
+ 78095 string characters out of 3123268
+ 225251 words of memory out of 3000000
+ 9036 multiletter control sequences out of 15000+200000
  53717 words of font info for 126 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
  41i,11n,40p,626b,1686s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.pdf" (4 pages, 130313 bytes).
+Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\3. Infrastructure T-G\whitesidesMatthew_CS6600_Project_Report.pdf" (4 pages, 169203 bytes).
 PDF statistics:
- 60 PDF objects out of 1000 (max. 8388607)
+ 67 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
