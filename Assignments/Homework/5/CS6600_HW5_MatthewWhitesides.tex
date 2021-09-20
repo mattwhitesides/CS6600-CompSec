@@ -13,7 +13,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{CS6600 Homework X}
+\title{CS6600 Homework 5}
 
 %
 %
@@ -41,14 +41,29 @@
 
 \IEEEpeerreviewmaketitle
 
-\section{Chapter X Problems}
+\section{Chapter 5 Controversy} 
+
+The Bell-LaPadula model attempts to apply real-world systems and rules into a mathematical model of security levels and labels. Essentially the model establishes that lower levels cannot access higher-level objects. At the same time, higher levels cannot modify lower-level objects without downgrading themselves to those lower levels to keep the integrity of information of higher-level subjects away from lower levels. The primary issue researchers have found with this method is that it somewhat establishes that state transitions are secure and do not violate the security of the model. It in itself cannot prove the initial system is secure. 
+
+Researcher McLean argued that a given the Bell-LaPaudla model relies on the initial Start Property and Domination Property, one could set up a system of subjects and objects and have incorrect levels in respect to each other and perform transitions that do not violate these properties but do violate a real-world security system trying to prevent leakages. I see both sides of the argument. While it may not prove, a system is secure or point out flaws in initial security. It helps preserve the security of a given system that was correctly set up. As the author points out, there will always be some abstraction and assumptions when modeling real-world systems into mathematical models.
+
+\section{Chapter 5 Problems}
 
 \begin{enumerate}
-  \item 
-    \begin{enumerate} 
-      \item First
-    \end{enumerate}
-  \item [3)] Third
+  \item [2)] Question 2.
+  \begin{enumerate}
+    \item Paul cannot access the document.
+    \item Anna cannot access the document.
+    \item Jesse can \textit{read} the document.
+    \item Sammi can \textit{read} the document.
+    \item Robin can \textit{write} to the document.
+  \end{enumerate}
+  \item [6)] The Start Property of the Bell-LaPadula model effectively says "no reads up" and "no writes down." Declassification effectively allows a subject to "write down" by allowing them to change their level. However, if you were able to raise the classification of an object, this would essentially do the same as a subject lowering their level. It would allow writes to the object at higher levels; however, it would not violate the property because no new writes would be readable by any former lower-level subject. 
+  \item [11)] Question 11.
+  \begin{enumerate}
+    \item The reformulation essentially makes it so that instead of objects needing to dominate subjects to write them, a subject would initially have write access to an object. However, I don't believe this eliminates the need to place constraints on the system's initial state because, without those constraints, it implies that a subject with write access may be able to write to an object of lower access readable by those lower access subjects. 
+    \item My initial thought is that this makes more real-world sense to give subjects write access rather than this object needs to dominate idea. Still, by definition, I suppose it does enforce the star property without needing to place more constraints on the system. However, it then requires the declassification idea to allow a subject to write to an object that is subjective and odd seeming. 
+  \end{enumerate}
 \end{enumerate}
 
 % \appendices
