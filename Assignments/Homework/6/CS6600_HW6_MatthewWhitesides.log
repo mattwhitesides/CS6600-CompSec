@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  22 SEP 2021 07:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  28 SEP 2021 10:35
 entering extended mode
 **"c:/Users/sz460e/Documents/School/Computer Security/Assignments/Homework/6/CS6600_HW6_MatthewWhitesides.tex"
 ("c:/Users/sz460e/Documents/School/Computer Security/Assignments/Homework/6/CS6600_HW6_MatthewWhitesides.tex"
@@ -121,13 +121,13 @@ LaTeX Font Info:    ... okay on input line 7.
 Here is how much of TeX's memory you used:
  1040 strings out of 492895
  20101 string characters out of 3123268
- 80067 words of memory out of 3000000
+ 84067 words of memory out of 3000000
  5027 multiletter control sequences out of 15000+200000
  31853 words of font info for 61 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
- 26i,5n,19p,300b,160s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 26i,5n,19p,715b,205s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Homework\6\CS6600_HW6_MatthewWhitesides.pdf" (1 page, 26789 bytes).
+Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Homework\6\CS6600_HW6_MatthewWhitesides.pdf" (1 page, 30312 bytes).
 PDF statistics:
  15 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
