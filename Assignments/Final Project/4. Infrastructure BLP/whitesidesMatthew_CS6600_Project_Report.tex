@@ -28,7 +28,7 @@
   belowskip=3mm,
   showstringspaces=false,
   columns=flexible,
-  basicstyle={\small\ttfamily},
+  basicstyle={\small\ttfamily}, 
   numbers=none,
   numberstyle=\tiny\color{gray},
   keywordstyle=\color{blue},
@@ -42,7 +42,7 @@
   linewidth=\dimexpr \linewidth-3pt\relax
 }
 
-\lstnewenvironment{itemlisting}[1][]
+\lstnewenvironment{itemlisting}[1][] 
  {%
   \mbox{}
   \vspace*{-\baselineskip}
@@ -114,7 +114,6 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   \textit{Control (C)} & Can control a given system object.                 \\
   \textit{Delete (C)}  & Can delete a given object or right.                 \\
   \textit{Create (C)}  & Can create a new subject or object.                 \\
-  \hline
   \end{tabular}
 \end{table}
 
@@ -129,7 +128,6 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   \textit{Maintenance Crew (MC)}                 & Handles work orders created by the PC, IP, or FDA, responsible for the maintenance of the UAS.             \\
   \textit{Flight Data Admin (FDA)}               & Handles and analyses all mission flight data.                                                              \\
   \textit{External Contractor (Bad Actor) (EC)}  & Has a similar job to the MC however only has read rights to the FED.                                       \\
-  \hline
   \end{tabular}
 \end{table*}
 
@@ -379,8 +377,41 @@ update_flight_record_system(BA, FR);
   \end{figure}
 
 
-% \subsection{BLP}
-% text
+\subsection{BLP}
+For our Bell-LaPadula model we first define the security classifications our subjects and objects fall into. Given we are dealing with military records it makes sense to use the standard government security levels. In addition to security level subjects and objects will fall into categories based upon the appropriate work unit they fall under.  
+Table 5 shows the security clearance levels and the subjects/objects at the given levels.
+Table 6 shows the work unit categories each subject/object falls into.
+
+\begin{table}[]
+  \caption{Security Classifications for the UAS}
+  \label{tab:security-classifications}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{Clearance Level} & \textbf{Subjects} & \textbf{Objects} \\
+  \hline
+  Top Secret (TS)          & PC, FDA           & ANC, RO          \\
+  Secret (S)               & IP                & FRS, RTD         \\
+  Confidential (C)         & MC                & FED              \\
+  Unclassified (UC)        & EC                &                 
+  \end{tabular}
+\end{table}
+
+
+\begin{table}[]
+  \caption{Work Unit Categories for the UAS}
+  \label{tab:work-unit-categories}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{Clearance Level}        & \textbf{Subjects} & \textbf{Objects} \\
+  \hline
+  Flight Operations (FO)          & PC,IP         & ANC,RO          \\
+  Maintenance Operations (MO)     & PC,IP,MC,FDA  & FED,RTD,FRS    \\
+  Flight Data Operations (FDO)    & PC,IP,FDA,EC  & FED,FRS             
+  \end{tabular}
+\end{table}
+
 % \subsection{Biba}
 % text
 % \subsection{Noninference/Noninterference/ NonDeducibility}
