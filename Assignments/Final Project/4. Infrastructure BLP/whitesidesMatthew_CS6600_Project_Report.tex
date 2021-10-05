@@ -187,6 +187,8 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
   Table 1 describes the rights and their associated functionality. Table 2 breaks down the subject roles involved in operating the UAS during a refueling mission. Table 3 contains the access control matrix (ACM) showing each Subject's rights over the objects.
   
   \subsection{HRU}
+
+  The Harrison, Ruzzo, Ullman security model (HRU) establishes a finite set of mono-operational procedures our system can perform on subjects and objects. Given our set of rights and ACM, we will establish a set of commands available to the system that acts upon the subjects and objects in the system. The commands will consist of mono-operational modifications and pre-condition checks. Therefore given these sets, we can discover if any rights leakages can occur. 
   
   The following shows the basic HRU commands related to our UAS mission.
   A fundamental UAS refueling mission follows these basic steps. 
@@ -226,7 +228,7 @@ end
 \end{lstlisting}
   
   When the \textit{PC} and \textit{IP} return from a flight they or a \textit{MC} will read the flight data and create a new object \textbf{Flight Record (FR)} holding the flight data, available to subjects who have \textbf{FED} access. 
-  After running this command, our ACM would transition to a new state similar to table 4, representing the subjects and objects involved in the create flight record procedure. 
+  After running this command, our ACM would transition to a new state similar to Table 4, representing the subjects and objects involved in the create flight record procedure. 
   This command will also give rights to the FRS to control the flight record data once uploaded.
   
 \begin{lstlisting}
@@ -283,18 +285,13 @@ end
 If any modifications need to be made to the FRS, the following command begins an update transaction and ends one for a given subject and flight record. 
 
 \begin{lstlisting}
-command begin_update_frs(p, FR)
-if write in A[p, FR]
+command update_flight_record_system(p, FR)
+if own in A[p, FR]
   then
-    enter write into A[p, FRS];
-end
-\end{lstlisting}
-
-\begin{lstlisting}
-  command end_update_frs(p, FR)
-  if write in A[p, FR]
-    then
-      delete write from A[p, FRS];
+    enter read into A[p, FED];
+    enter read into A[p, FR];
+    enter write into A[p, FED];
+    enter write into A[p, FR];
   end
 \end{lstlisting}
 
@@ -312,7 +309,7 @@ grant_flight_record_access(Maintenance Crew, Maintenance Contractor (BA), Flight
 upload_flight_record(Maintenance Contractor (BA), Flight Record (FR));
 \end{lstlisting}  
 
-  However, when running \textit{Update Flight Record System}, the BA will find they do not have ``own'' rights over the record, which is required so that they will go back to the original MC and as to grant them execute privileges to the FRS system. 
+  However, when running \textit{upload\_flight\_record}, the BA will find they do not have ``own'' rights over the record, which is required so that they will go back to the original MC and as to grant them execute privileges to the FRS system. 
   The MC will execute the commands to make BA have permission to upload the FR. 
 
 \begin{lstlisting}
@@ -325,7 +322,7 @@ command grant_r_right(execute, FRS, MC, BA);
 
 \subsubsection{Integrity}
 
-  In an attempt at an integrity leak, our BA may seek out modifying existing data and, to get permission to do so, may attempt the following sequence. 
+  In an attempt at an integrity leak, our BA may seek to modify existing data and, to get permission to do so, may attempt the following sequence. 
 
 \begin{lstlisting}
 create_flight_record(Maintenance Crew (MC));
@@ -349,7 +346,7 @@ update_flight_record_system(BA, FR);
   Our bad actor could achieve this leaked through the following TG commands. 
 
   \begin{enumerate}
-    \item \textbf{BA} creates object \textbf{FR}.
+    \item \textbf{MC} creates object \textbf{FR}.
     \item \textbf{MC} grants (\textit{t} to \textbf{FR}) to \textbf{BA}.
     \item \textbf{BA} takes (\textit{r,w} to \textbf{FRS}) from \textbf{FR}.
     \item \textbf{BA} takes (\textit{r,w} to \textbf{FED}) from \textbf{FRS}.
@@ -362,20 +359,27 @@ update_flight_record_system(BA, FR);
     \includegraphics[scale=0.7]{TGModel1.png}
   \end{figure}
 
-  Figure 2 shows the rights after the \textbf{MC} creates a new \textbf{FR} object. 
+  Figure 2 shows the state of rights after the \textbf{MC} runs the HRU command \textit{create\_flight\_record(MC)} which a new \textbf{FR} object. 
 
   \begin{figure}[t]
     \caption{Iteration 2 T-G Model Graph} 
     \includegraphics[scale=0.7]{TGModel2.png}
   \end{figure}
 
-  Finally figure 3 shows how after the \textbf{BA} tricks the \textbf{MC} into giving them \textit{t} rights over \textbf{FR} they can exploit the system to take our laked rights to \textbf{FED} through the \textbf{FRS}.
+  Figure 3 shows the state after the \textbf{BA} leads the \textbf{MC} into giving them \textit{t} rights over \textbf{FR} they can exploit the system to take our laked rights to \textbf{FED} through the \textbf{FRS}. 
+  This would be established after the command \textit{grant\_flight\_record\_access(MC, BA, FR)}.
 
   \begin{figure}[t]
-    \caption{Final Iteration T-G Model Graph} 
+    \caption{Iteration 3 T-G Model Graph} 
     \includegraphics[scale=0.7]{TGModel3.png}
   \end{figure}
 
+  Therefore allowing BA to execute \textit{update\_flight\_record\_system(BA, FR)} which leaks access to the FED as shown by the state in Figure 4.
+
+  \begin{figure}[t]
+    \caption{Final Iteration T-G Model Graph} 
+    \includegraphics[scale=0.7]{TGModel4.png}
+  \end{figure}
 
 \subsection{BLP}
 For our Bell-LaPadula model we first define the security classifications our subjects and objects fall into. Given we are dealing with military records it makes sense to use the standard government security levels. In addition to security level subjects and objects will fall into categories based upon the appropriate work unit they fall under.  

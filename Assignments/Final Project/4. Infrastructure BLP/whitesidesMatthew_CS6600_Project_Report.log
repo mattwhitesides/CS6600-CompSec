@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  29 SEP 2021 09:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  5 OCT 2021 11:39
 entering extended mode
 **"c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/whitesidesMatthew_CS6600_Project_Report.tex"
 ("c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/whitesidesMatthew_CS6600_Project_Report.tex"
@@ -308,50 +308,71 @@ LaTeX Font Info:    Calculating math sizes for size <9.53561> on input line 182.
 
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 210.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 212.
  ("C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [2]
+)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [3]
+ [2] [3]
 <Images/TGModel1.png, id=22, 282.05376pt x 201.75375pt>
 File: Images/TGModel1.png Graphic file (type png)
 <use Images/TGModel1.png>
-Package pdftex.def Info: Images/TGModel1.png  used on input line 362.
+Package pdftex.def Info: Images/TGModel1.png  used on input line 359.
 (pdftex.def)             Requested size: 197.43626pt x 141.22665pt.
-<Images/TGModel2.png, id=24, 313.17pt x 268.00125pt>
+<Images/TGModel2.png, id=24, 312.16624pt x 268.00125pt>
 File: Images/TGModel2.png Graphic file (type png)
 <use Images/TGModel2.png>
-Package pdftex.def Info: Images/TGModel2.png  used on input line 369.
-(pdftex.def)             Requested size: 219.21748pt x 187.59958pt.
-<Images/TGModel3.png, id=25, 313.17pt x 268.00125pt>
+Package pdftex.def Info: Images/TGModel2.png  used on input line 366.
+(pdftex.def)             Requested size: 218.51488pt x 187.59958pt.
+
+Underfull \hbox (badness 1629) in paragraph at lines 369--371
+[]\OT1/ppl/m/n/9.53561 Figure 3 shows the state af-ter the \OT1/ppl/b/n/9.53561 BA \OT1/ppl/m/n/9.53561 leads the
+ []
+
+<Images/TGModel3.png, id=25, 312.16624pt x 268.00125pt>
 File: Images/TGModel3.png Graphic file (type png)
 <use Images/TGModel3.png>
-Package pdftex.def Info: Images/TGModel3.png  used on input line 376.
+Package pdftex.def Info: Images/TGModel3.png  used on input line 374.
+(pdftex.def)             Requested size: 218.51488pt x 187.59958pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
+[]\OT1/ppl/m/n/9.53561 Therefore al-low-ing BA to ex-e-cute \OT1/ppl/m/it/9.53561 up-
+ []
+
+
+Underfull \hbox (badness 1783) in paragraph at lines 377--378
+\OT1/ppl/m/it/9.53561 date[]flight[]record[]system(BA, FR) \OT1/ppl/m/n/9.53561 which leaks ac-cess to
+ []
+
+<Images/TGModel4.png, id=26, 313.17pt x 268.00125pt>
+File: Images/TGModel4.png Graphic file (type png)
+<use Images/TGModel4.png>
+Package pdftex.def Info: Images/TGModel4.png  used on input line 381.
 (pdftex.def)             Requested size: 219.21748pt x 187.59958pt.
 
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 389.
+
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 385.
+               Default added (so using `tbp') on input line 405.
 
+[4 <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/Images/TGModel1.png> <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/Images/TGModel2.png> <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/Images/TGModel3.png> <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/Images/TGModel4.png>] [5
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 401.
-
-[4 <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/Images/TGModel1.png> <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/Images/TGModel2.png> <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/4. Infrastructure BLP/Images/TGModel3.png>] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\4. Infrastructure BLP\whitesidesMatthew_CS6600_Project_Report.aux") ) 
+] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\4. Infrastructure BLP\whitesidesMatthew_CS6600_Project_Report.aux") ) 
 Here is how much of TeX's memory you used:
- 5210 strings out of 492895
- 78151 string characters out of 3123268
- 225251 words of memory out of 3000000
- 9038 multiletter control sequences out of 15000+200000
+ 5213 strings out of 492895
+ 78218 string characters out of 3123268
+ 231251 words of memory out of 3000000
+ 9040 multiletter control sequences out of 15000+200000
  53717 words of font info for 126 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
- 41i,11n,40p,626b,1686s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,11n,40p,626b,1651s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\4. Infrastructure BLP\whitesidesMatthew_CS6600_Project_Report.pdf" (4 pages, 171114 bytes).
+Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\4. Infrastructure BLP\whitesidesMatthew_CS6600_Project_Report.pdf" (5 pages, 185962 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
+ 72 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
