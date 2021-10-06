@@ -340,51 +340,55 @@ update_flight_record_system(BA, FR);
 
 \subsection{Take-Grant}
 
-  Next, we take a look at the Take-Grant (TG) model interpretation of our rights leakages. 
-  This models our HRU example in terms of a TG model where the \textit{Flight Record} created object has \textit{read, write} rights over the \textit{Flight Record System} that our \textbf{Maintenance Contractor (BA)} can utilize to gain \textit{read, write} access to the \textit{Flight Engine Data}.
+Next, we take a look at the Take-Grant (TG) model interpretation of our rights leakages. 
+This models our HRU example in terms of a TG model where the \textit{Flight Record} created object has \textit{read, write} rights over the \textit{Flight Record System} that our \textbf{Maintenance Contractor (BA)} can utilize to gain \textit{read, write} access to the \textit{Flight Engine Data}.
 
-  Our bad actor could achieve this leaked through the following TG commands. 
+Our bad actor could achieve this leaked through the following TG commands. 
 
-  \begin{enumerate}
-    \item \textbf{MC} creates object \textbf{FR}.
-    \item \textbf{MC} grants (\textit{t} to \textbf{FR}) to \textbf{BA}.
-    \item \textbf{BA} takes (\textit{r,w} to \textbf{FRS}) from \textbf{FR}.
-    \item \textbf{BA} takes (\textit{r,w} to \textbf{FED}) from \textbf{FRS}.
-  \end{enumerate}
+\begin{enumerate}
+  \item \textbf{MC} creates object \textbf{FR}.
+  \item \textbf{MC} grants (\textit{t} to \textbf{FR}) to \textbf{BA}.
+  \item \textbf{BA} takes (\textit{r,w} to \textbf{FRS}) from \textbf{FR}.
+  \item \textbf{BA} takes (\textit{r,w} to \textbf{FED}) from \textbf{FRS}.
+\end{enumerate}
 
-  Figure 1 shows the initial state of rights among actors and objects in the \textbf{FRS} system.
+Figure 1 shows the initial state of rights among actors and objects in the \textbf{FRS} system.
 
-  \begin{figure}[t]
-    \caption{Initial Iteration T-G Model Graph} 
-    \includegraphics[scale=0.7]{TGModel1.png}
-  \end{figure}
+\begin{figure}[t]
+  \caption{Initial Iteration T-G Model Graph} 
+  \includegraphics[scale=0.7]{TGModel1.png}
+\end{figure}
 
-  Figure 2 shows the state of rights after the \textbf{MC} runs the HRU command \textit{create\_flight\_record(MC)} which a new \textbf{FR} object. 
+Figure 2 shows the state of rights after the \textbf{MC} runs the HRU command \textit{create\_flight\_record(MC)} which a new \textbf{FR} object. 
 
-  \begin{figure}[t]
-    \caption{Iteration 2 T-G Model Graph} 
-    \includegraphics[scale=0.7]{TGModel2.png}
-  \end{figure}
+\begin{figure}[t]
+  \caption{Iteration 2 T-G Model Graph} 
+  \includegraphics[scale=0.7]{TGModel2.png}
+\end{figure}
 
-  Figure 3 shows the state after the \textbf{BA} leads the \textbf{MC} into giving them \textit{t} rights over \textbf{FR} they can exploit the system to take our laked rights to \textbf{FED} through the \textbf{FRS}. 
-  This would be established after the command \textit{grant\_flight\_record\_access(MC, BA, FR)}.
+Figure 3 shows the state after the \textbf{BA} leads the \textbf{MC} into giving them \textit{t} rights over \textbf{FR} they can exploit the system to take our laked rights to \textbf{FED} through the \textbf{FRS}. 
+This would be established after the command \textit{grant\_flight\_record\_access(MC, BA, FR)}.
 
-  \begin{figure}[t]
-    \caption{Iteration 3 T-G Model Graph} 
-    \includegraphics[scale=0.7]{TGModel3.png}
-  \end{figure}
+\begin{figure}[t]
+  \caption{Iteration 3 T-G Model Graph} 
+  \includegraphics[scale=0.7]{TGModel3.png}
+\end{figure}
 
-  Therefore allowing BA to execute \textit{update\_flight\_record\_system(BA, FR)} which leaks access to the FED as shown by the state in Figure 4.
+Therefore allowing BA to execute \textit{update\_flight\_record\_system(BA, FR)} which leaks access to the FED as shown by the state in Figure 4.
 
-  \begin{figure}[t]
-    \caption{Final Iteration T-G Model Graph} 
-    \includegraphics[scale=0.7]{TGModel4.png}
-  \end{figure}
+\begin{figure}[t]
+  \caption{Final Iteration T-G Model Graph} 
+  \includegraphics[scale=0.7]{TGModel4.png}
+\end{figure}
 
 \subsection{BLP}
-For our Bell-LaPadula model we first define the security classifications our subjects and objects fall into. Given we are dealing with military records it makes sense to use the standard government security levels. In addition to security level subjects and objects will fall into categories based upon the appropriate work unit they fall under.  
+The Bell-LaPadula Model (BLM) focuses on establishing access control confidentiality through security levels and categories. BLM focuses on two simple rules in a security policy within a given ACM. 
+The simple security property states a subject can not read an object at a higher security level. 
+The star property states that a subject may not write to any object at a lower security level.
+
+For our BLM implementation, we first define the security classifications for our subjects and objects. Given we are dealing with military records, it makes sense to use the standard government security levels. In addition to the security level, subjects and objects will fall into categories based upon the appropriate work unit.  
 Table 5 shows the security clearance levels and the subjects/objects at the given levels.
-Table 6 shows the work unit categories each subject/object falls into.
+Table 6 shows the work unit categories of each subject/object.
 
 \begin{table}[]
   \caption{Security Classifications for the UAS}
