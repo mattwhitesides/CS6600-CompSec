@@ -67,10 +67,40 @@
 \section{Chapter 9 Problems}
 
 \begin{enumerate}
-  \item [3)] Test
-  \item [4)] Test
-  \item [5)] Test
-  \item [6)] Test
+  \item [3)] Consider the two-bit machine.
+  \begin{enumerate}
+    \item The values of ach will be:
+    \begin{itemize}
+      \item $proj(Holly,cs,oo)$: 0101010
+      \item $proj(Lucy,cs,oo)$: 1110
+      \item $\pi Lucy(Cs)$: (Holly, xor0) 
+      \item $\pi Holly(Cs)$: (Lucy, xor0), (Lucy, xor1)
+      \item $\pi Lucy,xor0(Cs)$: (Holly, xor0), (Lucy, xor1)
+      \item $\pi Holly,xor0(Cs)$: (Lucy, xor0), (Lucy, xor1)
+      \item $\pi Lucy,xor1(Cs)$: (Holly, xor0), (Lucy, xor0)
+      \item $\pi Holly,xor1(Cs)$: (Holly, xor0), (Lucy, xor0), (Lucy, xor1)
+      \item $\pi xor1(Cs)$: (Holly, xor0), (Lucy, xor0)
+    \end{itemize}
+    \item The values of each will be:
+    \begin{itemize}
+      \item $proj(Holly,cs,oo)$: 01010100
+      \item $proj(Lucy,cs,oo)$: 1110
+      \item $\pi Lucy(Cs)$: (Holly, xor0) 
+      \item $\pi Holly(Cs)$: (Lucy, xor0), (Lucy, xor1)
+      \item $\pi Lucy,xor0(Cs)$: (Holly, xor0), (Lucy, xor1)
+      \item $\pi Holly,xor0(Cs)$: (Lucy, xor0), (Lucy, xor1)
+      \item $\pi Lucy,xor1(Cs)$: (Holly, xor0), (Lucy, xor0)
+      \item $\pi Holly,xor1(Cs)$: (Holly, xor0), (Lucy, xor0), (Lucy, xor1)
+      \item $\pi xor1(Cs)$: (Holly, xor0), (Lucy, xor0)
+    \end{itemize}
+  \end{enumerate}
+  \item [4)]
+  \begin{enumerate}
+    \item If blocking was not used the system would not be noninterference-secure, for example if louie sends messages to BLH nad BLDH and signals to dewey that their complete at the same time hughie attempts to read from BH his high output will appear in BL which dewey may attempt to read from thus making dewey potentially read from a HIGH source. 
+    \item If the buffers were unbounded this would lead to a similar issue with the non-blocking, data from the high source potentailly could be added to the buffer and a block is released, however only part of the data may be read leaving data in the buffer for the next messages, thus potentailly leaving open a cycle where high information is in the buffer with low information being used by louie or dewey. 
+  \end{enumerate}
+  \item [5)] No in this new rule set if only the High or Low state bit was output based upon the operation performed that would give lucy both a different number of output bits (violating 9-4) and since the bits not effected are no longer output this would effect the outcome of the low bits thus giving lucy information about the operations performed.
+  \item [6)] The following input sequences could achive a low ouput of 011011 thus the total output could be 10?1?1?0?1?1: $0_H010_H100,01_H0101_H100,1_H010_H100,1_H011_H100$.
 \end{enumerate}
 
 % \appendices
