@@ -142,7 +142,7 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
       \hline
       \textit{Pilot Commander (PC)}                    & O,R,W         & R,W           & R,W           & R,W           & R,W           & O,R,W,E,G,C   & O,R,W,E,G,C   & R,W,E,G,C     & R,W,E,G,C     & R,W,E,G,C     \\
       \textit{Instructor Pilot (IP)}                   & R             & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R,W,E,C       & R,E           & R,E           & R,E           \\
-      \textit{Maintenance Crew (MC)}                   & $\varnothing$ & $\varnothing$ & O,R,W         & R             & R             & $\varnothing$ & $\varnothing$ & R,E           & R,E           & R,E           \\
+      \textit{Maintenance Crew (MC)}                   & $\varnothing$ & $\varnothing$ & O,R,W         & $\varnothing$             & R             & $\varnothing$ & $\varnothing$ & R,E           & R,E           & R,E           \\
       \textit{Flight Data Admin (FDA)}                 & $\varnothing$ & $\varnothing$ & R             & O,R,W         & O,R,W         & $\varnothing$ & $\varnothing$ & O,R,W,E,G,C   & O,R,W,E,G,C   & O,R,W,E,G,C   \\
       \textit{External Contractor (Bad Actor) (EC)} & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & O,R,W         & $\varnothing$ & $\varnothing$ & $\varnothing$ & R             & $\varnothing$ \\
       \textbf{Autonomous Navigation Control (ANC)}     & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & R,W,E,C       & R             & R             & R             & $\varnothing$ \\
@@ -164,7 +164,7 @@ MQ-25 is the first unmanned aircraft to support aerial refueling another aircraf
       \hline
       \textit{PC}  & O,R,W                                & R,W                                  & R,W                                  & R,W                                  & R,W                                  & O,R,W,E,G,C                          & O,R,W,E,G,C                          & R,W,E,G,C                            & R,W,E,G,C                            & R,W,E,G,C                            & {\color[HTML]{009901} R,W,E,G,C}     \\
       \textit{IP}  & R                                    & O,R,W                                & $\varnothing$                        & $\varnothing$                        & $\varnothing$                        & R,W,E,C                              & R,W,E,C                              & R,E                                  & R,E                                  & R,E                                  & {\color[HTML]{009901} R,E}           \\
-      \textit{MC}  & $\varnothing$                        & $\varnothing$                        & O,R,W                                & R                                    & R                                    & $\varnothing$                        & $\varnothing$                        & R,E                                  & R,E                                  & R,E                                  & {\color[HTML]{009901} R,E}           \\
+      \textit{MC}  & $\varnothing$                        & $\varnothing$                        & O,R,W                                & $\varnothing$                                    & R                                    & $\varnothing$                        & $\varnothing$                        & R,E                                  & R,E                                  & R,E                                  & {\color[HTML]{009901} R,E}           \\
       \textit{FDA} & $\varnothing$                        & $\varnothing$                        & R                                    & O,R,W                                & O,R,W                                & $\varnothing$                        & $\varnothing$                        & O,R,W,E,G,C                          & O,R,W,E,G,C                          & O,R,W,E,G,C                          & {\color[HTML]{009901} O,R,W,E,G,C}   \\
       \textit{EC}  & $\varnothing$                        & $\varnothing$                        & $\varnothing$                        & $\varnothing$                        & O,R,W                                & $\varnothing$                        & $\varnothing$                        & $\varnothing$                        & R                                    & {\color[HTML]{CB0000} E,W}             & {\color[HTML]{009901} $\varnothing$} \\
       \textbf{ANC} & $\varnothing$                        & $\varnothing$                        & $\varnothing$                        & $\varnothing$                        & $\varnothing$                        & R,W,E,C                              & R                                    & R                                    & R                                    & $\varnothing$                        & {\color[HTML]{009901} $\varnothing$} \\
@@ -344,9 +344,10 @@ Next, we take a look at the Take-Grant (TG) model interpretation of our rights l
 This model represents our system as a directed graph, with our subject and objects represented as vertices (black for subjects, white for objects). 
 Edges represent the rights on vertex has over another, where special take (\textit{t}) and grant (\textit{g}) representing the ability of a subject or object to give or obtain rights from another subject or object. 
 In our case, subjects can execute a grant HRU command representing the grant right, and take can be achieved by rights automatically allocated by granting access to specific objects (i.e., the FRS).
+
 This models our HRU example in terms of a TG model where the \textit{Flight Record} created object has \textit{read, write} rights over the \textit{Flight Record System} that our \textbf{External Contractor (EC)} can utilize to gain \textit{read, write} access to the \textit{Flight Engine Data}.
 
-Our bad actor could achieve this leaked through the following TG commands. 
+Our bad actor could achieve this leak through the following TG commands. 
 
 \begin{enumerate}
   \item \textbf{MC} creates object \textbf{FR}.
@@ -460,6 +461,31 @@ Now that we've established security classifications for our subjects and objects
 
 As you can see, while this system does keep our bad actor \textbf{EC} from reading the confidential flight records from the flight record system, it does not prevent an integrity attack of writing up to the \textbf{FRS} and \textbf{FR}.
 
+We can setup our BLP system state in the context of the command leakages as follows:
+
+\begin{itemize}
+  \item $S = \{MC, EC\}$
+  \item $O = \{FRS, FR\}$
+  \item $P = \{owner, read, write\}$
+  \item $C = \{Secret (S), Confidential (C)\}$
+  \item $K = \{MO, FDO\}$
+  \item $f_c(s) = \{(C, \{MO\}), (C, \{FDO\})\}$
+  \item $f_c(o) = \{(S, \{MO, FDO\}), (C, \{MO, FDO\})\}$
+\end{itemize}
+
+Then as the commands are executed we can see the resulting states in Table 9. 
+
+\begin{table}[]
+  \caption{}
+  \label{tab:my-table}
+  \begin{tabular}{lll}
+  \textbf{} & \textbf{i}                                          & \textbf{$i_1$} \\
+  X         & \{(r, $\varnothing$), ($\varnothing$, $\varnothing$)\} &                \\
+  Y         & \{(y, n), (n, n)\}                                  &                \\
+  Z         & $V_1$                                               &               
+  \end{tabular}
+  \end{table}
+
 \subsection{Biba}
 
 The Biba model focuses on data integrity as opposed to the BLP model, which enforces confidentiality by restricting access. The Biba model ensures the data objects once created remain unmodified by untrusted sources by establishing integrity levels. 
@@ -479,7 +505,7 @@ This gives us an overall security and integrity clearance levels for subject cat
 
 \subsection{Clark Wilson}
 
-The Clark Wilson is an integrity verification model that enforces a principle of \textit{seperation of duty} in that a subject/object that verifies a data state transition is not the same one that caused it. Data with valid integrity is defined to be in a \textit{consistant state}, and processes can only transform data through valid \textit{transactions} that preserve this consistency. Data that is constrained by the separation of duty and transaction controls are said to be \textit{constrained data items (CDIs)}. In contrast, data not constrained by these are called \textit{unconstrained data items (UDIs)}. 
+The Clark Wilson is an integrity verification model that enforces a principle of \textit{separation of duty} in that a subject/object that verifies a data state transition is not the same one that caused it. Data with valid integrity is defined to be in a \textit{consistant state}, and processes can only transform data through valid \textit{transactions} that preserve this consistency. Data that is constrained by the separation of duty and transaction controls are said to be \textit{constrained data items (CDIs)}. In contrast, data not constrained by these are called \textit{unconstrained data items (UDIs)}. 
 
 After defining out CDIs, we define two procedures, an \textit{integrity verification procedure (IVP)} that tests the system is in a valid state, and \textit{transformation procedures (TPs)} that will change the state of the system using transactions. To ensure valid TPs occur on valid CDIs, the Clark Wilson model has various \textit{certification rules (CR)} that ensures the TPs and IVPs that operate on CDIs keep a valid state and \textit{enforcement rules {ER}} that prevent TPs from operating on CDIs that have not been certified.
 
