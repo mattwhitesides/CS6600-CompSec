@@ -509,6 +509,64 @@ The Clark Wilson is an integrity verification model that enforces a principle of
 
 After defining out CDIs, we define two procedures, an \textit{integrity verification procedure (IVP)} that tests the system is in a valid state, and \textit{transformation procedures (TPs)} that will change the state of the system using transactions. To ensure valid TPs occur on valid CDIs, the Clark Wilson model has various \textit{certification rules (CR)} that ensures the TPs and IVPs that operate on CDIs keep a valid state and \textit{enforcement rules {ER}} that prevent TPs from operating on CDIs that have not been certified.
 
+First, for our scenario, we'll define the CDIs and UDIs. In this, we'll describe the contained data items as data related to the flight record and the unconstrained being the autonomous operations. While on their own, the ANC and RO are vital, and access should be confidential. The integrity check, in this case, is specific to the flight record data. 
+
+\begin{itemize}
+  \item $CDIs=\{FED, RTD, FRS, FR\}$
+  \item $UDIs=\{ANC, RO\}$
+\end{itemize}
+
+Next, we need to establish the \textit{integrity constraints} over the flight record data. 
+
+\begin{itemize}
+  \item The FRs uploaded to the FRS must be equivalent to the data on the UAC as it is transferred over to the FRS.
+  \item The FRS can only be written via new FRs or deleted, but FRs themselves cannot change.
+\end{itemize}
+
+We will not define the IVP commands that run on the system to ensure these constraints have been adhered to. 
+The first IVP check rereads the FR from the UAC and compares it to the FR in the FRS after an executed upload.
+The next IVP ensures that the FRS is not modified and will run before and after an upload is executed.
+
+To exectue IVP1 a different user would have to re-download the flight record from the UAC and verify aginst the data in the FRS system. 
+Then to test IVP2 likely a system program would record the state of the FRS before a transaction and compare it to the state of the system after the transaction to verfiy none of the integrity contstraints in IVP2 are invalid. 
+
+\begin{itemize}
+  \item IVP1
+\begin{lstlisting}
+read uac_flight_record uac_fr
+
+if uac_fr != FRS[fr]
+  return invalid
+else
+  return valid
+\end{lstlisting}
+
+  \item IVP2
+\begin{lstlisting}
+read FRS initial_FRS
+
+\\ Execute any TP 
+
+read FRS after_FRS
+
+foreach FR in after_FRS
+  if FR in initial_FRS
+    if FR.FlightData != initial_FRS[FR.ID].FlightData
+      return invalid
+
+return valid
+\end{lstlisting}
+\end{itemize}
+
+Now we can define the TPs that our model can exectue to preform the FRS functionality these commands themselves enforce the CR rules.
+
+\begin{itemize}
+  \item TP1: execute create\_flight\_record(p)
+  \item TP2: execute upload\_flight\_record(p)
+  \item TP3: execute delete\_flight\_record\_from\_system(p)
+  \item TP4: execute update\_flight\_record\_system(p)
+\end{itemize}
+
 \subsection{Chinese Wall}
 
 The Chinese Wall model is a hybrid approach that enforces both confidentiality and integrity. It establishes a separation or ``wall'' between subjects and objects that would have a conflict of interest between them. For example, a subject who has read the engine data of our MQ-25 UAS would have a conflict of interest if they were to work on another UAS from another company. Our policy enforces that subjects who have a conflict of interest do not have access to specific data defined in our \textit{conflict of interest classes}. In our scenario, we describe our \textit{objects} related to our UAS data from Table 3. These objects will be contained in our \textit{company datasets (CD)}, containing our various UAS data. Above that, our \textit{conflict of interest class (COI)} defines what CDs our subjects will have access to and how they will be protected if later transferred to another company/organization. 
