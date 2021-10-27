@@ -385,6 +385,8 @@ Therefore allowing EC to execute \textit{update\_flight\_record\_system(EC, FR)}
   \includegraphics[scale=0.7]{TGModel4.png}
 \end{figure}
 
+Using this TG protection model instead of the simple HRU commands, we demonstrate that the safety question is decidable in linear time based on our graph consisting of seven nodes.
+
 \subsection{Bell-LaPadula}
 The Bell-LaPadula Model (BLP) focuses on establishing access control confidentiality through security levels and categories. 
 BLP focuses on two simple rules in a security policy within a given ACM. 
@@ -473,18 +475,21 @@ We can setup our BLP system state in the context of the command leakages as foll
   \item $f_c(o) = \{(S, \{MO, FDO\}), (C, \{MO, FDO\})\}$
 \end{itemize}
 
-Then as the commands are executed we can see the resulting states in Table 9. 
+Then as the commands are executed we can see the resulting states in Table 7. 
 
-\begin{table}[]
-  \caption{}
-  \label{tab:my-table}
-  \begin{tabular}{lll}
-  \textbf{} & \textbf{i}                                          & \textbf{$i_1$} \\
-  X         & \{(r, $\varnothing$), ($\varnothing$, $\varnothing$)\} &                \\
-  Y         & \{(y, n), (n, n)\}                                  &                \\
-  Z         & $V_1$                                               &               
-  \end{tabular}
-  \end{table}
+\begin{table*}[]
+  \centering
+  \caption{BLP System State Commands}
+  \label{tab:blp-commands}
+    \begin{tabular}{llllll}
+      \hline
+      \textbf{} & \textbf{$i_0$}                                      & \textbf{$i_1$}                & \textbf{$i_2$}        & \textbf{$i_3$}        & \textbf{$i_4$}        \\
+      \hline
+      X         & \{(r, $\varnothing$), ($\varnothing$, $\varnothing$)\} & \{(r, $\varnothing$), (r, o)\} & \{($\varnothing$, r), ($\varnothing$, $\varnothing$)\} & \{($\varnothing$, o), ($\varnothing$, $\varnothing$)\} & \{($\varnothing$, w), ($\varnothing$, $\varnothing$)\} \\
+      Y         & \{(y, n), (n, n)\}                                  & \{(y, n), (y, y)\}            & \{(y, y), ($\varnothing$, y)\}   & \{(y, y), ($\varnothing$, y)\}   & \{($\varnothing$, y), (y, y)\}   \\
+      Z         & $V_1$                                               & $V_2$                         & $V_3$                 & $V_4$                 & $V_5$                
+      \end{tabular}
+  \end{table*}
 
 \subsection{Biba}
 
@@ -497,11 +502,13 @@ These notions apply to our infrastructure well as the bad actor (External Contra
 
 Lipner proposed an integrity model that combined aspects of the BLP and Biba model to fit a more real-world commercial software development environment. Lipner created security levels and categories similar to BLP to prevent various software development lifecycle subjects from accessing different systems. Lipner then added to the security classifications with integrity classifications for system programs and integrity categories to differentiate development and production environments. 
 
-In our BLP model we established various security classifications (Table 5) and work unit categories (Table 6) so we need to establish security categories to define the area of impact in the given category (Table 7).
+In our BLP model we established various security classifications (Table 5) and work unit categories (Table 6) so we need to establish security categories to define the area of impact in the given category (Table 8).
 
-We can now incorporate integrity categories to allow distinction between on aircraft systems and the flight record keeping system (Table 8) and integrity classifications to determine the trust of the data combing from that source (Table 9 highest to lowest level).  
+We can now incorporate integrity categories to allow distinction between on aircraft systems and the flight record keeping system (Table 9) and integrity classifications to determine the trust of the data combing from that source (Table 10 highest to lowest level).  
 
-This gives us an overall security and integrity clearance levels for subject categories (Table 10) and objects (Table 11).
+This gives us an overall security and integrity clearance levels for subject categories (Table 11) and objects (Table 12). 
+
+Ideally, these classifications would block EC from accessing FRS by putting them in a lower classification stopping our rights leakage. However, due to the requirement of MC to allow EC to read a flight record, our system would not operate otherwise. 
 
 \subsection{Clark Wilson}
 
@@ -608,7 +615,7 @@ The Chinese Wall model is a hybrid approach that enforces both confidentiality a
   \hline
   System Programs (ISP)                  & $\varnothing$    & ANC,RO,FRS     \\
   Operational (IO)                       & PC,IP,FDA        & $\varnothing$  \\
-  Maintenance (IM)                       & MC,EC            & FR,FED,RTD,FR      
+  Maintenance (IM)                       & MC,EC            & FRS,FED,RTD,FR      
   \end{tabular}
 \end{table}
 
