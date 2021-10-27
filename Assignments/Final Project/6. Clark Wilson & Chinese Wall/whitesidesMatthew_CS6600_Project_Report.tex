@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \graphicspath{ {Images/} }
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{listings}
 \usepackage{color}
 \usepackage[table,xcdraw]{xcolor}
@@ -96,7 +97,7 @@ These aircraft fall under the umbrella of cyber-physical systems (CPS), merging 
 We will design a proposed infrastructure security policy for the Boeing MQ-25 unmanned aircraft system, but it will also apply to similar mission support drones. 
 The MQ-25 is an unmanned aircraft system designed for the U.S. Navy, and it provides autonomous refueling capability for the Boeing F/A-18 Super Hornet, Boeing EA-18G Growler, and Lockheed Martin F-35C fighters.
 This capability extends the combat range of the supported aircraft, seamlessly and semi-anonymously navigating to the plane, refueling, and returning to base. 
-MQ-25 is the first unmanned aircraft to support aerial refueling another aircraft and is currently in the flight test phase of development [1], making it the perfect system to analyze security impacts for current and future unmanned aircraft systems. 
+MQ-25 is the first unmanned aircraft to support aerial refueling another aircraft and is currently in the flight test phase of development [1], making it the perfect system to analyze security impacts for current and future unmanned aircraft systems. For the purposes of this document we will take the basic idea of the MQ-25 and model a UAS system referred to as the MX-01 UAS. 
 
 \subsubsection{Infrastructure Security Policy}
 
@@ -526,15 +527,15 @@ First, for our scenario, we'll define the CDIs and UDIs. In this, we'll describe
 Next, we need to establish the \textit{integrity constraints} over the flight record data. 
 
 \begin{itemize}
-  \item The FRs uploaded to the FRS must be equivalent to the data on the UAC as it is transferred over to the FRS.
+  \item The FRs uploaded to the FRS must be equivalent to the data on the UAS as it is transferred over to the FRS.
   \item The FRS can only be written via new FRs or deleted, but FRs themselves cannot change.
 \end{itemize}
 
 We will not define the IVP commands that run on the system to ensure these constraints have been adhered to. 
-The first IVP check rereads the FR from the UAC and compares it to the FR in the FRS after an executed upload.
+The first IVP check rereads the FR from the UAS and compares it to the FR in the FRS after an executed upload.
 The next IVP ensures that the FRS is not modified and will run before and after an upload is executed.
 
-To exectue IVP1 a different user would have to re-download the flight record from the UAC and verify aginst the data in the FRS system. 
+To exectue IVP1 a different user would have to re-download the flight record from the UAS and verify aginst the data in the FRS system. 
 Then to test IVP2 likely a system program would record the state of the FRS before a transaction and compare it to the state of the system after the transaction to verfiy none of the integrity contstraints in IVP2 are invalid. 
 
 \begin{itemize}
@@ -577,6 +578,17 @@ Now we can define the TPs that our model can exectue to preform the FRS function
 \subsection{Chinese Wall}
 
 The Chinese Wall model is a hybrid approach that enforces both confidentiality and integrity. It establishes a separation or ``wall'' between subjects and objects that would have a conflict of interest between them. For example, a subject who has read the engine data of our MQ-25 UAS would have a conflict of interest if they were to work on another UAS from another company. Our policy enforces that subjects who have a conflict of interest do not have access to specific data defined in our \textit{conflict of interest classes}. In our scenario, we describe our \textit{objects} related to our UAS data from Table 3. These objects will be contained in our \textit{company datasets (CD)}, containing our various UAS data. Above that, our \textit{conflict of interest class (COI)} defines what CDs our subjects will have access to and how they will be protected if later transferred to another company/organization. 
+ 
+First we'll define our \textit{company datasets (CD)} and our \textit{objects} in our datasets that contain information related to our UAS. These datasets will fall under an \textbf{Aircraft Systems} COI class (Figure 5).
+
+\begin{equation*}
+  \begin{aligned}
+    CD = (\{Flight Records, \{FED, RTD, FRS\}\},\\
+         \{UAS Operations, \{ANC, RO\}\})
+  \end{aligned}
+\end{equation*}
+
+In this scenario, any subject having read a from a competitor dataset could not access a dataset in our COI class. If we wanted to allow access to a specific object in our dataset (i.e., a \textbf{Flight Record}), we could implement a sanitization method on the \textbf{Flight Records}. We could establish a new \textbf{Sanatized Flight Record} and only allow the EC access to this sanitized object. However, a new process would need to create the sanitized record off the original FR after upload and be maintained on a new sanitized FRS, which does not allow the MC and EC to do their jobs thoroughly. Also, this would only allow the EC not to conflict when later moving to a competitor company. 
 
 \begin{table}[]
   \caption{Security Categories for the UAS}
@@ -648,6 +660,11 @@ The Chinese Wall model is a hybrid approach that enforces both confidentiality a
   FRS             & (\{S,\{AD,OD,RTL\}) & (IM,\{IFRS\})  
   \end{tabular}
 \end{table}
+
+\begin{figure}[t]
+  \caption{Aircraft Systems COI Class} 
+  \includegraphics[scale=0.5]{COI_Classes.drawio.png}
+\end{figure}
 
 % \section{Conclusions}
 
