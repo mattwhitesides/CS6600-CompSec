@@ -511,6 +511,83 @@ This gives us an overall security and integrity clearance levels for subject cat
 
 Ideally, these classifications would block EC from accessing FRS by putting them in a lower classification stopping our rights leakage. However, due to the requirement of MC to allow EC to read a flight record, our system would not operate otherwise. 
 
+
+\begin{table}[]
+  \caption{Security Categories for the UAS}
+  \label{tab:security-categories}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{Security Category} & \textbf{Subjects} & \textbf{Objects} \\
+  \hline
+  Archived Data (AD)         & PC,MC,FDA         & FRS              \\
+  Operational Data (OD)      & PC,IP,MC          & ANC,RO,FED,RTD   \\
+  Ready To Load (RTL)        & FDA,MC,EC         & FR,FRS    
+  \end{tabular}
+\end{table}
+
+\begin{table}[]
+  \caption{Integrity Categories for the UAS}
+  \label{tab:integrity-categories}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{Integrity Category} & \textbf{Subjects} & \textbf{Objects}  \\
+  \hline
+  On Aircraft (IOA)            & PC,IP,MC        & ANC,RO,FED,RTD \\
+  Flight Record System (IFRS)  & FDA,MC,EV       & FRS        
+  \end{tabular}
+\end{table}
+
+\begin{table}[]
+  \caption{Integrity Classifications for the UAS}
+  \label{tab:integrity-classifications}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{Integrity Classifications} & \textbf{Subjects} & \textbf{Objects} \\
+  \hline
+  System Programs (ISP)                  & $\varnothing$    & ANC,RO,FRS     \\
+  Operational (IO)                       & PC,IP,FDA        & $\varnothing$  \\
+  Maintenance (IM)                       & MC,EC            & FRS,FED,RTD,FR      
+  \end{tabular}
+\end{table}
+
+\begin{table}[]
+  \caption{Security and Integrity Levels for Work Units}
+  \label{tab:security-integrity-work-units}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{Work Unit Category} & \textbf{Security} & \textbf{Integrity} \\
+  \hline
+  Flight Ops                  & (\{TS,\{OD\})    & (ISP,\{IOA\})      \\
+  Maintenance Ops             & (\{S,\{AD,RTL\}) & (IO,\{IOA,IFRS\})  \\
+  Flight Data Ops             & (\{S,\{OD,RTL\}) & (IM,\{IFRS\})      
+  \end{tabular}
+\end{table}
+
+\begin{table}[]
+  \caption{Security and Integrity Levels for Objects}
+  \label{tab:security-integrity-objects}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{Object} & \textbf{Security} & \textbf{Integrity}   \\
+  \hline
+  ANC             & (\{TS,\{OD\})       & (ISP,\{IOA\})      \\
+  RO              & (\{TS,\{OD\})       & (ISP,\{IOA\})      \\
+  FED             & (\{S,\{AD,OD,RTL\}) & (IO,\{IOA,IFRS\})  \\ 
+  RTD             & (\{S,\{OD\})        & (IO,\{IOA,IFRS\})  \\
+  FRS             & (\{S,\{AD,OD,RTL\}) & (IM,\{IFRS\})  
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \caption{Aircraft Systems COI Class} 
+  \includegraphics[scale=0.5]{COI_Classes.png}
+\end{figure}
+
 \subsection{Clark Wilson}
 
 The Clark Wilson is an integrity verification model that enforces a principle of \textit{separation of duty} in that a subject/object that verifies a data state transition is not the same one that caused it. Data with valid integrity is defined to be in a \textit{consistant state}, and processes can only transform data through valid \textit{transactions} that preserve this consistency. Data that is constrained by the separation of duty and transaction controls are said to be \textit{constrained data items (CDIs)}. In contrast, data not constrained by these are called \textit{unconstrained data items (UDIs)}. 
@@ -590,81 +667,9 @@ First we'll define our \textit{company datasets (CD)} and our \textit{objects} i
 
 In this scenario, any subject having read a from a competitor dataset could not access a dataset in our COI class. If we wanted to allow access to a specific object in our dataset (i.e., a \textbf{Flight Record}), we could implement a sanitization method on the \textbf{Flight Records}. We could establish a new \textbf{Sanatized Flight Record} and only allow the EC access to this sanitized object. However, a new process would need to create the sanitized record off the original FR after upload and be maintained on a new sanitized FRS, which does not allow the MC and EC to do their jobs thoroughly. Also, this would only allow the EC not to conflict when later moving to a competitor company. 
 
-\begin{table}[]
-  \caption{Security Categories for the UAS}
-  \label{tab:security-categories}
-  \centering
-  \begin{tabular}{lll}
-  \hline
-  \textbf{Security Category} & \textbf{Subjects} & \textbf{Objects} \\
-  \hline
-  Archived Data (AD)         & PC,MC,FDA         & FRS              \\
-  Operational Data (OD)      & PC,IP,MC          & ANC,RO,FED,RTD   \\
-  Ready To Load (RTL)        & FDA,MC,EC         & FR,FRS    
-  \end{tabular}
-\end{table}
+\section{Non-Interference}
 
-\begin{table}[]
-  \caption{Integrity Categories for the UAS}
-  \label{tab:integrity-categories}
-  \centering
-  \begin{tabular}{lll}
-  \hline
-  \textbf{Integrity Category} & \textbf{Subjects} & \textbf{Objects}  \\
-  \hline
-  On Aircraft (IOA)            & PC,IP,MC        & ANC,RO,FED,RTD \\
-  Flight Record System (IFRS)  & FDA,MC,EV       & FRS        
-  \end{tabular}
-\end{table}
-
-\begin{table}[]
-  \caption{Integrity Classifications for the UAS}
-  \label{tab:integrity-classifications}
-  \centering
-  \begin{tabular}{lll}
-  \hline
-  \textbf{Integrity Classifications} & \textbf{Subjects} & \textbf{Objects} \\
-  \hline
-  System Programs (ISP)                  & $\varnothing$    & ANC,RO,FRS     \\
-  Operational (IO)                       & PC,IP,FDA        & $\varnothing$  \\
-  Maintenance (IM)                       & MC,EC            & FRS,FED,RTD,FR      
-  \end{tabular}
-\end{table}
-
-\begin{table}[]
-  \caption{Security and Integrity Levels for Work Units}
-  \label{tab:security-integrity-work-units}
-  \centering
-  \begin{tabular}{lll}
-  \hline
-  \textbf{Work Unit Category} & \textbf{Security} & \textbf{Integrity} \\
-  \hline
-  Flight Ops                  & (\{TS,\{OD\})    & (ISP,\{IOA\})      \\
-  Maintenance Ops             & (\{S,\{AD,RTL\}) & (IO,\{IOA,IFRS\})  \\
-  Flight Data Ops             & (\{S,\{OD,RTL\}) & (IM,\{IFRS\})      
-  \end{tabular}
-\end{table}
-
-\begin{table}[]
-  \caption{Security and Integrity Levels for Objects}
-  \label{tab:security-integrity-objects}
-  \centering
-  \begin{tabular}{lll}
-  \hline
-  \textbf{Object} & \textbf{Security} & \textbf{Integrity}   \\
-  \hline
-  ANC             & (\{TS,\{OD\})       & (ISP,\{IOA\})      \\
-  RO              & (\{TS,\{OD\})       & (ISP,\{IOA\})      \\
-  FED             & (\{S,\{AD,OD,RTL\}) & (IO,\{IOA,IFRS\})  \\ 
-  RTD             & (\{S,\{OD\})        & (IO,\{IOA,IFRS\})  \\
-  FRS             & (\{S,\{AD,OD,RTL\}) & (IM,\{IFRS\})  
-  \end{tabular}
-\end{table}
-
-\begin{figure}[t]
-  \caption{Aircraft Systems COI Class} 
-  \includegraphics[scale=0.5]{COI_Classes.png}
-\end{figure}
+The Non-Interference model focuses on information flow to ensure that objects and subjects at each security level do not "interfere" with those at different levels. It achieves this by modeling inputs and outputs at different sensitivity levels, i.e., High and Low. It intends to ensure that those modifying data at a low level of security clearance can only see the machine's state as if only low-level interactions were occurring regardless of what the high-level entities are doing. For example, in our system, the Pilot Commander executing flight instructions on the ANC should not change their system state or be visible by a Maintenance Contractor reading old flight records. These rules are all in an attempt to ensure high-level activities are not visible by low levels, with the theory being low levels would be able to infer information about high-level activities by these changes. 
 
 % \section{Conclusions}
 
