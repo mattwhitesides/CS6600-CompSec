@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  29 OCT 2021 09:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  3 NOV 2021 08:51
 entering extended mode
 **"c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/7. NonInterference/whitesidesMatthew_CS6600_Project_Report.tex"
 ("c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/7. NonInterference/whitesidesMatthew_CS6600_Project_Report.tex"
@@ -449,9 +449,7 @@ File: Images/COI_Classes.png Graphic file (type png)
 <use Images/COI_Classes.png>
 Package pdftex.def Info: Images/COI_Classes.png  used on input line 588.
 (pdftex.def)             Requested size: 151.064pt x 100.87662pt.
-[6] [7 <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/7. NonInterference/Images/COI_Classes.png>] [8
-
-] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\7. NonInterference\whitesidesMatthew_CS6600_Project_Report.aux") ) 
+[6] [7 <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/7. NonInterference/Images/COI_Classes.png>] [8] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\7. NonInterference\whitesidesMatthew_CS6600_Project_Report.aux") ) 
 Here is how much of TeX's memory you used:
  5854 strings out of 492895
  85974 string characters out of 3123268
@@ -461,7 +459,7 @@ Here is how much of TeX's memory you used:
  1144 hyphenation exceptions out of 8191
  41i,11n,40p,1082b,1649s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\7. NonInterference\whitesidesMatthew_CS6600_Project_Report.pdf" (8 pages, 273103 bytes).
+Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\7. NonInterference\whitesidesMatthew_CS6600_Project_Report.pdf" (8 pages, 275598 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -614,6 +614,7 @@ The next IVP ensures that the FRS is not modified and will run before and after 
 
 To execute IVP1 a different user would have to re-download the flight record from the UAS and verify against the data in the FRS system. 
 Then to test IVP2 likely a system program would record the state of the FRS before a transaction and compare it to the state of the system after the transaction to verify none of the integrity constraints in IVP2 are invalid. 
+Some examples of incorrect data could include the flight record dates such as the start time being after the end time, the aircraft location data indicating speeds or movements beyond the capabilities of the UAS, corrupted data in the flight record causing the inability to read basic information such as the aircraft identifier, attached components, data header parameters, etc.
 
 \begin{itemize}
   \item IVP1
@@ -665,11 +666,48 @@ First we'll define our \textit{company datasets (CD)} and our \textit{objects} i
   \end{aligned}
 \end{equation*}
 
-In this scenario, any subject having read a from a competitor dataset could not access a dataset in our COI class. If we wanted to allow access to a specific object in our dataset (i.e., a \textbf{Flight Record}), we could implement a sanitization method on the \textbf{Flight Records}. We could establish a new \textbf{Sanatized Flight Record} and only allow the EC access to this sanitized object. However, a new process would need to create the sanitized record off the original FR after upload and be maintained on a new sanitized FRS, which does not allow the MC and EC to do their jobs thoroughly. Also, this would only allow the EC not to conflict when later moving to a competitor company. 
+In this scenario, any subject having read a from a competitor dataset could not access a dataset in our COI class. If we wanted to allow access to a specific object in our dataset (i.e., a \textbf{Flight Record}), we could implement a sanitization method on the \textbf{Flight Records}. We could establish a new \textbf{Sanitized Flight Record} and only allow the EC access to this sanitized object. However, a new process would need to create the sanitized record off the original FR after upload and be maintained on a new sanitized FRS, which does not allow the MC and EC to do their jobs thoroughly. Also, this would only allow the EC not to conflict when later moving to a competitor company. 
 
 \section{Non-Interference}
 
-The Non-Interference model focuses on information flow to ensure that objects and subjects at each security level do not "interfere" with those at different levels. It achieves this by modeling inputs and outputs at different sensitivity levels, i.e., High and Low. It intends to ensure that those modifying data at a low level of security clearance can only see the machine's state as if only low-level interactions were occurring regardless of what the high-level entities are doing. For example, in our system, the Pilot Commander executing flight instructions on the ANC should not change their system state or be visible by a Maintenance Contractor reading old flight records. These rules are all in an attempt to ensure high-level activities are not visible by low levels, with the theory being low levels would be able to infer information about high-level activities by these changes. 
+The Non-Interference model focuses on information flow to ensure that objects and subjects at each security level do not "interfere" with those at different levels. It achieves this by modeling inputs and outputs at different sensitivity levels, i.e., High and Low. It intends to ensure that those modifying data at a low level of security clearance can only see the machine's state as if only low-level interactions were occurring regardless of what the high-level entities are doing. For example, in our system, the Pilot Commander executing flight instructions on the ANC should not change their system state or be visible by a Maintenance Contractor reading old flight records. These rules are all in an attempt to ensure high-level activities are not visible by low levels, with the theory being low levels would be able to infer information about high-level activities by these changes.
+
+To detect interference, we will utilize a scenario similar to our BLP situation where the following commands are executed from the MC and EC that produces a rights leakage. Essentially to detect interference, we need to determine if actions that modify the FRS (which is at a \textit{Secret} clearance level) produce outputs that can be seen by the EC (at a lower \textit{Confidential} level).
+
+\begin{lstlisting}
+  create_flight_record(Maintenance Crew (MC));
+  grant_flight_record_access(Maintenance Crew, External Contractor (EC), Flight Record (FR));
+  upload_flight_record(External Contractor (EC), Flight Record (FR));
+  make_owner(MC, EC, FR);
+  update_flight_record_system(EC, FR);
+\end{lstlisting}  
+
+\begin{enumerate}
+  \item \textbf{MC} executes \textit{create flight record} creating flight record object \textbf{FR}.
+  \begin{itemize}
+    \item There is no interference here as MC is the same level as the new FR.
+  \end{itemize}
+  \item \textbf{MC} executes \textit{upload flight record} granting the object \textbf{FRS} access to the flight record object \textbf{FR}.
+  \begin{itemize}
+    \item There is no interference here as MC uses a higher-level procedure to write to the FRS but not read from it.
+    \item However, some potential interference issues are if any errors occur when uploading to the FRS if the FRS returns any faults or exceptions. The MC can read this output that would constitute interference as higher-level outputs would be visible by the MC.
+    \item The \textit{upload\_flight\_record()} process would need to sanitize the output of any errors or even successful debugging information. 
+  \end{itemize}
+  \item \textbf{MC} executes \textit{grant flight record access} granting \textbf{EC} access flight record object \textbf{FR}.
+  \begin{itemize}
+    \item There is no interference here as MC is the same level as the new FR.
+  \end{itemize}
+  \item \textbf{MC} executes \textit{make owner} making \textbf{EC} have owner rights over flight record object \textbf{FR}.
+  \begin{itemize}
+    \item There is no interference here as MC and EC are at the same level as the new FR.
+  \end{itemize}
+  \item \textbf{EC} executes \textit{update flight record system} allowing \textbf{EC} write to the flight record system object \textbf{FRS}.
+  \begin{itemize}
+    \item While this is a leak, this doesn't immediately infer an interference as the EC only has \textit{write} access which is a rights leak but not necessarily an interference.
+    \item However, this enables the EC to attempt various changes to the system and observe the successes or failures. Therefore unless the system is accessed through only procedures that do not respond with any success or failure messages, an interface issue will occur here.
+    \item To solve this interference, the system would have to limit \textit{write} access to the FRS to be only allowed through system procedures, and said procedures do not respond with any return code information to any subject at \textit{Confidential} or lower rights. 
+  \end{itemize}
+\end{enumerate}
 
 % \section{Conclusions}
 
