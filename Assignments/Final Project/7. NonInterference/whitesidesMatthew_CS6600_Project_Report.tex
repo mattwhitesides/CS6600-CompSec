@@ -717,33 +717,34 @@ For example, in our scenario, we want the actions of S and TS clearance levels t
 
 Our NF scenario will follow the same procedure as before, except we can add some examples of how NF could allow some output to the C level if other C level entities could achieve the same. 
 
-ToDo:
 \begin{enumerate}
   \item \textbf{MC} executes \textit{create flight record} creating flight record object \textbf{FR}.
   \begin{itemize}
-    \item There is no interference here as MC is the same level as the new FR.
+    \item There is no NF issue here as MC is the same level as the new FR.
   \end{itemize}
   \item \textbf{MC} executes \textit{upload flight record} granting the object \textbf{FRS} access to the flight record object \textbf{FR}.
   \begin{itemize}
-    \item There is no interference here as MC uses a higher-level procedure to write to the FRS but not read from it.
-    \item However, some potential interference issues are if any errors occur when uploading to the FRS if the FRS returns any faults or exceptions. The MC can read this output that would constitute interference as higher-level outputs would be visible by the MC.
-    \item The \textit{upload\_flight\_record()} process would need to sanitize the output of any errors or even successful debugging information. 
+    \item There is no NF issue here as MC uses a higher-level procedure to write to the FRS but not read from it.
+    \item However, some potential inference issues are if any errors occur when uploading to the FRS if the FRS returns any faults or exceptions. The MC can read this output that would constitute interference as higher-level outputs would be visible by the MC.
+    \item In addition to the solution that Non-Interference proposed to sanitize the output, we could separate the log files for errors produced by the FRS into their \textit{Classified} security level for developers. The log output could be considered NF secure in that it may have come from development output instead of production. As long as the subject does not know what caused the output, it might be a stretch as they can tell the output came after they executed an action, so the output would still need some sanitization. 
   \end{itemize}
   \item \textbf{MC} executes \textit{grant flight record access} granting \textbf{EC} access flight record object \textbf{FR}.
   \begin{itemize}
-    \item There is no interference here as MC is the same level as the new FR.
+    \item There is no NF issue here as MC is the same level as the new FR.
   \end{itemize}
   \item \textbf{MC} executes \textit{make owner} making \textbf{EC} have owner rights over flight record object \textbf{FR}.
   \begin{itemize}
-    \item There is no interference here as MC and EC are at the same level as the new FR.
+    \item There is no NF issue here as MC and EC are at the same level as the new FR.
   \end{itemize}
   \item \textbf{EC} executes \textit{update flight record system} allowing \textbf{EC} write to the flight record system object \textbf{FRS}.
   \begin{itemize}
-    \item While this is a leak, this doesn't immediately infer an interference as the EC only has \textit{write} access which is a rights leak but not necessarily an interference.
+    \item While this is a leak, this doesn't immediately constitute an NF issue as the EC only has \textit{write} access which is a rights leak but not necessarily an interference.
     \item However, this enables the EC to attempt various changes to the system and observe the successes or failures. Therefore unless the system is accessed through only procedures that do not respond with any success or failure messages, an interface issue will occur here.
-    \item To solve this interference, the system would have to limit \textit{write} access to the FRS to be only allowed through system procedures, and said procedures do not respond with any return code information to any subject at \textit{Confidential} or lower rights. 
+    \item To make this procedure NF secure, the system would have to limit \textit{write} access to the FRS to be only allowed through system procedures. Also, the lower levels may need their contained \textit{Classified} environment in which they do not have access to any other data. Then the system procedures could handle all the passing of data from this contained environment into the higher-level one. This contained system would obfuscate any errors or log information to information at their level. 
   \end{itemize}
 \end{enumerate}
+
+Overall I don't think being NF secure is as helpful as NI for this system regarding confidentiality. It's challenging to obfuscate data to be unsure if it came from a high or low-level source as the attacker could easily tell what an outcome of their actions is and what it from external ones, which are all higher level. The only realistic solution would be to cut off the lower-level subjects from any output of the FRS system, which would make it more challenging to perform their job. This split system could combine with a Clark Wilson model to have a verification procedure that a higher level subject uses to verify the actions performed at the lower level since they would not have access to any success or failure messages from the system. 
 
 % \section{Conclusions}
 
