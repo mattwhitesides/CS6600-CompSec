@@ -682,69 +682,47 @@ To detect interference, we will utilize a scenario similar to our BLP situation 
   update_flight_record_system(EC, FR);
 \end{lstlisting}  
 
-\begin{enumerate}
-  \item \textbf{MC} executes \textit{create flight record} creating flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no interference here as MC is the same level as the new FR.
-  \end{itemize}
-  \item \textbf{MC} executes \textit{upload flight record} granting the object \textbf{FRS} access to the flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no interference here as MC uses a higher-level procedure to write to the FRS but not read from it.
-    \item However, some potential interference issues are if any errors occur when uploading to the FRS if the FRS returns any faults or exceptions. The MC can read this output that would constitute interference as higher-level outputs would be visible by the MC.
-    \item The \textit{upload\_flight\_record()} process would need to sanitize the output of any errors or even successful debugging information. 
-  \end{itemize}
-  \item \textbf{MC} executes \textit{grant flight record access} granting \textbf{EC} access flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no interference here as MC is the same level as the new FR.
-  \end{itemize}
-  \item \textbf{MC} executes \textit{make owner} making \textbf{EC} have owner rights over flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no interference here as MC and EC are at the same level as the new FR.
-  \end{itemize}
-  \item \textbf{EC} executes \textit{update flight record system} allowing \textbf{EC} write to the flight record system object \textbf{FRS}.
-  \begin{itemize}
-    \item While this is a leak, this doesn't immediately infer an interference as the EC only has \textit{write} access which is a rights leak but not necessarily an interference.
-    \item However, this enables the EC to attempt various changes to the system and observe the successes or failures. Therefore unless the system is accessed through only procedures that do not respond with any success or failure messages, an interface issue will occur here.
-    \item To solve this interference, the system would have to limit \textit{write} access to the FRS to be only allowed through system procedures, and said procedures do not respond with any return code information to any subject at \textit{Confidential} or lower rights. 
-  \end{itemize}
-\end{enumerate}
+\subsubsection{Confidentiality}
+Using NF to verify a breach in confidentiality, we need to trace the output of commands from the EC's point of view, then compare that with trace with the higher-level commands removed from the process and determine if we have the same output. In our case, the EC modifies the FRS and adds a new FR into the system. The question is, will the system still produce the same output with the higher-level commands purged.
+
+This sequence can be formulated as an equality check of the projection of the EC's command sequence output and the projection of the command sequence with the high-level commands removed.  \\\\
+$proj(EC, C_s, \sigma_0) =? Proj(EC, \pi FR(C_s), \sigma_0)$
+\begin{equation*}
+  \begin{aligned}
+    C_s=(MC, cfr()), (MC, gfra()), \\
+    (EC, ufr), (EC, ufrs())
+  \end{aligned}
+\end{equation*}
+
+The projection of the initial system for the EC and MC gives us the following states: \\\\
+$proj(MC, C_s, \sigma_0) = (\{FRS = \{FR\}\})$ \\
+$proj(EC, C_s, \sigma_0) = (\{FRS = \{FR'\}\})$ \\\\
+$\pi MC(C_s)=(MC, cfr()), (MC, gfra())$ \\
+$\pi EC(C_s)=(EC, ufr), (EC, ufrs())$ \\
+
+Ultimately we are checking if the FR exists in the same state and the FR exists in both states; however, the EC's commands do modify the FR, thus making the final output state differ so the system is not NI secure regarding confidentiality. 
+
+\subsubsection{Integrity}
+
+For integrity we simply want to know if from the MC's prespective we can detect if changes were made to the system from the EC. \\\\
+$proj(MC, C_s, \sigma_0) =? Proj(EC, \pi FR(C_s), \sigma_0)$\\
+$\{FRS = \{FR\}\} \neq \{FRS = \{FR'\}\}$\\
+
+We can see from our previous projections that the MC can in fact detect changes to the FR thus making the system NI secure in regards to integrity. 
 
 \section{Non-Inference (NF)}
 
 Non-Inference is similar to Non-Interference in that it wants to limit the ability of low-level entities to detect the actions of high-level ones. However, NF allows high-level actions as long as the same output could be achieved by low-level ones, thus obfuscating the guarantee to the low-level entity whether the result came from a high or low-level action. 
 
-For example, in our scenario, we want the actions of S and TS clearance levels to be hidden from the MC and EC subjects at the C security level. In the NI example, we showed how the standard flight record creation BLP procedure that produced a leak earlier was still allowed as long as the system does not produce any response to the actions taken by the EC when executing on the FRS. 
+For example, in our scenario, we want the actions of S and TS clearance levels to be hidden from the MC and EC subjects at the C security level. In the NI example, we showed how the standard flight record creation BLP procedure that produced a leak earlier was not NI secure based upon the actions taken by the EC when executing on the FRS. 
 
-Our NF scenario will follow the same procedure as before, except we can add some examples of how NF could allow some output to the C level if other C level entities could achieve the same. 
+The question becomes, is it indistinguishable if the FR is written by the MC or is due to something within the External Contractor’s domain. We showed in NI that the output of the EC and MC can alter the FR however one FR is not inhearently at a different level than another FR or indicates where it came from. Thus there's not particular differece in output of the folloiwing command sequesences.\\\\
+$C_s(MC)=((MC, cfr()), (MC, ufr()), (MC, ufr()))$\\
+$C_s(EC)=((EC, cfr()), (EC, ufr()), (EC, ufr()))$\\
 
-\begin{enumerate}
-  \item \textbf{MC} executes \textit{create flight record} creating flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no NF issue here as MC is the same level as the new FR.
-  \end{itemize}
-  \item \textbf{MC} executes \textit{upload flight record} granting the object \textbf{FRS} access to the flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no NF issue here as MC uses a higher-level procedure to write to the FRS but not read from it.
-    \item However, some potential inference issues are if any errors occur when uploading to the FRS if the FRS returns any faults or exceptions. The MC can read this output that would constitute interference as higher-level outputs would be visible by the MC.
-    \item In addition to the solution that Non-Interference proposed to sanitize the output, we could separate the log files for errors produced by the FRS into their \textit{Classified} security level for developers. The log output could be considered NF secure in that it may have come from development output instead of production. As long as the subject does not know what caused the output, it might be a stretch as they can tell the output came after they executed an action, so the output would still need some sanitization. 
-  \end{itemize}
-  \item \textbf{MC} executes \textit{grant flight record access} granting \textbf{EC} access flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no NF issue here as MC is the same level as the new FR.
-  \end{itemize}
-  \item \textbf{MC} executes \textit{make owner} making \textbf{EC} have owner rights over flight record object \textbf{FR}.
-  \begin{itemize}
-    \item There is no NF issue here as MC and EC are at the same level as the new FR.
-  \end{itemize}
-  \item \textbf{EC} executes \textit{update flight record system} allowing \textbf{EC} write to the flight record system object \textbf{FRS}.
-  \begin{itemize}
-    \item While this is a leak, this doesn't immediately constitute an NF issue as the EC only has \textit{write} access which is a rights leak but not necessarily an interference.
-    \item However, this enables the EC to attempt various changes to the system and observe the successes or failures. Therefore unless the system is accessed through only procedures that do not respond with any success or failure messages, an interface issue will occur here.
-    \item To make this procedure NF secure, the system would have to limit \textit{write} access to the FRS to be only allowed through system procedures. Also, the lower levels may need their contained \textit{Classified} environment in which they do not have access to any other data. Then the system procedures could handle all the passing of data from this contained environment into the higher-level one. This contained system would obfuscate any errors or log information to information at their level. 
-  \end{itemize}
-\end{enumerate}
+Each produce the output of $\{FRS = \{(FR_0),(FR_1)\}\}$ regardless of order of execution or the FR uploaded. Therefore the system is considered NF secure. 
 
-Overall I don't think being NF secure is as helpful as NI for this system regarding confidentiality. It's challenging to obfuscate data to be unsure if it came from a high or low-level source as the attacker could easily tell what an outcome of their actions is and what it from external ones, which are all higher level. The only realistic solution would be to cut off the lower-level subjects from any output of the FRS system, which would make it more challenging to perform their job. This split system could combine with a Clark Wilson model to have a verification procedure that a higher level subject uses to verify the actions performed at the lower level since they would not have access to any success or failure messages from the system. 
+Overall I don't think being NF secure is as helpful as NI for this system regarding confidentiality. It allows the EC to hide whether the FRs came from them or a higher-level entity. The FRS procedures could update the system to indicate the owner or uploader of the records, then differentiate the outputs. This split system could combine with a Clark Wilson model to have a verification procedure that a higher level subject uses to verify the actions performed at the lower level since they would not have access to any FRs from the system. 
 
 % \section{Conclusions}
 
