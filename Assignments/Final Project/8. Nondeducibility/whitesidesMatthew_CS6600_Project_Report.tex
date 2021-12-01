@@ -728,23 +728,23 @@ Similarly, if the MC was to utilize NF to validate the integrity of the data, th
 
 \section{Non-Deducibility (ND)}
 
-Our NI and BLP model focuses on the inability of information from higher levels to flow down to lower levels. In other words that our low-level outputs should not reveal any information about high-level outputs. On the other hand, Nondeducibility is similar but considers a sequence of low and high-level inputs and low and high-level outputs. Given a low-level subject can only see the series of low-level outputs, can they deduce any information about the high-level inputs or outputs? In other words, could the trace of multiple low-level outputs with a mix of high-level inputs be achieved purely by low-level inputs? This sequence would not allow a low-level observer to deduce for sure that the outputs were from high-level inputs, and vice versa if low-level inputs create high-level outputs.
+Our NI and BLP model focuses on the inability of information from higher levels to flow down to lower levels. In other words that our low-level outputs should not reveal any information about high-level outputs. On the other hand, Nondeducibility is similar but considers a scenario of low and high-level inputs and low and high-level outputs. Given a low-level subject can only see the series of low-level outputs, can they deduce any information about the high-level inputs or outputs? In other words, could the trace of multiple low-level outputs with a mix of high-level inputs be achieved purely by low-level inputs? This scenario would not allow a low-level observer to deduce for sure that the outputs were from high-level inputs, and vice versa if low-level inputs create high-level outputs.
 
-In our scenario, we can think of this by thinking of the EC seeing the output of multiple FRs going through the system and attempting to deduce any information about the higher level FRS secrete clearance inputs/outputs. Let us take a sequence of three flight records going through the system, two fully uploaded by the MC and one utilizing the rights leakage scenario where the MC grants access to one of the FRs to the EC attacker. 
+In our scenario, we can think of this by thinking of the EC seeing the output of multiple FRs going through the system and attempting to deduce any information about the higher level FRS secrete clearance inputs/outputs. Let us take a scenario of three flight records going through the system. Two fully uploaded by the MC and one utilizing the rights leakage scenario where the MC grants access to one of the FRs to the EC attacker. 
 
 \subsection{Confidentiality}
 
-To detect our potential confidentiality non-deducibility leak, we will look at the projections from the lower level EC output given a sequence of transitions from the MC and the EC and determine if those projections could have occurred by only low-level inputs.
+To detect our potential confidentiality non-deducibility leak, we will look at the projections from the lower level EC output given a scenario of transitions from the MC and the EC and determine if those projections could have occurred by only low-level inputs.
 
 Over the following iterations, we show the projection results of the FRS system given an observer and one of the following command sequences. \\
 
-\textbf{sequence\_one(Subject a)}
+\textbf{scenario\_one(Subject a)}
 \begin{lstlisting}
   create_flight_record(a);
   upload_flight_record(b, FR_i);
 \end{lstlisting}  
 
-\textbf{sequence\_two(HighSubject a, LowSubject b)}
+\textbf{scenario\_two(HighSubject a, LowSubject b)}
 \begin{lstlisting}
   grant_flight_record_access(a, b, FR_i);
   make_owner(a, b, FR_i);
@@ -752,30 +752,62 @@ Over the following iterations, we show the projection results of the FRS system 
 \end{lstlisting}  
   
 \begin{enumerate}
-  \item $proj(observer (EC),sequence\_one(MC)) = (\{FRS = \{\varnothing\}\})$ \\
-  $proj(observer (MC),sequence\_one(MC)) = (\{FRS = \{FR_1\}\})$ \\
+  \item $proj(observer (EC),scenario\_one(MC)) = (\{FRS = \{\varnothing\}\})$ \\
+  $proj(observer (MC),scenario\_one(MC)) = (\{FRS = \{FR_1\}\})$ \\
 
-  \item $proj(observer (EC),sequence\_one(MC)) = (\{\varnothing\}\})$ \\
-  $proj(observer (MC),sequence\_one(MC)) = (\{FRS = \{FR_1, FR_2\}\})$ \\\\
+  \item $proj(observer (EC),scenario\_one(MC)) = (\{\varnothing\}\})$ \\
+  $proj(observer (MC),scenario\_one(MC)) = (\{FRS = \{FR_1, FR_2\}\})$ \\\\
 
-  $proj(observer (EC),sequence\_two(MC, EC)) = (\{FRS = \{FR_2\}\})$ \\
-  $proj(observer (MC),sequence\_two(MC, EC)) = (\{FRS = \{FR_1, FR_2\}\})$ \\
+  $proj(observer (EC),scenario\_two(MC, EC)) = (\{FRS = \{FR_2\}\})$ \\
+  $proj(observer (MC),scenario\_two(MC, EC)) = (\{FRS = \{FR_1, FR_2\}\})$ \\
 \end{enumerate}
 
 
 Given that the EC output only contains the FR, they had a hand in creating the same output that could be achieved by both the MC or another EC executing the following commands. 
 
 \begin{enumerate}
-  \item $proj(observer (EC_1),sequence\_one(EC_2)) = (\{FRS = \{\varnothing\}\})$ \\
-  \item $proj(observer (EC_1),sequence\_one(EC_2)) = (\{\varnothing\}\})$ \\
-  $proj(observer (EC_1),sequence\_two(EC_2, EC_1)) = (\{FRS = \{FR_2\}\})$ \\
+  \item $proj(observer (EC_1),scenario\_one(EC_2)) = (\{FRS = \{\varnothing\}\})$ \\
+  \item $proj(observer (EC_1),scenario\_one(EC_2)) = (\{\varnothing\}\})$ \\
+  $proj(observer (EC_1),scenario\_two(EC_2, EC_1)) = (\{FRS = \{FR_2\}\})$ \\
 \end{enumerate}
 
-Given both produce the same outputs at each iteration from the EC's perspective, he cannot deduce that the output came from another EC or the higher level MC thus making the system non-deducibly secure in regards to confidentiality.
+Given that both produce the same outputs at each iteration from the EC's perspective, he cannot deduce that the output came from another EC or the higher level MC, thus making the system non-deducibly secure regarding confidentiality.
 
 \subsection{Integrity}
 
+To deduce an integrity attack, we can go about it similar to NI, where our MC will attempt to deduce any integrity attacks from the EC by verifying if they can detect any changes in the FRS in an inverse of the confidentiality attack.
 
+Here we will introduce scenario three that updates the flight record, creating our full rights leakage scenario. 
+
+\textbf{scenario\_three(HighSubject a, LowSubject b, FR\_i)}
+\begin{lstlisting}
+  update_flight_record_system(b, FR_i);
+\end{lstlisting}  
+
+First, we will execute the two standard scenarios and then our leakage scenario and verify if the MC can deduce the output. 
+
+\begin{enumerate}
+  \item $proj(observer (EC),scenario\_one(MC)) = (\{FRS = \{\varnothing\}\})$ \\
+  $proj(observer (MC),scenario\_one(MC)) = (\{FRS = \{FR_1\}\})$ \\
+
+  \item $proj(observer (EC),scenario\_one(MC)) = (\{\varnothing\}\})$ \\
+  $proj(observer (MC),scenario\_one(MC)) = (\{FRS = \{FR_1, FR_2\}\})$ \\\\
+
+  $proj(observer (EC),scenario\_two(MC, EC)) = (\{FRS = \{FR_2\}\})$ \\
+  $proj(observer (MC),scenario\_two(MC, EC)) = (\{FRS = \{FR_1, FR_2\}\})$ \\
+
+  \item $proj(observer (EC),scenario\_three(MC, EC, FR_2)) = (\{FRS = \{FR_2'\}\})$ \\
+  $proj(observer (MC),scenario\_three(MC, EC, FR_2)) = (\{FRS = \{FR_1, FR_2'\}\})$ \\
+\end{enumerate}
+
+Now the MC can detect FR prime indicating changes to the FR. However, they cannot deduce who the record was changed by as scenario three would produce the same output.
+
+\begin{enumerate}
+  \item[3] $proj(observer (MC_1),scenario\_three(MC_1, MC_2, FR_2)) = (\{FRS = \{FR_2'\}\})$ \\
+  $proj(observer (MC_2),scenario\_three(MC_1, MC_2, FR_2)) = (\{FRS = \{FR_1, FR_2'\}\})$ \\
+\end{enumerate}
+
+Therefore in regards to integrity out system is non-deducibility insecure, which makes sense as if it is secure from the attacker's perspective. It would logically make it non-deductible from a trusted perspective.
 
 % \section{Conclusions}
 
