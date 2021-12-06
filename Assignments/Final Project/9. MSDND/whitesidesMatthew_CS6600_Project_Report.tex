@@ -813,7 +813,30 @@ Therefore in regards to integrity out system is non-deducibility insecure, which
 
 Multiple Security Domain Nondeducibility (MSDND) much like our other security models deals with information-flow between the security user domains within a system and the policies that allow or deny the transfer. However due to the fact that our system is a cyber physical system (CPS) we must take into consideration both physical and virtual methods of attack. MSDND accounts for information-flow between both the physical and computing components of the system allowing for various security domains (SD) without needing a hierarchial security level system. This SD model allows for information-flow restrictions that are not limited to high and low but allows for information-flow in both directions and more complex states to be considered. 
 
-In our UAV scenario we have the physical component of the user physically connecting to the UAV, downloading the data and uploading the flight record to our flight record system. Therefore the cyber component is the FRS itself and the UAV system software. In the traditional Nondeducibility model we showed the information leak from the EC and MC perspective and how the EC cannot deduce the information but this in turn means the MC cannot deduce any information integrity changes. 
+In our UAV scenario, we have the physical component of the user physically connecting to the UAV, downloading the data, and uploading the flight record to our flight record system. Therefore the cyber component is the FRS itself and the UAV system software. In the traditional Nondeducibility model, we showed the information leak from the EC and MC perspective and how the EC cannot deduce the information, but this, in turn, means the MC cannot infer any information integrity changes. However, let's think about this from a more CPS point of view, emphasizing the physical portion of the environment. The EC and MC must exist within the same physical areas. Physical access to the UAS and the FRS computers leads to the vector of attack using the physical hardware to create the informal leak. Modeling this combination of physical and virtual is where MSDND comes in. We can utilize more complex security domains and valuation functions to test for information leaks. 
+
+Table 13 shows us our new MSDND security domains in the context of the EC, MC, UAS and FRS. Figure 6 similarly shows us how these domains overlap in the physical and virtual space.  
+
+\begin{table}[]
+  \caption{Security Domains in the UAS FRS System}
+  \label{tab:security-domains}
+  \centering
+  \begin{tabular}{lll}
+  \hline
+  \textbf{System Component} & \textbf{Domain} & \textbf{Valuation} \\
+  \hline
+  UAS Flight Recorder       & $SD^{recorder}$ & $V^{recorder}$     \\
+  FRS                       & $SD^{frs}$      & $V^{frs}$          \\
+  EC                        & $SD^{ec}$       & $V^{ec}$           \\
+  MC                        & $SD^{mc}$       & $V^{mc}$           \\
+  FR                        & $SD^{fr}$       & $V^{fr}$          
+  \end{tabular}
+\end{table}
+
+\begin{figure}[t]
+  \caption{Physical Security Domains in the UAS} 
+  \includegraphics[scale=0.43]{SDs.png}
+\end{figure}
 
 % \section{Conclusions}
 

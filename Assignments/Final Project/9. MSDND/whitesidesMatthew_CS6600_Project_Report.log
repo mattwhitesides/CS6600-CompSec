@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  3 DEC 2021 14:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7140 64-bit) (preloaded format=pdflatex 2019.8.26)  6 DEC 2021 15:36
 entering extended mode
 **"c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.tex"
 ("c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.tex"
@@ -644,21 +644,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 806--808
 
  []
 
-[9] [10
+[9]
 
-] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\9. MSDND\whitesidesMatthew_CS6600_Project_Report.aux") ) 
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 820.
+
+<Images/SDs.png, id=60, 578.16pt x 388.45125pt>
+File: Images/SDs.png Graphic file (type png)
+<use Images/SDs.png>
+Package pdftex.def Info: Images/SDs.png  used on input line 838.
+(pdftex.def)             Requested size: 248.60394pt x 167.03078pt.
+[10 <c:/Users/sz460e/Documents/School/Computer Security/Assignments/Final Project/9. MSDND/Images/SDs.png>] ("c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\9. MSDND\whitesidesMatthew_CS6600_Project_Report.aux") ) 
 Here is how much of TeX's memory you used:
- 5859 strings out of 492895
- 85911 string characters out of 3123268
+ 5865 strings out of 492895
+ 86015 string characters out of 3123268
  241698 words of memory out of 3000000
- 9666 multiletter control sequences out of 15000+200000
+ 9671 multiletter control sequences out of 15000+200000
  54571 words of font info for 128 fonts, out of 3000000 for 9000
  1144 hyphenation exceptions out of 8191
- 41i,11n,40p,1072b,1649s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\9. MSDND\whitesidesMatthew_CS6600_Project_Report.pdf" (10 pages, 298264 bytes).
+ 41i,11n,40p,1107b,1649s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplb8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplbi8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplr8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/palatino/uplri8a.pfb><C:/Users/sz460e/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on "c:/Users\sz460e\Documents\School\Computer Security\Assignments\Final Project\9. MSDND\whitesidesMatthew_CS6600_Project_Report.pdf" (10 pages, 345838 bytes).
 PDF statistics:
- 123 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
