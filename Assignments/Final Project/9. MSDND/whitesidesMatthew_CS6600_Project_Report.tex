@@ -811,11 +811,11 @@ Therefore in regards to integrity out system is non-deducibility insecure, which
 
 \section{MSDND}
 
-Multiple Security Domain Nondeducibility (MSDND) much like our other security models deals with information-flow between the security user domains within a system and the policies that allow or deny the transfer. However due to the fact that our system is a cyber physical system (CPS) we must take into consideration both physical and virtual methods of attack. MSDND accounts for information-flow between both the physical and computing components of the system allowing for various security domains (SD) without needing a hierarchial security level system. This SD model allows for information-flow restrictions that are not limited to high and low but allows for information-flow in both directions and more complex states to be considered. 
+Much like our other security models, Multiple Security Domain Nondeducibility (MSDND) deals with information flow between the security user domains within a system and the policies that allow or deny the transfer. However, because our system is a cyber-physical system (CPS), we must consider both physical and virtual methods of attack. MSDND accounts for information flow between the system's physical and computing components, allowing for various security domains (SD) without needing a hierarchical security level system. This SD model allows for information-flow restrictions that are not limited to high and low but allow for information flow in both directions and more complex states to be considered. 
 
 In our UAV scenario, we have the physical component of the user physically connecting to the UAV, downloading the data, and uploading the flight record to our flight record system. Therefore the cyber component is the FRS itself and the UAV system software. In the traditional Nondeducibility model, we showed the information leak from the EC and MC perspective and how the EC cannot deduce the information, but this, in turn, means the MC cannot infer any information integrity changes. However, let's think about this from a more CPS point of view, emphasizing the physical portion of the environment. The EC and MC must exist within the same physical areas. Physical access to the UAS and the FRS computers leads to the vector of attack using the physical hardware to create the informal leak. Modeling this combination of physical and virtual is where MSDND comes in. We can utilize more complex security domains and valuation functions to test for information leaks. 
 
-Table 13 shows us our new MSDND security domains in the context of the EC, MC, UAS and FRS. Figure 6 similarly shows us how these domains overlap in the physical and virtual space.  
+Table 13 shows us our new MSDND security domains in the context of the EC, MC, UAS, and FRS. Figure 6 similarly shows us how these domains overlap in the physical and virtual space.  
 
 \begin{table}[]
   \caption{Security Domains in the UAS FRS System}
@@ -837,6 +837,14 @@ Table 13 shows us our new MSDND security domains in the context of the EC, MC, U
   \caption{Physical Security Domains in the UAS} 
   \includegraphics[scale=0.43]{SDs.png}
 \end{figure}
+
+For our scenario, we'll set $\varphi$ equal to ``Each FR in FRS is unmodified from the original FR data in the UAS'' to spot our integrity attack after the leakage where the EC gains update access FRS after the series of executions shown previously. 
+
+Our first assertion is ``An FR is unmodified from the UAS to the FRS upload.'', the valuation at the UAS Flight Recorder correctly evaluates the download of the FR to the FRS for $V^{recorder}_{\varphi}(W)$ and $V^{recorder}_{\lnot\varphi}(W)$ however therefore not allowing the conditions for detection of change to be met by MSDND, which is another point of potential disruption from the UAS system but not the goal of detecting the leak.
+
+The following assertion is the state of the FRS after a new upload, ``Each FR in the FRS is unmodified after a new FR upload''. The evaluation at the FRS only evaluates the latest of the FR in the FRS. Still, it does log when changes are made for $V^{frs}_{\varphi}(W)$ and $V^{frs}_{\lnot\varphi}(W)$, therefore, securing change detection for modifications but not the inverse of no changes being made therefore making it not MSDN secure. 
+
+Our final assertion is ``If a new FR MSDND secures for $SD^{mc}$ after graning the EC access then MC can detect if changes to the FRS are made after the FR upload'' from the MCs domain they can see the logs updating the system allowing them to evaluate both $V^{frs}_{\varphi}(W)$ and $V^{frs}_{\lnot\varphi}(W)$. However, this manual evaluation by the MC defeats some of the purposes of the system that the MC relegated the FR upload to the EC to save time. If they need to evaluate the system after the work has been done, not much has been saved. Although this does enable it to be MSDND secure from the MCs domain, the leak would have already occurred. They only would be able to detect it.
 
 % \section{Conclusions}
 
