@@ -840,13 +840,36 @@ Table 13 shows us our new MSDND security domains in the context of the EC, MC, U
 
 For our scenario, we'll set $\varphi$ equal to ``Each FR in FRS is unmodified from the original FR data in the UAS'' to spot our integrity attack after the leakage where the EC gains update access FRS after the series of executions shown previously. 
 
-Our first assertion is ``An FR is unmodified from the UAS to the FRS upload.'', the valuation at the UAS Flight Recorder correctly evaluates the download of the FR to the FRS for $V^{recorder}_{\varphi}(W)$ and $V^{recorder}_{\lnot\varphi}(W)$ however therefore not allowing the conditions for detection of change to be met by MSDND, which is another point of potential disruption from the UAS system but not the goal of detecting the leak.
+Our first assertion is the state of the FRS after a new upload, ``Each FR in the FRS is unmodified after a new FR upload''. The evaluation at the FRS only evaluates the latest of the FR in the FRS. Still, it does log when changes are made for $V^{frs}_{\varphi}(W)$ and $V^{frs}_{\lnot\varphi}(W)$, therefore, securing change detection for modifications but not the inverse of no changes being made therefore making it not MSDN secure.
 
-The following assertion is the state of the FRS after a new upload, ``Each FR in the FRS is unmodified after a new FR upload''. The evaluation at the FRS only evaluates the latest of the FR in the FRS. Still, it does log when changes are made for $V^{frs}_{\varphi}(W)$ and $V^{frs}_{\lnot\varphi}(W)$, therefore, securing change detection for modifications but not the inverse of no changes being made therefore making it not MSDN secure. 
+The following assertion is ``If a new FR MSDND secures for $SD^{mc}$ after graning the EC access then MC can detect if changes to the FRS are made after the FR upload'' from the MCs domain they can see the logs updating the system allowing them to evaluate both $V^{frs}_{\varphi}(W)$ and $V^{frs}_{\lnot\varphi}(W)$. However, this manual evaluation by the MC defeats some of the purposes of the system that the MC relegated the FR upload to the EC to save time. If they need to evaluate the system after the work has been done, not much has been saved. Although this does enable it to be MSDND secure from the MCs domain, the leak would have already occurred. They only would be able to detect it.
 
-Our final assertion is ``If a new FR MSDND secures for $SD^{mc}$ after graning the EC access then MC can detect if changes to the FRS are made after the FR upload'' from the MCs domain they can see the logs updating the system allowing them to evaluate both $V^{frs}_{\varphi}(W)$ and $V^{frs}_{\lnot\varphi}(W)$. However, this manual evaluation by the MC defeats some of the purposes of the system that the MC relegated the FR upload to the EC to save time. If they need to evaluate the system after the work has been done, not much has been saved. Although this does enable it to be MSDND secure from the MCs domain, the leak would have already occurred. They only would be able to detect it.
+Our final assertion is ``An FR is unmodified from the UAS to the FRS upload.'', the valuation at the UAS Flight Recorder correctly evaluates the download of the FR to the FRS for $V^{recorder}_{\varphi}(W)$ and $V^{recorder}_{\lnot\varphi}(W)$ however therefore not allowing the conditions for detection of change to be met by MSDND, which is another point of potential disruption from the UAS system but not the goal of detecting the leak. 
 
-% \section{Conclusions}
+To prove this, we can take out the final case ``Each FR in the FRS is unmodified from the UAS after a new FR upload'' and our invariant procedures that verify the initial FR is equal to the FR in the FRS. Table 14 shows the MSDND proof of the FR becoming modified without the ability to deduce the change. Our final proof shows how this case and the system as a whole are not MSDND secure. 
+
+\begin{table}[]
+  \caption{MSDND Proof}
+  \label{tab:security-domains}
+  \centering
+  \begin{tabular}{lll}
+  1.  & $\sim fr$ = true                                        & FR has been modified.                                                       \\
+  2.  & $w \vDash V^0 fr(w) = true$                          & FRS cannot verify the FR has been modified.                                 \\
+  3.  & $I_1,0fr$                                           & FRS allows upload of the FR.                                                \\
+  4.  & $B_1I_1,0 \sim fr$                                       & FRS trusts the FR from a verified user.                                     \\
+  5.  & $T_1,0 \sim fr$                                          & FRS trusts the FR.                                                          \\
+  6.  & $B_1I_1,0 \sim fr \bigwedge T_1,0 \sim fr \rightarrow B_1 \sim fr$ & FRS believes the FR in the FRS.                                             \\
+  7.  & $I_1,1fr$                                           & FRS logs everything is correct.                                             \\
+  8.  & $B_1I_1,1fr$                                        & MC belives the FRS logs.                                                    \\
+  9.  & $T_1,1fr$                                           & MC trusts the FR.                                                           \\
+  10. & $B_1I_1,1fr \bigwedge T_1,1fr \rightarrow B_1 \sim fr$   & MC belives the FRS logs are correct but the FR is modified.                 \\
+  11. & $w \vDash V^1 \sim fr(w) = true$                         & The verification procedure for FR's uploaded to the FRS always return true.
+  \end{tabular}
+  \end{table}
+
+\section{Conclusions}
+
+
 
 % Provide a summative conclusion on the modeling of your infrastructure.
 
