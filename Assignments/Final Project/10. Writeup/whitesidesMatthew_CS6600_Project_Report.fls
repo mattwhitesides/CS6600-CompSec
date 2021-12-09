@@ -1,20 +1,20 @@
-PWD /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND
+PWD /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup
 INPUT /usr/local/texlive/2021/texmf.cnf
 INPUT /usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.tex
-OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.log
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.tex
+OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.log
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ppl.fd
@@ -294,10 +294,10 @@ INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.de
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.aux
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.aux
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.aux
-OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.aux
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.aux
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.aux
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.aux
+OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.aux
 INPUT /usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2021/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -383,7 +383,7 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm1
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvr7t.tfm
-OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.pdf
+OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.pdf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/helvetic/phvr7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
 INPUT /usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
@@ -427,43 +427,43 @@ INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/palatino/pplb7t.vf
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel1.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel1.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel1.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel1.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel1.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel2.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel2.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel2.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel2.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel2.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel3.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel3.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel3.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel3.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel3.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel4.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel4.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel4.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel4.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel4.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel1.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel1.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel1.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel1.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel1.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel2.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel2.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel2.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel2.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel2.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel3.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel3.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel3.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel3.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel3.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel4.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel4.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel4.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel4.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel4.png
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/omsppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/omsppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/omsppl.fd
 INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/omsppl.fd
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//COI_Classes.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//COI_Classes.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//COI_Classes.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//COI_Classes.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//COI_Classes.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//COI_Classes.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//COI_Classes.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//COI_Classes.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//COI_Classes.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//COI_Classes.png
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/palatino/pplr7t.tfm
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//SDs.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//SDs.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//SDs.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//SDs.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//SDs.png
-INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.aux
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//SDs.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//SDs.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//SDs.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//SDs.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//SDs.png
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.aux
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb
 INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

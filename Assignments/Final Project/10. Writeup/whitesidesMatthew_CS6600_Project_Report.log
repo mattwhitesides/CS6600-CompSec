@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.5)  8 DEC 2021 09:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.11.5)  9 DEC 2021 09:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**"/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.tex"
-(/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.tex
+**"/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.tex"
+(/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.tex
 LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> (/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/IEEEtran.cls
+L3 programming layer <2021-02-18> (/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/IEEEtran.cls
 Document Class: IEEEtran 2015/08/26 V1.8b by Michael Shell
 -- See the "IEEEtran_HOWTO" manual for usage information.
 -- http://www.michaelshell.org/tex/ieeetran/
@@ -255,11 +255,7 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count281
 \l__pdf_internal_box=\box55
-) (/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.aux
-
-LaTeX Warning: Label `tab:security-domains' multiply defined.
-
-)
+) (/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.aux)
 \openout1 = `whitesidesMatthew_CS6600_Project_Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 63.
@@ -344,7 +340,7 @@ LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 21
  (/usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1527) has occurred while \output is active []
 
  [2] [3]
 <Images//TGModel1.png, id=23, 282.05376pt x 201.75375pt>
@@ -382,7 +378,7 @@ File: Images//TGModel4.png Graphic file (type png)
 <use Images//TGModel4.png>
 Package pdftex.def Info: Images//TGModel4.png  used on input line 386.
 (pdftex.def)             Requested size: 218.51488pt x 187.59958pt.
-[4 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel1.png> </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel2.png> </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel3.png>]
+[4 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel1.png> </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel2.png> </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel3.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 403.
@@ -401,7 +397,7 @@ File: omsppl.fd
 )
 LaTeX Font Info:    Font shape `OMS/ppl/m/n' in size <8.03> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 489.
- [5 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//TGModel4.png>]
+ [5 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//TGModel4.png>]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 515.
@@ -427,7 +423,7 @@ File: Images//COI_Classes.png Graphic file (type png)
 <use Images//COI_Classes.png>
 Package pdftex.def Info: Images//COI_Classes.png  used on input line 588.
 (pdftex.def)             Requested size: 151.064pt x 100.87662pt.
-[6] [7 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//COI_Classes.png>]
+[6] [7 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//COI_Classes.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 688--690
 
  []
@@ -607,7 +603,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 799--801
 
  []
 
-
+[9]
 Overfull \hbox (38.7056pt too wide) in paragraph at lines 806--808
 []$\OML/cmm/m/it/10 proj\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 observer\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 MC[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; scenario[]three\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 MC[]; MC[]; FR[]\OT1/cmr/m/n/10 )) =
  []
@@ -622,7 +618,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 806--808
 
  []
 
-[9]
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 820.
@@ -636,31 +631,22 @@ Package pdftex.def Info: Images//SDs.png  used on input line 838.
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 851.
 
+[10 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/Images//SDs.png>] [11] [12
 
-Overfull \hbox (201.811pt too wide) in paragraph at lines 855--868
- [][] 
- []
-
-[10 </Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/Images//SDs.png>] [11
-
-] (/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.aux)
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+] (/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.aux) ) 
 Here is how much of TeX's memory you used:
- 5908 strings out of 478994
- 85276 string characters out of 5858184
+ 5909 strings out of 478994
+ 85325 string characters out of 5858184
  674559 words of memory out of 5000000
- 23309 multiletter control sequences out of 15000+600000
+ 23310 multiletter control sequences out of 15000+600000
  454361 words of font info for 141 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 68i,11n,74p,1101b,1667s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 68i,11n,74p,1225b,1623s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on "/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/9. MSDND/whitesidesMatthew_CS6600_Project_Report.pdf" (11 pages, 359775 bytes).
+Output written on "/Users/mbwxd4/Documents/School/CS6600-CompSec/Assignments/Final Project/10. Writeup/whitesidesMatthew_CS6600_Project_Report.pdf" (12 pages, 365464 bytes).
 PDF statistics:
- 145 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 148 PDF objects out of 1000 (max. 8388607)
+ 99 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
