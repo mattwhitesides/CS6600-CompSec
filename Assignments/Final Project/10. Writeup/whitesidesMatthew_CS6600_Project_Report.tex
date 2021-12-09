@@ -75,7 +75,7 @@ Missouri University of Science and Technology, Rolla, MO 65409-0350}
 % The paper abstract
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-The abstract goes here.
+  The following paper will look at various security models applied to an Unmanned Aircraft System's typical usage scenario. We evaluate the pros and cons of each method and give an example implementation of the model to determine the effectiveness of detecting security leaks within the system.
 \end{abstract}}
 
 % make the title area
@@ -848,9 +848,10 @@ Our final assertion is ``An FR is unmodified from the UAS to the FRS upload.'', 
 
 To prove this, we can take out the final case ``Each FR in the FRS is unmodified from the UAS after a new FR upload'' and our invariant procedures that verify the initial FR is equal to the FR in the FRS. Table 14 shows the MSDND proof of the FR becoming modified without the ability to deduce the change. Our final proof shows how this case and the system as a whole are not MSDND secure. 
 
-\begin{table}[]
+\begin{table*}[]
   \caption{MSDND Proof}
-  \label{tab:security-domains}
+  \label{tab:msdn-proof}
+  \resizebox{\textwidth}{!}{
   \centering
   \begin{tabular}{lll}
   1.  & $\sim fr$ = true                                        & FR has been modified.                                                       \\
@@ -864,12 +865,50 @@ To prove this, we can take out the final case ``Each FR in the FRS is unmodified
   9.  & $T_1,1fr$                                           & MC trusts the FR.                                                           \\
   10. & $B_1I_1,1fr \bigwedge T_1,1fr \rightarrow B_1 \sim fr$   & MC belives the FRS logs are correct but the FR is modified.                 \\
   11. & $w \vDash V^1 \sim fr(w) = true$                         & The verification procedure for FR's uploaded to the FRS always return true.
-  \end{tabular}
-  \end{table}
+  \end{tabular}}
+\end{table*}
 
 \section{Conclusions}
 
+\subsection{HRU}
 
+The Harrison, Ruzzo, Ullman security model is a great place to learn about security leakages. This model takes real-world surface events and forces us to boil them into definable and provable functions. The pseudo-code functions seem like the most natural starting point for analyzing a CPS coming in from a programming background. Here we were able to define our commands that carry out the system's function. In this case, the maintenance crew downloads the flight data from the UAV and grants access to the external contractor to upload that record to the system where a leak occurs within this sequence of HRU commands. 
+
+The pros to this approach are many, and I feel most security models should implement a part. The most basic idea of defining all the rights, subjects, objects, and access relationships between them in the Access Control Matrix is vital to understanding your system and how it interacts with everything else. Then defining the commands available using the simplified mono-operational logic boils down to precisely what your system is doing in logic terms. You can easily spot the rights leakages. 
+
+However, due to the strict model standards, it does make some aspects of a physical system more challenging to model. In our case, the scenario was interactions between physical components. Still, the leakage occurred virtually, so it wasn't difficult to model in this approach. Still, I could see more complex physical interactions between larger systems, making the mono-operational commands' strict rules challenging to manage. 
+
+\subsection{T-G}
+
+After defining your subjects and objects, the Take-Grant model proposes a fascinating natural evolution. By creating a relationship graph between them, you can have an excellent visual overview of the relationships in the system. In particular, the TG model looks to spot places where rights can leak utilizing these special rights, take and grant that naturally form in any scenario where any given subject needs to provide access or can take rights from other subjects and objects. This graph also quickly shows the impacts adding, removing, or modifying subjects and things could have on the system.
+
+What is particularly interesting in a CPS is how it forces you to think about rights in terms of what the subjects and objects can do instead of what they are intended to do. Seeing that a subject can inadvertently take rights from an object a few nodes down the chain in the graph is not something you naturally would notice before modeling it. This revelation is especially apparent in terms of thinking about the cooperation that must occur between subjects for some leakages. In our case, granting the rights to the FR doesn't seem on the surface to be wrong as it's required but shows in the model how it ends up leaking unwanted rights. 
+
+In our model, the challenge came from figuring out the relationships that cause the leakage because the leakage happens as a side effect of the requirements of the systems function. It ended up being perfect because what this model did do was show the relationships by default. Then once the MC grants access to the EC for the FR, we can immediately see that the unintended side effects of the EC can take rights through the FR into the FRS. 
+
+There aren't many cons that come to mind in this approach as long as you realize its intent. It does not fully model the functionality and leakages outside of direct relationships, such as what happens within the system to cause the rights changes. This limitation almost requires you to know that the rights are changing over beforehand, which still may point out unknown leakages but could miss some if you don't know the relationship changes. 
+
+\subsection{BLP}
+
+The Bell-LaPadula model was our first introduction to what first comes to mind when I think of access security. Establishing security levels has been around so long it seems obvious. However, the interesting part comes from the security properties defined in the model. I understood the idea of security levels. Although, I never thought about the interaction between the levels and how you account for that. Not reading an object at a higher level makes sense and is probably what I most associated with security levels. Still, the no writing down was an interesting idea that does make sense but wasn't something I considered. 
+
+In our case, since we're dealing with a presumably military aircraft and sensitive mission flight record data, it's apparent that we would have to have security levels in the real-world implementation of this. If not only that, everyone involved would need to have a specific clearance above baseline. In our leakage, we defined an external contractor that inherently would have a more limited amount of clearance than internal employees. It was natural to establish a level for the subjects and objects. The main issue was keeping the system functional, allowing the lower-level EC to perform their job while separating them from the higher-level subjects. This limitation is a part of how a basic security level doesn't consider lateral rights. Ideally, we could model the records that the EC handles separately from all the others so they don't have the same rights to any record, but this basic level system can't take that into account. Therefore we had to give everyone involved the same level, which probably is how it would be in the real world but couldn't be our only security model.
+
+\subsection{Biba}
+
+
+
+\subsection{Clark-Wilson}
+
+\subsection{Chinese Wall}
+
+\subsection{Noninference}
+
+\subsection{Noninterference}
+
+\subsection{Nondeducibility}
+
+\subsection{MSDND}
 
 % Provide a summative conclusion on the modeling of your infrastructure.
 
