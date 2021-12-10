@@ -896,9 +896,19 @@ In our case, since we're dealing with a presumably military aircraft and sensiti
 
 \subsection{Biba}
 
+Biba takes a similar approach to the BLP model except focusing on data integrity. In an inverse of the no reads up, we have to enforce a no writes up and no reads down to keep data integrity only at or above the subjects given level. This method applied just as well to our case as the BLP model as our leak unintentionally grants access to more data than our EC is intended to have, thus conflicting with the Biba model standards. 
 
+This approach works well in our model to prevent integrity attacks by enforcing the security level write access in theory. Regardless if they have access, they would still not have the appropriate level. Of course, the main issue is we need both to prevent confidentiality of our data and the integrity. If the bad actor can read our flight data, that may be more damaging to our system than modifying data (although both are pretty bad). So we can't both enforce a BLP and Biba simultaneously, which we need to do. 
+
+\subsection{BLP-Biba Lipner Like}
+
+We need to both enforce confidentiality and integrity. That's where our BLP-Biba Lipner Like solution comes in. This system initially came from a software production focus with development and production environments. Using this approach, we were able to keep our security levels and implement new security categories for the various aspects of the workstation. We split up our categories into the archived data integrity, current operational data, and the data ready to be loaded. These categories enable us to theoretically split the bad actor from the FRS, which we can put in separate categories. In our case, we have to allow access to enable the EC to do their job. 
+
+This Lipner-like approach is more comprehensive than BLP or Biblia by themselves. If you built the system from the ground up with this in mind could work well depending on the scenario. It could work with an ideal approach to security categories and security and integrity levels for all the objects and subjects. However, it makes a bit more sense in a purely virtual software environment where you truly can separate lower-level environments from higher-level ones. It becomes difficult if there are exchanges between levels due to the work statement requirements. 
 
 \subsection{Clark-Wilson}
+
+
 
 \subsection{Chinese Wall}
 
