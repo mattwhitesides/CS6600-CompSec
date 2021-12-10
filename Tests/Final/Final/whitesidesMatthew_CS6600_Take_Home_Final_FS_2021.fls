@@ -1,73 +1,107 @@
-PWD c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final
-INPUT C:\Users\sz460e\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.tex
-OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.log
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\IEEEtran.cls
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\IEEEtran.cls
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmri7t.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmbi7t.tfm
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
-OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmrc7t.tfm
-OUTPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.pdf
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\sz460e\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmrc7t.vf
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmr8r.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmb7t.vf
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\times\ptmb8r.tfm
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\adobe\times\ptmr7t.vf
-INPUT c:\Users\sz460e\Documents\School\Computer Security\Tests\Final\Final\whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\base\8r.enc
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\times\utmb8a.pfb
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\times\utmb8a.pfb
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\times\utmr8a.pfb
-INPUT C:\Users\sz460e\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\urw\times\utmr8a.pfb
+PWD /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final
+INPUT /usr/local/texlive/2021/texmf.cnf
+INPUT /usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.tex
+OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.log
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/IEEEtran.cls
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmbi7t.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
+OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
+OUTPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.pdf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
+INPUT /Users/mbwxd4/Documents/School/CS6600-CompSec/Tests/Final/Final/whitesidesMatthew_CS6600_Take_Home_Final_FS_2021.aux
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmr8a.pfb
+INPUT /usr/local/texlive/2021/texmf-dist/fonts/type1/urw/times/utmri8a.pfb

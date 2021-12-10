@@ -44,15 +44,30 @@
 \begin{enumerate}
   \item Considering the Voting System BLP model. 
     \begin{enumerate}
-      \item Does the system function according to the Voting Process? 
-      \item Is either system secure from an attack where another voter V’ can determine the vote that V made?
+      \item The BLP model of the system does not currently function according to the Voting Process? The fact that ``TM records v and produces c'' violates the *-Property of the BLP model by allowing the subject \textit{TM} with a security level of \textbf{Medium} to write to the object \textit{c} with a security level of \textbf{Low}. \\
+      
+      To show this we can define our formal model as follows:
+
+      $S = \{V, TM, E, M\}, O = \{b, c, v\}, P = \{r, w\}, C = \{High, Medium, Low\}, K = \{ALL\}$\\
+      $f_c(S) \in \{(Low \{ALL\}), (Medium \{ALL\}), (High \{ALL\}) \}$\\
+      $f_o(O) \in \{(Low \{ALL\}), (Medium \{ALL\}), (High \{ALL\}) \}$\\
+
+      Now we can suppose:
+
+      $b_1=\{(TM, c, w)\}$\\
+      $f_c,1(TM) = \{(Medium \{ALL\})$\\
+      $f_o,1(c) = \{(Low \{ALL\})$\\
+      $V_0 = (b_1,m_1,f_1) \in V$
+
+
+      \item Is either system secure from an attack where another voter V' can determine the vote that V made?
     \end{enumerate}
 
   \item Consider a NI/NF/ND/MSDND model where each domain is labeled as above, but are not hierarchical. 
     \begin{enumerate}
-      \item Show, formally, that TM’s behavior is MSDND (or ND) to E.
-      \item Show, formally, that V’s behavior is MSDND (or ND) to E. 
-      \item Show, formally, that TM’s behavior is:
+      \item Show, formally, that TMHs behavior is MSDND (or ND) to E.
+      \item Show, formally, that V's behavior is MSDND (or ND) to E. 
+      \item Show, formally, that TM's behavior is:
       \begin{enumerate}
         \item MSDND (or ND) to V.
         \item Not NI from TM to V.
