@@ -1,6 +1,12 @@
 % options that should be set.
 \documentclass[journal,onecolumn]{IEEEtran}
 
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{float}
+
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -46,32 +52,227 @@
     \begin{enumerate}
       \item The BLP model of the system does not currently function according to the Voting Process? The fact that ``TM records v and produces c'' violates the *-Property of the BLP model by allowing the subject \textit{TM} with a security level of \textbf{Medium} to write to the object \textit{c} with a security level of \textbf{Low}. \\
       
+      First we can define our initial ACM state seen in Table 1.\\
+
+      \begin{table}[]
+        \centering
+        \caption{Electronic Voting System ACM}
+        \label{tab:initial-acm}
+        \begin{tabular}{llllllll}
+          & \textbf{V}    & \textbf{TM}   & \textbf{E}    & \textbf{M}    & \textbf{b}    & \textbf{c}               & \textbf{v}    \\
+          \textbf{V}  & r,w           & w             & $\varnothing$ & $\varnothing$ & r,w           & r                        & r             \\
+          \textbf{TM} & r             & r,w           & w             & $\varnothing$ & r             & {\color[HTML]{FE0000} w} & r             \\
+          \textbf{E}  & $\varnothing$ & $\varnothing$ & r,w           & $\varnothing$ & r             & r                        & $\varnothing$ \\
+          \textbf{M}  & $\varnothing$ & $\varnothing$ & $\varnothing$ & r,w           & $\varnothing$ & $\varnothing$            & $\varnothing$ \\
+          \textbf{b}  & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & r,w           & $\varnothing$            & $\varnothing$ \\
+          \textbf{c}  & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & r,w                      & $\varnothing$ \\
+          \textbf{v}  & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$ & $\varnothing$            & r,w          
+          \end{tabular}
+        \end{table}
+      
       To show this we can define our formal model as follows:
 
       $S = \{V, TM, E, M\}, O = \{b, c, v\}, P = \{r, w\}, C = \{High, Medium, Low\}, K = \{ALL\}$\\
       $f_c(S) \in \{(Low \{ALL\}), (Medium \{ALL\}), (High \{ALL\}) \}$\\
       $f_o(O) \in \{(Low \{ALL\}), (Medium \{ALL\}), (High \{ALL\}) \}$\\
 
-      Now we can suppose:
+      First V takes write access over b:
 
-      $b_1=\{(TM, c, w)\}$\\
-      $f_c,1(TM) = \{(Medium \{ALL\})$\\
-      $f_o,1(c) = \{(Low \{ALL\})$\\
-      $V_0 = (b_1,m_1,f_1) \in V$
+      $b_1=\{(V, b, w)\}$\\
+      $f_c,1(V) = \{(Low \{ALL\})$\\
+      $f_o,1(b) = \{(Low \{ALL\})$\\
+      $V_1 = (b_1,m_1,f_1) \in V$\\
 
+      Allowed in the actions (where $w_1 is V writes to b$) and ($V_1$ is the initial state with the ACM $m_1$ change of $w_1$ V has write access over b):
 
-      \item Is either system secure from an attack where another voter V' can determine the vote that V made?
+      $X = w_1$\\
+      $Y = yes$\\
+      $Z = V_1$\\
+
+      Next the TM requests read access over b (where $r_1 is TM reads from b$) and ($V_2$ is the state $V_1$ with the ACM $m_2$ change of $r_1$ TM has read access over b):
+
+      $b_2=\{(TM, b, r)\}$\\
+      $f_c,2(TM) = \{(Medium \{ALL\})$\\
+      $f_o,2(b) = \{(Low \{ALL\})$\\
+      $V_2 = (b_2,m_2,f_2) \in V$\\
+
+      Therefore:
+
+      $X = w_1, r_1$\\
+      $Y = yes, yes$\\
+      $Z = V_1, V_2$\\
+
+      Next the TM requests write access over E (where $w_2 is TM writes to E$) and ($V_3$ is the state $V_2$ with the ACM $m_3$ change of $w_2$ TM has write access over E):
+
+      $b_3=\{(TM, b, r)\}$\\
+      $f_c,3(TM) = \{(Medium \{ALL\})$\\
+      $f_o,3(E) = \{(High \{ALL\})$\\
+      $V_3 = (b_3,m_3,f_3) \in V$\\
+
+      Therefore:
+
+      $X = w_1, r_1, w_2$\\
+      $Y = yes, yes, yes$\\
+      $Z = V_1, V_2, V_3$\\
+
+      Now the issue comes when the TM requests write access over c (where $w_3$ is TM writes to c):
+
+      $b_4=\{(TM, b, r)\}$\\
+      $f_c,4(TM) = \{(Medium \{ALL\})$\\
+      $f_o,4(c) = \{(Low \{ALL\})$\\
+      $V_3 = (b_3,m_3,f_3) \in V$\\
+
+      This write down is not allowed in the BLP model therefore:
+
+      $X = w_1, r_1, w_2, w_3$\\
+      $Y = yes, yes, yes, no$\\
+      $Z = V_1, V_2, V_3, V_3$\\
+
+      We would have to place the TM in the Low-security category to fix this. That way, it could still write to E and read from the others but not have the issue of writing down. If we did that, our next steps would be:
+
+      $b_4=\{(TM, b, r)\}$\\
+      $f_c,4(TM) = \{(Low \{ALL\})$\\
+      $f_o,4(c) = \{(Low \{ALL\})$\\
+      $V_4 = (b_4,m_4,f_4) \in V$\\
+
+      $X = w_1, r_1, w_2, w_3$\\
+      $Y = yes, yes, yes, yes$\\
+      $Z = V_1, V_2, V_3, V_4$\\
+
+      \item 
+      
+      Given that all voters are at the same security level and no categories exist, all voters are at the same security level as all voters. Therefore all $V`$ would need to do to determine what $V$ voted for was obtain their $c$, which given the security logic of this model, nothing is stopping them. Any voter can read any receipt/code and E trusts all queries made to it for a given c. How $V`$ obtains $V$'s c is a question, but there's nothing about the model that stops it. 
+      
+      Our change in part to lower the security level of the TM does not solve this issue. It potentially only worsens security as it may inadvertently enable voters to read from the TM, which is not good but allows it to still function according to the BLP model. 
     \end{enumerate}
 
-  \item Consider a NI/NF/ND/MSDND model where each domain is labeled as above, but are not hierarchical. 
+  \item Considering an ND model. 
     \begin{enumerate}
-      \item Show, formally, that TMHs behavior is MSDND (or ND) to E.
-      \item Show, formally, that V's behavior is MSDND (or ND) to E. 
-      \item Show, formally, that TM's behavior is:
+      \item To show that TM's behavior is MSDND secure to E, we need to show that the Medium level TM cannot deduce anything about the set of High-level inputs to E.
+      
+      TM has two inputs into E, "Report" and "Collection" there exists no valuation function on either of those inputs therefore, we can show the following claims for MSDND security. 
+      
+      \begin{table}[H]
+        \caption{Report information is MSDND secure.}
+        \centering
+        \begin{tabular}{lll}
+        1.  & ${\sim} c = true$                                                     & Report information c is not normal.                                                       \\
+        2.  & $w \vDash V^0 c(w) = true$                                            & E cannot verify the c has been modified.                                 \\
+        3.  & $I_{1,0}r$                                                              & TM reports c to E.                                                \\
+        4.  & $B_1I_{1,0} {\sim} c$                                                   & E believes the c from TM.                                     \\
+        5.  & $T_{1,0} {\sim} c$                                                      & E trusts the c.                                                          \\
+        6.  & $B_1I_{1,0} {\sim} c \bigwedge T_{1,0} {\sim} c \rightarrow B_1 {\sim} c$ & E believes the c is correct.                                             \\
+        7. & $w \vDash V_1 c(w) = true$                                             & The verification procedure for c's reported to the E always return true.
+        \end{tabular}
+      \end{table}
+
+      Similarly in respect to the vote v from the collection action is MSDND secure. 
+
+      \begin{table}[H]
+        \caption{Collection information is MSDND secure.}
+        \centering
+        \begin{tabular}{lll}
+        1.  & ${\sim} v = true$                                                 & Collection information v is not normal.                                                       \\
+        2.  & $w \vDash V^2 v(w) = true$                                      & E cannot verify the v has been modified.                                 \\
+        3.  & $I_{1,0}r$                                                        & TM reports v to E.                                                \\
+        4.  & $B_1I_{1,0} {\sim} v$                                               & E believes the v from TM.                                     \\
+        5.  & $T_{1,0} {\sim} v$                                                  & E trusts the v.                                                          \\
+        6.  & $B_1I_{1,0} {\sim} v \bigwedge T_{1,0} {\sim} v \rightarrow B_1 {\sim} v$ & E believes the v is correct.                                             \\
+        7. & $w \vDash V_3 v(w) = true$                                       & The verification procedure for v's reported to the E always return true.
+        \end{tabular}
+      \end{table}
+
+      These claims show that for all traces TM has over E, we are MSDND secure, which is bad for the system as we hopefully trust the TM, but nothing is verifying the integrity of the data coming from it. \\
+
+      This nondeducibility can also be shown to be ND secure using the projection outputs of the various actions by various v and c's coming from the TM as E outputs nothing regardless of the inputs from TM. \\
+
       \begin{enumerate}
-        \item MSDND (or ND) to V.
-        \item Not NI from TM to V.
+        \item $proj(TM, report(c)) = (\{E = \{\varnothing\}\})$ \\
+        $proj(TM, collection(v)) = (\{E = \{\varnothing\}\})$
+        \item $proj(TM, report(c`)) = (\{E = \{\varnothing\}\})$ \\
+        $proj(TM, collection(v`)) = (\{E = \{\varnothing\}\})$ \\
       \end{enumerate}
+
+      \item Like in part a, to show formally that V's behavior is MSDND secure to E we can show a a claim using V's query action over E. 
+      
+      \begin{table}[H]
+        \caption{Query information is MSDND secure.}
+        \centering
+        \begin{tabular}{lll}
+        1.  & ${\sim} c = true$                                                     & Query information c is not normal.                                                       \\
+        2.  & $w \vDash V^0 c(w) = true$                                            & E cannot verify the c has been modified.                                 \\
+        3.  & $I_{1,0}r$                                                              & V reports c to E.                                                \\
+        4.  & $B_1I_{1,0} {\sim} c$                                                   & E believes the c from V.                                     \\
+        5.  & $T_{1,0} {\sim} c$                                                      & E trusts the c.                                                          \\
+        6.  & $B_1I_{1,0} {\sim} c \bigwedge T_{1,0} {\sim} c \rightarrow B_1 {\sim} c$ & E believes the c is correct.                                             \\
+        7. & $w \vDash V_1 c(w) = true$                                             & The verification procedure for c's reported to the E always return true.
+        \end{tabular}
+      \end{table}
+      
+      This nondeducibility can also be shown to be ND secure using the projection outputs of multiple queries by voters resulting in the same output traces from E. \\
+
+      \begin{enumerate}
+        \item $proj(V, query(c)) = (\{E = \{\varnothing\}\})$       
+        \item $proj(V, query(c`)) = (\{E = \{\varnothing\}\})$
+      \end{enumerate}
+
+      Therefore regardless of the input query's from V we have the same outputs from E making V's behavior nondeducible to E.
+
+      \item Show, formally, that TM's behavior is:
+      
+      \begin{enumerate}
+        \item To show that TM is MSDND and ND secure to V we have the following available actions and outputs.
+        
+        \begin{table}[H]
+          \caption{Insert information is MSDND secure.}
+          \centering
+          \begin{tabular}{lll}
+          1.  & ${\sim} c = true$                                                         & Insert information b is not normal.                                                       \\
+          2.  & $w \vDash V^0 b(w) = true$                                                & TM cannot verify the b has been modified.                                 \\
+          3.  & $I_{1,0}r$                                                                & V reports b to TM.                                                \\
+          4.  & $B_1I_{1,0} {\sim} b$                                                     & TM believes the b from V.                                     \\
+          5.  & $T_{1,0} {\sim} b$                                                        & TM trusts the v.                                                          \\
+          6.  & $B_1I_{1,0} {\sim} b \bigwedge T_{1,0} {\sim} b \rightarrow B_1 {\sim} b$ & TM believes the b is correct.                                             \\
+          7.  & $I_{0,1}c$                                                                & TM reports c to V.           \\
+          8. & $w \vDash V_1 b(w) = true$                                                 & The verification procedure for b's reported to the TM always return true.
+          \end{tabular}
+        \end{table}
+
+        We can also show ND security by the projections outputs that TM has from multiple V's actions.\\
+
+        $proj(V_0, insert(b)) = (\{TM = \{c_0\})$ \\
+        $proj(V_1, insert(b)) = (\{TM = \{c_0, c_1\})$ \\
+        
+
+        And to show this cannot be deduced from another V's input we can project the same result given different Vs.\\
+        
+        $proj(V_2, insert(b)) = (\{TM = \{c_0\})$ \\
+        $proj(V_3, insert(b)) = (\{TM = \{c_0, c_1\})$ \\
+
+        \item TM to V is not Non-Interference secure in that they are in two separate security levels and V can pull different outputs from the TM given various lower level inputs from V.\\
+        
+        For example to show this formally we can see the projection of a voter using various codes gives a different output from E depending on the input c (where $C_s$ is the query command for that voter's c). \\
+
+        $proj(V_0, C_s, \sigma_0) =? Proj(V, \pi V_1(C_s), \sigma_0)$ \\
+
+        Gives us the following outputs of:
+
+        $proj(V_0, C_s, \sigma_0) = \{true, v_0\}$ \\
+        $proj(V, \pi V_1 (C_s), \sigma_0) = \{true, v_1\}$ \\
+        $\{true, v_0\} \neq \{true, v_0\}$ \\
+
+        This be even more clearly seen if V queries any code that does not exist in the E. 
+
+        $proj(V_0, C_s(c), \sigma_0) = \{true, v_0\}$ \\
+        $proj(V_0, C_s(c`), \sigma_0) = \{false, \varnothing\}$ \\
+        $\{true, v_0\} \neq \{false, \varnothing\}$ \\
+        
+      \end{enumerate}
+
+      \item We can conclude that TM and V are nondeducibility secure regarding E, which is not a good thing from the systems perspective. There exists no verification on E's part that the reports and collections that come in are valid, as it cannot determine a difference between the ballots and codes being input into it. Also, the database currently has no output information, so there's nothing for the human validators to get any info from E if needed (which those people would probably need to be at the higher security level). However, in reality, this part of the system is relatively secure even if it's MSDND secure, as long as the TM is not interfered with, but if it were, you'd have no way of knowing. 
+      
+      The more significant issue, in my opinion, is the non-NI security from the voters to the E, as they can seemingly endlessly query the E and get back query information. Depending on how secure the codes that come back from the TM are, an attacker may deduce what votes are in the election database by trying out various codes. This attack would never be detected since the E has no output info or verification procedures. 
+
     \end{enumerate}
     \item Show how a Clark-Wilson style IVP implemented in the monitor can mitigate the MSDND portion of 2a, above.  Does your solution violate the MSDND portion of 2b, above?
 \end{enumerate}

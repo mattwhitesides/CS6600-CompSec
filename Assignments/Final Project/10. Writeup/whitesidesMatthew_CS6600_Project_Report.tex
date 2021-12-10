@@ -856,14 +856,14 @@ To prove this, we can take out the final case ``Each FR in the FRS is unmodified
   \begin{tabular}{lll}
   1.  & $\sim fr$ = true                                        & FR has been modified.                                                       \\
   2.  & $w \vDash V^0 fr(w) = true$                          & FRS cannot verify the FR has been modified.                                 \\
-  3.  & $I_1,0fr$                                           & FRS allows upload of the FR.                                                \\
-  4.  & $B_1I_1,0 \sim fr$                                       & FRS trusts the FR from a verified user.                                     \\
-  5.  & $T_1,0 \sim fr$                                          & FRS trusts the FR.                                                          \\
-  6.  & $B_1I_1,0 \sim fr \bigwedge T_1,0 \sim fr \rightarrow B_1 \sim fr$ & FRS believes the FR in the FRS.                                             \\
-  7.  & $I_1,1fr$                                           & FRS logs everything is correct.                                             \\
-  8.  & $B_1I_1,1fr$                                        & MC belives the FRS logs.                                                    \\
-  9.  & $T_1,1fr$                                           & MC trusts the FR.                                                           \\
-  10. & $B_1I_1,1fr \bigwedge T_1,1fr \rightarrow B_1 \sim fr$   & MC belives the FRS logs are correct but the FR is modified.                 \\
+  3.  & $I_{1,0}fr$                                           & FRS allows upload of the FR.                                                \\
+  4.  & $B_1I_{1,0} \sim fr$                                       & FRS trusts the FR from a verified user.                                     \\
+  5.  & $T_{1,0} \sim fr$                                          & FRS trusts the FR.                                                          \\
+  6.  & $B_1I_{1,0} \sim fr \bigwedge T_{1,0} \sim fr \rightarrow B_1 \sim fr$ & FRS believes the FR in the FRS.                                             \\
+  7.  & $I_{1,1}fr$                                           & FRS logs everything is correct.                                             \\
+  8.  & $B_1I_{1,1}fr$                                        & MC belives the FRS logs.                                                    \\
+  9.  & $T_{1,1}fr$                                           & MC trusts the FR.                                                           \\
+  10. & $B_1I_{1,1}fr \bigwedge T_{1,1}fr \rightarrow B_1 \sim fr$   & MC belives the FRS logs are correct but the FR is modified.                 \\
   11. & $w \vDash V^1 \sim fr(w) = true$                         & The verification procedure for FR's uploaded to the FRS always return true.
   \end{tabular}}
 \end{table*}
