@@ -7,6 +7,44 @@
 \usepackage[table,xcdraw]{xcolor}
 \usepackage{float}
 
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily}, 
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3,
+  morekeywords={if, in, or, then, enter, into, end, command, delete, from, not, create},
+  xleftmargin=\dimexpr 1em+3pt\relax,
+  linewidth=\dimexpr \linewidth-3pt\relax
+}
+
+\lstnewenvironment{itemlisting}[1][] 
+ {%
+  \mbox{}
+  \vspace*{-\baselineskip}
+  \lstset{
+    xleftmargin=\leftmargin,
+    linewidth=\linewidth,
+    #1 
+  }%
+ }
+ {}
+
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -52,7 +90,7 @@
     \begin{enumerate}
       \item The BLP model of the system does not currently function according to the Voting Process? The fact that ``TM records v and produces c'' violates the *-Property of the BLP model by allowing the subject \textit{TM} with a security level of \textbf{Medium} to write to the object \textit{c} with a security level of \textbf{Low}. \\
       
-      First we can define our initial ACM state seen in Table 1.\\
+      First, we can define our initial ACM state seen in Table 1.\\
 
       \begin{table}[]
         \centering
@@ -70,7 +108,7 @@
           \end{tabular}
         \end{table}
       
-      To show this we can define our formal model as follows:
+      To show this, we can define our formal model as follows:
 
       $S = \{V, TM, E, M\}, O = \{b, c, v\}, P = \{r, w\}, C = \{High, Medium, Low\}, K = \{ALL\}$\\
       $f_c(S) \in \{(Low \{ALL\}), (Medium \{ALL\}), (High \{ALL\}) \}$\\
@@ -122,13 +160,13 @@
       $f_o,4(c) = \{(Low \{ALL\})$\\
       $V_3 = (b_3,m_3,f_3) \in V$\\
 
-      This write down is not allowed in the BLP model therefore:
+      This write down is not allowed in the BLP model, therefore:
 
       $X = w_1, r_1, w_2, w_3$\\
       $Y = yes, yes, yes, no$\\
       $Z = V_1, V_2, V_3, V_3$\\
 
-      We would have to place the TM in the Low-security category to fix this. That way, it could still write to E and read from the others but not have the issue of writing down. If we did that, our next steps would be:
+      To fix this, we would have to place the TM in the Low-security category. That way, it could still write to E and read from the others but not have the issue of writing down. If we did that, our next steps would be:
 
       $b_4=\{(TM, b, r)\}$\\
       $f_c,4(TM) = \{(Low \{ALL\})$\\
@@ -150,7 +188,7 @@
     \begin{enumerate}
       \item To show that TM's behavior is MSDND secure to E, we need to show that the Medium level TM cannot deduce anything about the set of High-level inputs to E.
       
-      TM has two inputs into E, "Report" and "Collection" there exists no valuation function on either of those inputs therefore, we can show the following claims for MSDND security. 
+      TM has two inputs into E, "Report" and "Collection" there exists no valuation function on either of those inputs therefore, we can show the following claims for MSDND security. For example, a situation could occur where the c sent to E does not match a corresponding vote v. 
       
       \begin{table}[H]
         \caption{Report information is MSDND secure.}
@@ -166,7 +204,7 @@
         \end{tabular}
       \end{table}
 
-      Similarly in respect to the vote v from the collection action is MSDND secure. 
+      Similarly, the vote v from the collection action is MSDND secure. 
 
       \begin{table}[H]
         \caption{Collection information is MSDND secure.}
@@ -193,7 +231,7 @@
         $proj(TM, collection(v`)) = (\{E = \{\varnothing\}\})$ \\
       \end{enumerate}
 
-      \item Like in part a, to show formally that V's behavior is MSDND secure to E we can show a a claim using V's query action over E. 
+      \item Like in part a, to formally show V's behavior is MSDND secure regarding E we can show a claim using V's query action over E.  
       
       \begin{table}[H]
         \caption{Query information is MSDND secure.}
@@ -216,12 +254,12 @@
         \item $proj(V, query(c`)) = (\{E = \{\varnothing\}\})$
       \end{enumerate}
 
-      Therefore regardless of the input query's from V we have the same outputs from E making V's behavior nondeducible to E.
+      Therefore regardless of the input queries from V, we have the same outputs from E making V's behavior nondeducible to E.
 
       \item Show, formally, that TM's behavior is:
       
       \begin{enumerate}
-        \item To show that TM is MSDND and ND secure to V we have the following available actions and outputs.
+        \item To show that TM is MSDND and ND secure to V, we have the following available actions and outputs.
         
         \begin{table}[H]
           \caption{Insert information is MSDND secure.}
@@ -238,7 +276,7 @@
           \end{tabular}
         \end{table}
 
-        We can also show ND security by the projections outputs that TM has from multiple V's actions.\\
+        We can also show ND security by the projections outputs TM has from multiple V's actions.\\
 
         $proj(V_0, insert(b)) = (\{TM = \{c_0\})$ \\
         $proj(V_1, insert(b)) = (\{TM = \{c_0, c_1\})$ \\
@@ -249,19 +287,19 @@
         $proj(V_2, insert(b)) = (\{TM = \{c_0\})$ \\
         $proj(V_3, insert(b)) = (\{TM = \{c_0, c_1\})$ \\
 
-        \item TM to V is not Non-Interference secure in that they are in two separate security levels and V can pull different outputs from the TM given various lower level inputs from V.\\
+        \item TM to V is not Non-Interference secure in that they are in two separate security levels, and V can pull different outputs from the TM given various lower-level inputs from V.\\
         
-        For example to show this formally we can see the projection of a voter using various codes gives a different output from E depending on the input c (where $C_s$ is the query command for that voter's c). \\
+        For example, to show this formally, we can see the projection of a voter using various codes gives a different output from E depending on the input c (where $C_s$ is the query command for that voter's c). \\
 
         $proj(V_0, C_s, \sigma_0) =? Proj(V, \pi V_1(C_s), \sigma_0)$ \\
 
-        Gives us the following outputs of:
+        It gives us the following outputs:
 
         $proj(V_0, C_s, \sigma_0) = \{true, v_0\}$ \\
         $proj(V, \pi V_1 (C_s), \sigma_0) = \{true, v_1\}$ \\
         $\{true, v_0\} \neq \{true, v_0\}$ \\
 
-        This be even more clearly seen if V queries any code that does not exist in the E. 
+        This result can be even more clearly seen if V queries any code that does not exist in the E. 
 
         $proj(V_0, C_s(c), \sigma_0) = \{true, v_0\}$ \\
         $proj(V_0, C_s(c`), \sigma_0) = \{false, \varnothing\}$ \\
@@ -274,9 +312,64 @@
       The more significant issue, in my opinion, is the non-NI security from the voters to the E, as they can seemingly endlessly query the E and get back query information. Depending on how secure the codes that come back from the TM are, an attacker may deduce what votes are in the election database by trying out various codes. This attack would never be detected since the E has no output info or verification procedures. 
 
     \end{enumerate}
-    \item A Clark Wilson style integrity verification procedures integrated into the monitor could solve our MSDND security issue from the TM to E. First, the E could use the monitor to verify the output from the TM before it gets to E. It also could enable E to output information after it has received input to introduce some deducibility. 
+    \item A Clark Wilson style integrity verification procedures integrated into the monitor could solve our MSDND security issue from the TM to E. First, the E could use the monitor to verify the output from the TM before it gets to E. It also could enable E to output information after it has received input to introduce some deducibility. \\
     
-    We can set up our Clark Wilson IVP model with the monitor M like so:
+    We can set up our Clark Wilson IVP model with the monitor M like so: \\
+
+    The monitor will be hooked up to the TM's outputs of the report v and the collection c, run its IVP procedures and output the IVP result $r$ and the validated c, v before sending it to the election database. The monitor will also be at the same security level as the TM. The monitor will also display the r result indicating if the vote was a valid transaction or not. Also, M will query E to check if a vote exists already. \\
+
+    $[Tally Machine] \rightarrow \{c, v\} \rightarrow [Monitor] \rightarrow \{r, c, v\} \rightarrow [Election Database]$ \\
+
+    First, we need to define our constrained data items (CDIs): \\
+
+    $CDIs = \{b, c, v\}$\\
+
+    Our transactions will be the TM sending the c and v to M and those results being sent to the E. \\
+
+    The integrity constraints will be that c and v must be associated with the same voter's vote (assuming there's a way to identify the voter from the ballot). The vote cannot already exist in the election database. \\
+
+    We can define the invariant verification procedure in the monitor that validates the c and v meets our integrity constraint and authenticates the TM, for example, an IVPs described as:\\
+
+\begin{itemize}
+  \item IVP1
+\begin{lstlisting}
+verify vote_reciept_code
+
+if verify_vote_reciept_code(b.voter, v, c) == false
+  return invalid
+else
+  return valid
+\end{lstlisting}
+
+  \item IVP2
+\begin{lstlisting}
+verify vote_does_not_exist
+
+if query_election_database(c) == NULL
+  return valid
+else
+  return invalid
+\end{lstlisting}
+\end{itemize}
+
+These IVPs would solve our issue of TM being MSDND to E because we now can deduce information from E using the monitor to determine if our transactions were valid or not. For example, the projections from the monitor would now give the following from E, which are not equally making them MSDND insecure, which is good from the system point of view.
+
+\begin{itemize}
+  \item $proj(TM, report(c)) = (\{TM = \{valid, v, c\}\})$ \\
+  $proj(TM, collection(v)) = (\{TM = \{valid, v, c\}\})$ \\
+  \item $proj(TM, report(c`)) = (\{TM = \{invalid, \varnothing\, \varnothing\}\})$ \\
+  $proj(TM, collection(v`)) = (\{TM = \{invalid, \varnothing\, \varnothing\}\})$ \\
+\end{itemize}
+
+However, This does now mean from 2b's, the voter's point of view was are also MSDND insecure as the vote now may or may not go through which using the query method would be able to determine if the vote went through giving them deducible information like so: \\
+
+\begin{itemize}
+  \item $proj(V, insert(v)) = (\{TM = \{c\}\})$ \\
+  $proj(V, query(v)) = (\{E = \{v\}\})$ \\
+  \item $proj(V, insert(v`)) = (\{TM = \{c\}\})$ \\
+  $proj(V, query(v`)) = (\{E = \{\varnothing\}\})$ \\
+\end{itemize}
+
 \end{enumerate}
 
 % \appendices
