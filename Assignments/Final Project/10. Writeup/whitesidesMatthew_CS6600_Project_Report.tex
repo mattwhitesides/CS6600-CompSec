@@ -908,7 +908,9 @@ This Lipner-like approach is more comprehensive than BLP or Biblia by themselves
 
 \subsection{Clark-Wilson}
 
+Clark-Wilson introduces us to integrity verification through constrained/unconstrained data items and integrity verification procedures. This model mirrors some standard software development rules like the previous Lipner-like model proposed. The idea is that the data creator should not be the one verifying it. In software development, it reminds me of how the developer should not test and deploy the production code. That way, there's a layer of verification and abstraction between the development and production environments that enable data integrity.
 
+This model would work quite well in our system if we implemented the IVPs. Then even if the rights leakage occurred to the EC, any data changes would get caught by the IVPs, thus mitigating the damages. These verification procedures would not stop confidentiality attacks of the EC reading records they should not have access to, but it would benefit from combining with other models. 
 
 \subsection{Chinese Wall}
 

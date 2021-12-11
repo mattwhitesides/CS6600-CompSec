@@ -274,7 +274,9 @@
       The more significant issue, in my opinion, is the non-NI security from the voters to the E, as they can seemingly endlessly query the E and get back query information. Depending on how secure the codes that come back from the TM are, an attacker may deduce what votes are in the election database by trying out various codes. This attack would never be detected since the E has no output info or verification procedures. 
 
     \end{enumerate}
-    \item Show how a Clark-Wilson style IVP implemented in the monitor can mitigate the MSDND portion of 2a, above.  Does your solution violate the MSDND portion of 2b, above?
+    \item A Clark Wilson style integrity verification procedures integrated into the monitor could solve our MSDND security issue from the TM to E. First, the E could use the monitor to verify the output from the TM before it gets to E. It also could enable E to output information after it has received input to introduce some deducibility. 
+    
+    We can set up our Clark Wilson IVP model with the monitor M like so:
 \end{enumerate}
 
 % \appendices
