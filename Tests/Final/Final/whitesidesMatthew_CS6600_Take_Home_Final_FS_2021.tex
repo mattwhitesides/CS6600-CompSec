@@ -219,7 +219,8 @@
         4.  & $B_0I_{0,2} {\sim} c$                                                   & E believes the c from TM.                                     \\
         5.  & $T_{0,2} {\sim} c$                                                      & E trusts the c.                                                          \\
         6.  & $B_0I_{0,2} {\sim} c \bigwedge T_{0,2} {\sim} c \rightarrow B_0 {\sim} c$ & E believes the c is correct.                                             \\
-        7. & $w \vDash V^4_c(w) = true$                                                & The verification procedure for c's reported to the E always return true.
+        7.  & $w \vDash V^4_c(w) = true$                                                & The verification procedure for c's reported to the E always return true. \\
+        8.  & $MSDND (TM) = \exists w \in W \vdash [(S_{c} \; {XOR} \; S_{\sim c})] \wedge [w \vdash \nexists (V_{\sim c}^4 (w) \wedge \nexists V_{c}^4 (w))]$ & 
         \end{tabular}
       \end{table}
 
@@ -231,11 +232,12 @@
         \begin{tabular}{lll}
         1.  & ${\sim} v = true$          & Collection information v is not normal.                                                       \\
         2.  & $w \vDash V^0_v(w) = true$ & E cannot verify the v has been modified.                                 \\
-        3.  & $I_{0,2}r$                 & TM reports v to E.                                                \\
+        3.  & $I_{0,2}$                 & TM reports v to E.                                                \\
         4.  & $B_0I_{0,2} {\sim} v$      & E believes the v from TM.                                     \\
         5.  & $T_{0,2} {\sim} v$         & E trusts the v.                                                          \\
         6.  & $B_0I_{0,2} {\sim} v \bigwedge T_{0,2} {\sim} v \rightarrow B_0 {\sim} v$ & E believes the v is correct.                                             \\
-        7.  & $w \vDash V^5_v(w) = true$  & The verification procedure for v's reported to the E always return true.
+        7.  & $w \vDash V^5_v(w) = true$  & The verification procedure for v's reported to the E always return true. \\
+        8.  & $MSDND (TM) = \exists w \in W \vdash [(S_{v} \; {XOR} \; S_{\sim v})] \wedge [w \vdash \nexists (V_{\sim v}^5 (w) \wedge \nexists V_{v}^5 (w))]$ & 
         \end{tabular}
       \end{table}
 
@@ -258,11 +260,12 @@
         \begin{tabular}{lll}
         1.  & ${\sim} c = true$           & Query information c is not normal.                                                       \\
         2.  & $w \vDash V^0_c(w) = true$  & E cannot verify the c has been modified.                                 \\
-        3.  & $I_{0,1}r$                  & V reports c to E.                                                \\
+        3.  & $I_{0,1}$                   & V reports c to E.                                                \\
         4.  & $B_0I_{0,1} {\sim} c$       & E believes the c from V.                                     \\
         5.  & $T_{0,1} {\sim} c$          & E trusts the c.                                                          \\
         6.  & $B_0I_{0,1} {\sim} c \bigwedge T_{0,1} {\sim} c \rightarrow B_0 {\sim} c$ & E believes the c is correct.                                             \\
-        7.  & $w \vDash V^4_c(w) = true$   & The verification procedure for c's reported to the E always return true.
+        7.  & $w \vDash V^4_c(w) = true$   & The verification procedure for c's reported to the E always return true.\\
+        8.  & $MSDND (E) = \exists w \in W \vdash [(S_{c} \; {XOR} \; S_{\sim c})] \wedge [w \vdash \nexists (V_{\sim c}^4 (w) \wedge \nexists V_{c}^4 (w))]$ & 
         \end{tabular}
       \end{table}
       
@@ -291,7 +294,8 @@
           5.  & $T_{2,1} {\sim} b$         & TM trusts the v.                                                          \\
           6.  & $B_2I_{2,1} {\sim} b \bigwedge T_{2,1} {\sim} b \rightarrow B_2 {\sim} b$ & TM believes the b is correct.                                             \\
           7.  & $I_{0,1}c$                 & TM reports c to V.           \\
-          8.  & $w \vDash V^3_b(w) = true$  & The verification procedure for b's reported to the TM always return true.
+          8.  & $w \vDash V^3_b(w) = true$  & The verification procedure for b's reported to the TM always return true. \\
+          8.  & $MSDND (TM) = \exists w \in W \vdash [(S_{b} \; {XOR} \; S_{\sim b})] \wedge [w \vdash \nexists (V_{\sim b}^3 (w) \wedge \nexists V_{b}^3 (w))]$ & 
           \end{tabular}
         \end{table}
 
