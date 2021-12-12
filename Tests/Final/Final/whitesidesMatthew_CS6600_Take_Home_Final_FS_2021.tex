@@ -189,18 +189,37 @@
       \item To show that TM's behavior is MSDND secure to E, we need to show that the Medium level TM cannot deduce anything about the set of High-level inputs to E.
       
       TM has two inputs into E, "Report" and "Collection" there exists no valuation function on either of those inputs therefore, we can show the following claims for MSDND security. For example, a situation could occur where the c sent to E does not match a corresponding vote v. 
+
+      We can split up each subject and object into their own security domains and valuations as seen in Table 2. 
+
+      \begin{table}[H]
+        \caption{Security Domains in the Ballot Collection System}
+        \label{tab:security-domains}
+        \centering
+        \begin{tabular}{lll}
+        \hline
+        \textbf{System Component} & \textbf{Domain} & \textbf{Valuation} \\
+        \hline
+        Election Database           & $SD^{0}$       & $V^{0}$     \\
+        Voter                       & $SD^{1}$       & $V^{1}$          \\
+        Tally Machine               & $SD^{2}$       & $V^{2}$           \\
+        Ballot                      & $SD^{3}$       & $V^{3}$           \\
+        Reciept/Code                & $SD^{4}$       & $V^{4}$          \\
+        Vote                        & $SD^{5}$       & $V^{5}$          
+        \end{tabular}
+      \end{table}
       
       \begin{table}[H]
         \caption{Report information is MSDND secure.}
         \centering
         \begin{tabular}{lll}
-        1.  & ${\sim} c = true$                                                     & Report information c is not normal.                                                       \\
-        2.  & $w \vDash V^0 c(w) = true$                                            & E cannot verify the c has been modified.                                 \\
-        3.  & $I_{1,0}r$                                                              & TM reports c to E.                                                \\
-        4.  & $B_1I_{1,0} {\sim} c$                                                   & E believes the c from TM.                                     \\
-        5.  & $T_{1,0} {\sim} c$                                                      & E trusts the c.                                                          \\
-        6.  & $B_1I_{1,0} {\sim} c \bigwedge T_{1,0} {\sim} c \rightarrow B_1 {\sim} c$ & E believes the c is correct.                                             \\
-        7. & $w \vDash V_1 c(w) = true$                                             & The verification procedure for c's reported to the E always return true.
+        1.  & ${\sim} c = true$                                                       & Report information c is not normal.                                                       \\
+        2.  & $w \vDash V^0_c(w) = true$                                              & E cannot verify the c has been modified.                                 \\
+        3.  & $I_{0,2}$                                                              & TM reports c to E.                                                \\
+        4.  & $B_0I_{0,2} {\sim} c$                                                   & E believes the c from TM.                                     \\
+        5.  & $T_{0,2} {\sim} c$                                                      & E trusts the c.                                                          \\
+        6.  & $B_0I_{0,2} {\sim} c \bigwedge T_{0,2} {\sim} c \rightarrow B_0 {\sim} c$ & E believes the c is correct.                                             \\
+        7. & $w \vDash V^4_c(w) = true$                                                & The verification procedure for c's reported to the E always return true.
         \end{tabular}
       \end{table}
 
@@ -210,13 +229,13 @@
         \caption{Collection information is MSDND secure.}
         \centering
         \begin{tabular}{lll}
-        1.  & ${\sim} v = true$                                                 & Collection information v is not normal.                                                       \\
-        2.  & $w \vDash V^2 v(w) = true$                                      & E cannot verify the v has been modified.                                 \\
-        3.  & $I_{1,0}r$                                                        & TM reports v to E.                                                \\
-        4.  & $B_1I_{1,0} {\sim} v$                                               & E believes the v from TM.                                     \\
-        5.  & $T_{1,0} {\sim} v$                                                  & E trusts the v.                                                          \\
-        6.  & $B_1I_{1,0} {\sim} v \bigwedge T_{1,0} {\sim} v \rightarrow B_1 {\sim} v$ & E believes the v is correct.                                             \\
-        7. & $w \vDash V_3 v(w) = true$                                       & The verification procedure for v's reported to the E always return true.
+        1.  & ${\sim} v = true$          & Collection information v is not normal.                                                       \\
+        2.  & $w \vDash V^0_v(w) = true$ & E cannot verify the v has been modified.                                 \\
+        3.  & $I_{0,2}r$                 & TM reports v to E.                                                \\
+        4.  & $B_0I_{0,2} {\sim} v$      & E believes the v from TM.                                     \\
+        5.  & $T_{0,2} {\sim} v$         & E trusts the v.                                                          \\
+        6.  & $B_0I_{0,2} {\sim} v \bigwedge T_{0,2} {\sim} v \rightarrow B_0 {\sim} v$ & E believes the v is correct.                                             \\
+        7.  & $w \vDash V^5_v(w) = true$  & The verification procedure for v's reported to the E always return true.
         \end{tabular}
       \end{table}
 
@@ -237,13 +256,13 @@
         \caption{Query information is MSDND secure.}
         \centering
         \begin{tabular}{lll}
-        1.  & ${\sim} c = true$                                                     & Query information c is not normal.                                                       \\
-        2.  & $w \vDash V^0 c(w) = true$                                            & E cannot verify the c has been modified.                                 \\
-        3.  & $I_{1,0}r$                                                              & V reports c to E.                                                \\
-        4.  & $B_1I_{1,0} {\sim} c$                                                   & E believes the c from V.                                     \\
-        5.  & $T_{1,0} {\sim} c$                                                      & E trusts the c.                                                          \\
-        6.  & $B_1I_{1,0} {\sim} c \bigwedge T_{1,0} {\sim} c \rightarrow B_1 {\sim} c$ & E believes the c is correct.                                             \\
-        7. & $w \vDash V_1 c(w) = true$                                             & The verification procedure for c's reported to the E always return true.
+        1.  & ${\sim} c = true$           & Query information c is not normal.                                                       \\
+        2.  & $w \vDash V^0_c(w) = true$  & E cannot verify the c has been modified.                                 \\
+        3.  & $I_{0,1}r$                  & V reports c to E.                                                \\
+        4.  & $B_0I_{0,1} {\sim} c$       & E believes the c from V.                                     \\
+        5.  & $T_{0,1} {\sim} c$          & E trusts the c.                                                          \\
+        6.  & $B_0I_{0,1} {\sim} c \bigwedge T_{0,1} {\sim} c \rightarrow B_0 {\sim} c$ & E believes the c is correct.                                             \\
+        7.  & $w \vDash V^4_c(w) = true$   & The verification procedure for c's reported to the E always return true.
         \end{tabular}
       \end{table}
       
@@ -265,14 +284,14 @@
           \caption{Insert information is MSDND secure.}
           \centering
           \begin{tabular}{lll}
-          1.  & ${\sim} c = true$                                                         & Insert information b is not normal.                                                       \\
-          2.  & $w \vDash V^0 b(w) = true$                                                & TM cannot verify the b has been modified.                                 \\
-          3.  & $I_{1,0}r$                                                                & V reports b to TM.                                                \\
-          4.  & $B_1I_{1,0} {\sim} b$                                                     & TM believes the b from V.                                     \\
-          5.  & $T_{1,0} {\sim} b$                                                        & TM trusts the v.                                                          \\
-          6.  & $B_1I_{1,0} {\sim} b \bigwedge T_{1,0} {\sim} b \rightarrow B_1 {\sim} b$ & TM believes the b is correct.                                             \\
-          7.  & $I_{0,1}c$                                                                & TM reports c to V.           \\
-          8. & $w \vDash V_1 b(w) = true$                                                 & The verification procedure for b's reported to the TM always return true.
+          1.  & ${\sim} b = true$          & Insert information b is not normal.                                                       \\
+          2.  & $w \vDash V^2_b(w) = true$ & TM cannot verify the b has been modified.                                 \\
+          3.  & $I_{2,1}$                 & V reports b to TM.                                                \\
+          4.  & $B_2I_{2,1} {\sim} b$      & TM believes the b from V.                                     \\
+          5.  & $T_{2,1} {\sim} b$         & TM trusts the v.                                                          \\
+          6.  & $B_2I_{2,1} {\sim} b \bigwedge T_{2,1} {\sim} b \rightarrow B_2 {\sim} b$ & TM believes the b is correct.                                             \\
+          7.  & $I_{0,1}c$                 & TM reports c to V.           \\
+          8.  & $w \vDash V^3_b(w) = true$  & The verification procedure for b's reported to the TM always return true.
           \end{tabular}
         \end{table}
 
