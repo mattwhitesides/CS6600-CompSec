@@ -872,7 +872,7 @@ To prove this, we can take out the final case ``Each FR in the FRS is unmodified
 
 \subsection{HRU}
 
-The Harrison, Ruzzo, Ullman security model is a great place to learn about security leakages. This model takes real-world surface events and forces us to boil them into definable and provable functions. The pseudo-code functions seem like the most natural starting point for analyzing a CPS coming in from a programming background. Here we were able to define our commands that carry out the system's function. In this case, the maintenance crew downloads the flight data from the UAV and grants access to the external contractor to upload that record to the system where a leak occurs within this sequence of HRU commands. 
+The Harrison, Ruzzo, Ullman security model is a great place to learn about security leakages. This model takes real-world surface events and forces us to boil them into definable and provable functions. The pseudo-code functions seem like the most natural starting point for analyzing a CPS coming in from a programming background. Here, we defined our commands that carry out the system's function. In this case, the maintenance crew downloads the flight data from the UAV and grants access to the external contractor to upload that record to the system where a leak occurs within this sequence of HRU commands. 
 
 The pros to this approach are many, and I feel most security models should implement a part. The most basic idea of defining all the rights, subjects, objects, and access relationships between them in the Access Control Matrix is vital to understanding your system and how it interacts with everything else. Then defining the commands available using the simplified mono-operational logic boils down to precisely what your system is doing in logic terms. You can easily spot the rights leakages. 
 
@@ -904,25 +904,51 @@ This approach works well in our model to prevent integrity attacks by enforcing 
 
 We need to both enforce confidentiality and integrity. That's where our BLP-Biba Lipner Like solution comes in. This system initially came from a software production focus with development and production environments. Using this approach, we were able to keep our security levels and implement new security categories for the various aspects of the workstation. We split up our categories into the archived data integrity, current operational data, and the data ready to be loaded. These categories enable us to theoretically split the bad actor from the FRS, which we can put in separate categories. In our case, we have to allow access to enable the EC to do their job. 
 
-This Lipner-like approach is more comprehensive than BLP or Biblia by themselves. If you built the system from the ground up with this in mind could work well depending on the scenario. It could work with an ideal approach to security categories and security and integrity levels for all the objects and subjects. However, it makes a bit more sense in a purely virtual software environment where you truly can separate lower-level environments from higher-level ones. It becomes difficult if there are exchanges between levels due to the work statement requirements. 
+This Lipner-like approach is more comprehensive than BLP or Biblia by themselves. Building the system from the ground up with this in mind could work well depending on the scenario. It could work with an ideal approach to security categories and security and integrity levels for all the objects and subjects. However, it makes a bit more sense in a purely virtual software environment where you truly can separate lower-level environments from higher-level ones. It becomes difficult if there are exchanges between levels due to the work statement requirements. 
 
 \subsection{Clark-Wilson}
 
-Clark-Wilson introduces us to integrity verification through constrained/unconstrained data items and integrity verification procedures. This model mirrors some standard software development rules like the previous Lipner-like model proposed. The idea is that the data creator should not be the one verifying it. In software development, it reminds me of how the developer should not test and deploy the production code. That way, there's a layer of verification and abstraction between the development and production environments that enable data integrity.
+Clark-Wilson introduces us to integrity verification through constrained/unconstrained data items and integrity verification procedures. This model mirrors some standard software development rules like the previous Lipner-like model proposed. The idea is that the data creator should not verify it. In software development, it reminds me that the developer should not test and deploy the production code. That way, there's a layer of verification and abstraction between the development and production environments that enable data integrity.
 
 This model would work quite well in our system if we implemented the IVPs. Then even if the rights leakage occurred to the EC, any data changes would get caught by the IVPs, thus mitigating the damages. These verification procedures would not stop confidentiality attacks of the EC reading records they should not have access to, but it would benefit from combining with other models. 
 
 \subsection{Chinese Wall}
 
-\subsection{Noninference}
+The Chinese Wall model fits our system very well. It attempts to separate data into COI classes so that one subject does not transfer knowledge from one company to a competitor. Given that system is a UAS and mission flight data, we inherently have company confidential information and trade secrets in most of the technology in the system. On top of that, our attacker is an "external contractor" who presumably moves from various companies. You want to ensure that they are not given access to dataset information that a subject could take over to a competitor company. 
 
-\subsection{Noninterference}
+Therefore if it makes sense for your situation, I see no reason not to implement a Chinese Wall model as part of your security policy. It doesn't seem to inherently give more advantage to security categories other than separating your data into segments of access that might not be feasible for all systems. 
 
-\subsection{Nondeducibility}
+\subsection{NI}
+
+NI took us into the final category of security models that attempt to track information flow and system state to determine if lower-level subjects can interpret information from higher levels. By tracing output commands from a lower-level subject's point of view, we detected if the output seen would still be the same if the higher-level inputs were purged. Similarly, we could track if we can infer integrity violations from the higher levels to the lower level inputs purged. 
+
+This idea of interfering or later deducing information at different levels is fascinating and beyond what I thought of as typical computer security. NI does this by removing higher-level commands, which may or may not be feasible for many systems. I could see it being difficult to mock up your system with higher-level commands removed, although that may indicate NI just as well.
+
+\subsection{NF}
+
+NF takes my concerns with NI by creating a model that detects if one level can infer information about another level. NF does this by comparing outputs, except this time, we are allowed to have the higher-level actions to keep the system functioning as it would in the production environment but detects if the same outputs could be achieved by actions only at the same level. 
+
+This model is more realistic to me than NI. In our situation, we need the higher-level subjects to perform their roles for the system to operate fully. You could only track what the EC sees, but tracing through the MC commands is a significant part of the leak. However, both ultimately show the need for some logging or output from the FRS to show the subjects' actions as subjects of multiple levels interact with the system.
+
+\subsection{ND}
+
+Best of all, ND takes the ideas of NI and NF but puts them in perspective in a more physical situation. The question becomes can our EC deduce anything about higher-level actions by physically observing outputs. This method could be quite applicable to a system like this in the real world. Someone just by monitoring how many FRs are uploaded could deduce sensitive information about flight missions even if they don't have access to the records themselves. Someone even at a lower level than our EC might even be able to observe these things physically. 
+
+Of the last four models, I think ND best fits our system. Given that we have a rigorous higher hierarchical model with classic security classifications, we don't reasonably need the benefits the complexity of something like MSDND gives us. 
 
 \subsection{MSDND}
 
-% Provide a summative conclusion on the modeling of your infrastructure.
+Finally, we are introduced to multiple security domain nondeducibility. What's particularly novel about this approach is how each subject/object can have its domain but still detect deducibility. It does this through detailed proof where world states are compared to the state of the world if data is invalid. This approach has significant benefits as it's more of a sequence of commands to show the MSDND proof rather than just comparing outputs. Therefore it seems you could determine ND from multiple aspects of the system. 
+
+What is also fascinating is the concept that being MSDND secure from the aspect of the system is a potential issue. The MSDND secure system cannot detect invalid input but is good from a subject security perspective as the attacker cannot deduce information about our system from the outputs. 
+
+Given that our system is relatively simple in domains and inputs/outputs, the significant benefits to MSDND are also contained within ND models. However, setting up the MSDND model provided a second pass at how our subjects and objects overlap each other's domain without giving them a flat security level. 
+
+\subsection{Final Conclusions}
+
+This survey of various security models regarding rights leakages in a UAS has been enlightening as we come to a close. Security aspects that come to mind when starting were purely virtual programming-like aspects to security. However, studying the various potential rights, information flow, and deducibility issues across many different models has given me a lot to think about regarding security. For our system, the UAS, in particular, was motivated by similar systems I have seen in systems that manage flight data. Initially, I was only thinking of restricting access to the data point of view. Still, as we introduced actual HRU commands to make the system work and the various security aspects each model attempts to address, we uncovered many more avenues for attacks.
+
+All these aspects to look out for apply particularly in cyber-physical systems. These security concerns are growing more critical in today's society as all devices become IoT-enabled, and attacks on them become more impactful.
 
 % Can use something like this to put references on a page
 % by themselves when using endfloat and the captionsoff option.
@@ -935,7 +961,16 @@ This model would work quite well in our system if we implemented the IVPs. Then 
 \bibitem{IEEEhowto:kopka}
 A.~Erwin, and J.~Gibson, Navy, Boeing Make Aviation History with MQ-25 Becoming the First Unmanned Aircraft to Refuel Another Aircraft, Accessed on: Sept. 1, 2021. [Online]. Available: https://www.boeing.com/defense/mq25/ 
 
+\bibitem{IEEEhowto:McMillin}
+G. Howser and B. McMillin, "Using Information-Flow Methods to Analyze the Security of Cyber-Physical Systems," in Computer, vol. 50, no. 4, pp. 17-26, April 2017, doi: 10.1109/MC.2017.112.
+
+\bibitem{Bishop}
+M. Bishop, "Computer Security Art and Science, 2nd Edition", November 2018, ISBN: 9780134097145.
+
 \end{thebibliography}
+
+\section*{Acknowledgment}
+The author would like to thank Professor Bruce McMillin with the Department of Computer Science, Missouri University of Science and Technology.
 
 % biography section
 \begin{IEEEbiographynophoto}{Matthew Whitesides}
